@@ -9,6 +9,31 @@
 
 import Foundation
 
+// property
+extension String {
+    var JSONValue: AnyObject? {
+        guard let data = dataUsingEncoding(NSUTF8StringEncoding) else {
+            return nil
+        }
+        
+        do {
+            return try NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves)
+        } catch {
+            return nil
+        }
+    }
+    
+    var base64: String? {
+        let data = dataUsingEncoding(NSUTF8StringEncoding)
+        let base64String = data?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        return base64String
+    }
+    
+    var lenght: NSInteger {
+        return lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
+    }
+}
+
 extension String {
     // 手机号码验证
     func isValidMobilePhone() -> Bool {
@@ -82,19 +107,5 @@ extension String {
         
         let range = Range<String.Index>(startIndex..<endIndex)
         return self.substringWithRange(range)
-    }
-}
-
-extension String {
-    var JSONValue: AnyObject? {
-        guard let data = dataUsingEncoding(NSUTF8StringEncoding) else {
-            return nil
-        }
-        
-        do {
-            return try NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves)
-        } catch {
-            return nil
-        }
     }
 }
