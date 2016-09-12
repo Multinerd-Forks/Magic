@@ -26,7 +26,7 @@ extension UIView {
             guard let borderColor = layer.borderColor else {
                 return nil
             }
-           return UIColor(CGColor: borderColor)
+            return UIColor(CGColor: borderColor)
         }
         
         set {
@@ -38,8 +38,47 @@ extension UIView {
         get {
             return layer.borderWidth
         }
+        
         set {
             layer.borderWidth = borderWidth
         }
     }
+    
+    @IBInspectable var origin: CGPoint {
+        get {
+            return frame.origin
+        }
+        
+        set {
+            var frame = self.frame
+            frame.origin = origin
+            self.frame = frame
+        }
+    }
+    
+    @IBInspectable var size: CGSize {
+        get {
+            return self.frame.size;
+        }
+        
+        set {
+            var frame = self.frame
+            frame.size = size
+            self.frame = frame
+        }
+    }
+    
+    var snapshot: UIImage {
+        UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
+        let context = UIGraphicsGetCurrentContext()
+        CGContextTranslateCTM(context, 0, 0)
+        layer.renderInContext(context!)
+        let viewImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return viewImage
+    }
+}
+
+extension UIView {
+    
 }
