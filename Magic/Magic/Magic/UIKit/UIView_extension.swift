@@ -153,11 +153,25 @@ extension UIView {
 
 extension UIView {
     func containsSubView(subView: UIView) -> Bool {
-        for view in self.subviews {
+        for view in subviews {
             if view == subView {
                 return true
             }
         }
         return false
+    }
+    
+    func removeSubViews() {
+        for subView in subviews {
+            subView.removeFromSuperview()
+        }
+    }
+    
+    func removeViewWithTag(tag: NSInteger) {
+        for subView in subviews {
+            if subView.tag == tag {
+                subView.removeFromSuperview()
+            }
+        }
     }
 }
