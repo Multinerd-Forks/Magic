@@ -44,6 +44,23 @@ extension String {
     
         return sexNum % 2 == 0 ? false : true
     }
+    
+    // 转时间
+    func toDate(dateFormat: String) -> NSDate? {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.dateFromString(self)
+    }
+    
+    // TODO: 写成属性
+    func capitalizedString() -> String {
+        if lengthOfBytesUsingEncoding(NSUTF8StringEncoding) <= 1 {
+            return self.uppercaseString
+        }
+        let firstChar = substringToIndex(startIndex.advancedBy(1)).uppercaseString
+        let otherChar = substringFromIndex(startIndex.advancedBy(1)).lowercaseString
+        return firstChar + otherChar
+    }
 }
 
 // TODO: subscript
