@@ -57,6 +57,7 @@ extension String {
         if lengthOfBytesUsingEncoding(NSUTF8StringEncoding) <= 1 {
             return self.uppercaseString
         }
+        
         let firstChar = substringToIndex(startIndex.advancedBy(1)).uppercaseString
         let otherChar = substringFromIndex(startIndex.advancedBy(1)).lowercaseString
         return firstChar + otherChar
@@ -81,5 +82,19 @@ extension String {
         
         let range = Range<String.Index>(startIndex..<endIndex)
         return self.substringWithRange(range)
+    }
+}
+
+extension String {
+    var JSONValue: AnyObject? {
+        guard let data = dataUsingEncoding(NSUTF8StringEncoding) else {
+            return nil
+        }
+        
+        do {
+            return try NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves)
+        } catch {
+            return nil
+        }
     }
 }
