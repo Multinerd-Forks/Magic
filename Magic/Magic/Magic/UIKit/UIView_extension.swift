@@ -77,8 +77,87 @@ extension UIView {
         UIGraphicsEndImageContext()
         return viewImage
     }
+    
+    var top: CGFloat {
+        get {
+            return frame.origin.y
+        }
+        
+        set {
+            var frame = self.frame
+            frame.origin.y = top
+            self.frame = frame
+        }
+    }
+    
+    var bottom: CGFloat {
+        get {
+            return frame.origin.y + frame.size.height
+        }
+        
+        set {
+            var frame = self.frame
+            frame.origin.y = bottom - self.frame.size.height
+            self.frame = frame
+        }
+    }
+    
+    var right: CGFloat {
+        get {
+            return frame.origin.x + frame.size.width
+        }
+        
+        set {
+            var frame = self.frame
+            frame.origin.x = right - self.frame.size.width
+            self.frame = frame
+        }
+    }
+    
+    var left: CGFloat {
+        get {
+            return frame.origin.x
+        }
+        
+        set {
+            var frame = self.frame
+            frame.origin.x = left
+            self.frame = frame
+        }
+    }
+    
+    var width: CGFloat {
+        get {
+            return frame.size.width
+        }
+        
+        set {
+            var frame = self.frame;
+            frame.size.width = width;
+            self.frame = frame
+        }
+    }
+    
+    var height: CGFloat {
+        get {
+            return frame.size.height
+        }
+        
+        set {
+            var frame = self.frame;
+            frame.size.height = height;
+            self.frame = frame
+        }
+    }
 }
 
 extension UIView {
-    
+    func containsSubView(subView: UIView) -> Bool {
+        for view in self.subviews {
+            if view == subView {
+                return true
+            }
+        }
+        return false
+    }
 }
