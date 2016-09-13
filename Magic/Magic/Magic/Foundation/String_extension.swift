@@ -91,21 +91,10 @@ extension String {
 
 // TODO: subscript
 extension String {
-    func substring(start s: Int, end e: Int? = nil) -> String {
-        let start = s >= 0 ? self.startIndex : self.endIndex
-        let startIndex = start.advancedBy(s)
+    subscript(range: Range<Int>) -> String {
+        let startIndex = self.startIndex.advancedBy(range.startIndex)
+        let endIndex = self.startIndex.advancedBy(range.endIndex)
         
-        var end: String.Index
-        var endIndex: String.Index
-        if(e == nil){
-            end = self.endIndex
-            endIndex = self.endIndex
-        } else {
-            end = e >= 0 ? self.startIndex : self.endIndex
-            endIndex = end.advancedBy(e!)
-        }
-        
-        let range = Range<String.Index>(startIndex..<endIndex)
-        return self.substringWithRange(range)
+        return self.substringWithRange(Range<String.Index>(startIndex..<endIndex))
     }
 }
