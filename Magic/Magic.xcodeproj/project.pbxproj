@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A4670D0F1D86CDD0007C4976 /* UIView_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4670D0E1D86CDD0007C4976 /* UIView_extension.swift */; };
+		A4670D111D86E817007C4976 /* NSCalendar_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4670D101D86E817007C4976 /* NSCalendar_extension.swift */; };
 		A4B29E8F1D8555BA00BD477F /* Magic.h in Headers */ = {isa = PBXBuildFile; fileRef = A4B29E8E1D8555BA00BD477F /* Magic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A4B29E9A1D8555E500BD477F /* String_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B29E981D8555E500BD477F /* String_extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A4670D0E1D86CDD0007C4976 /* UIView_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_extension.swift; sourceTree = "<group>"; };
+		A4670D101D86E817007C4976 /* NSCalendar_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendar_extension.swift; sourceTree = "<group>"; };
 		A4B29E8B1D8555BA00BD477F /* Magic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Magic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B29E8E1D8555BA00BD477F /* Magic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Magic.h; sourceTree = "<group>"; };
 		A4B29E901D8555BA00BD477F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				A4B29E981D8555E500BD477F /* String_extension.swift */,
+				A4670D101D86E817007C4976 /* NSCalendar_extension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4670D0F1D86CDD0007C4976 /* UIView_extension.swift in Sources */,
+				A4670D111D86E817007C4976 /* NSCalendar_extension.swift in Sources */,
 				A4B29E9A1D8555E500BD477F /* String_extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
