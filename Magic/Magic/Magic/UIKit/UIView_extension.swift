@@ -10,7 +10,7 @@ import Foundation
 
 // property
 extension UIView {
-    @IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable public var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -21,7 +21,7 @@ extension UIView {
         }
     }
     
-    @IBInspectable var borderColor: UIColor? {
+    @IBInspectable public var borderColor: UIColor? {
         get {
             guard let borderColor = layer.borderColor else {
                 return nil
@@ -34,7 +34,7 @@ extension UIView {
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat {
+    @IBInspectable public var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -44,7 +44,7 @@ extension UIView {
         }
     }
     
-    @IBInspectable var origin: CGPoint {
+    @IBInspectable public var origin: CGPoint {
         get {
             return frame.origin
         }
@@ -56,7 +56,7 @@ extension UIView {
         }
     }
     
-    @IBInspectable var size: CGSize {
+    @IBInspectable public var size: CGSize {
         get {
             return self.frame.size;
         }
@@ -68,7 +68,7 @@ extension UIView {
         }
     }
     
-    var snapshot: UIImage {
+    public var snapshot: UIImage {
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
         let context = UIGraphicsGetCurrentContext()
         CGContextTranslateCTM(context, 0, 0)
@@ -78,7 +78,7 @@ extension UIView {
         return viewImage
     }
     
-    var top: CGFloat {
+    public var top: CGFloat {
         get {
             return frame.origin.y
         }
@@ -90,7 +90,7 @@ extension UIView {
         }
     }
     
-    var bottom: CGFloat {
+    public var bottom: CGFloat {
         get {
             return frame.origin.y + frame.size.height
         }
@@ -102,7 +102,7 @@ extension UIView {
         }
     }
     
-    var right: CGFloat {
+    public var right: CGFloat {
         get {
             return frame.origin.x + frame.size.width
         }
@@ -114,7 +114,7 @@ extension UIView {
         }
     }
     
-    var left: CGFloat {
+    public var left: CGFloat {
         get {
             return frame.origin.x
         }
@@ -126,7 +126,7 @@ extension UIView {
         }
     }
     
-    var width: CGFloat {
+    public var width: CGFloat {
         get {
             return frame.size.width
         }
@@ -138,7 +138,7 @@ extension UIView {
         }
     }
     
-    var height: CGFloat {
+    public var height: CGFloat {
         get {
             return frame.size.height
         }
@@ -151,7 +151,7 @@ extension UIView {
     }
 }
 
-extension UIView {
+public extension UIView {
     func containsSubView(subView: UIView) -> Bool {
         for view in subviews {
             if view == subView {

@@ -11,7 +11,7 @@ import Foundation
 
 // property
 extension String {
-    var JSONValue: AnyObject? {
+    public var JSONValue: AnyObject? {
         guard let data = dataUsingEncoding(NSUTF8StringEncoding) else {
             return nil
         }
@@ -23,41 +23,41 @@ extension String {
         }
     }
     
-    var base64: String? {
+    public var base64: String? {
         let data = dataUsingEncoding(NSUTF8StringEncoding)
         let base64String = data?.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         return base64String
     }
     
-    var lenght: NSInteger {
+    public var lenght: NSInteger {
         return lengthOfBytesUsingEncoding(NSUTF8StringEncoding)
     }
 }
 
 extension String {
     // 手机号码验证
-    func isValidMobilePhone() -> Bool {
+    public func isValidMobilePhone() -> Bool {
         let regular = "^((13[0-9])|(147)|(15[^4,\\D])|(18[0,5-9]))\\d{8}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regular)
         return predicate.evaluateWithObject(self)
     }
     
     // 邮箱
-    func isValidEmail() -> Bool {
+    public func isValidEmail() -> Bool {
         let regular = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regular)
         return predicate.evaluateWithObject(self)
     }
     
     // 身份证号
-    func isValidIdentityCard() -> Bool {
+    public func isValidIdentityCard() -> Bool {
         let regular = "^(\\d{14}|\\d{17})(\\d|[xX])$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regular)
         return predicate.evaluateWithObject(self)
     }
     
     // 从身份证上判断性别
-    func sexInfo() -> Bool {
+    public func sexInfo() -> Bool {
         var sexNum = 0
         if lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 15 {
             let range = Range(startIndex.advancedBy(14)..<startIndex.advancedBy(15))
@@ -71,14 +71,14 @@ extension String {
     }
     
     // 转时间
-    func toDate(dateFormat: String) -> NSDate? {
+    public func toDate(dateFormat: String) -> NSDate? {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = dateFormat
         return dateFormatter.dateFromString(self)
     }
     
     // TODO: 写成属性
-    func capitalizedString() -> String {
+    public func capitalizedString() -> String {
         if lengthOfBytesUsingEncoding(NSUTF8StringEncoding) <= 1 {
             return self.uppercaseString
         }
@@ -98,3 +98,4 @@ extension String {
         return self.substringWithRange(Range<String.Index>(startIndex..<endIndex))
     }
 }
+
