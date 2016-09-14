@@ -6,16 +6,16 @@
 
 - [ ] Cathage
 
-- [ ]Array
-- [ ]Dictionary
-- [ ]NSDate
+- [ ] Array
+- [ ] Dictionary
+- [ ] NSDate
 ...
 
-- [ ]extension Protocol
+- [ ] extension Protocol
 ...
 
-- [ ]branch - Swift 2.2
-- [ ]branch - Swift 2.3
-- [ ]branch - Swift 3.0
+- [ ] branch - Swift 2.2
+- [ ] branch - Swift 2.3
+- [ ] branch - Swift 3.0
 
-- [ ]Demo
+- [ ] Demo
