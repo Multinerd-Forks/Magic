@@ -92,10 +92,18 @@ extension String {
 // TODO: subscript
 extension String {
     subscript(range: Range<Int>) -> String {
-        let startIndex = self.startIndex.advancedBy(range.startIndex)
-        let endIndex = self.startIndex.advancedBy(range.endIndex)
+        get {
+            let startIndex = self.startIndex.advancedBy(range.startIndex)
+            let endIndex = self.startIndex.advancedBy(range.endIndex)
+            
+            return substringWithRange(Range<String.Index>(startIndex..<endIndex))
+        }
         
-        return self.substringWithRange(Range<String.Index>(startIndex..<endIndex))
+        set {
+            let startIndex = self.startIndex.advancedBy(range.startIndex)
+            let endIndex = self.startIndex.advancedBy(range.endIndex)
+            replaceRange(Range<String.Index>(startIndex..<endIndex), with: newValue)
+        }
     }
 }
 
