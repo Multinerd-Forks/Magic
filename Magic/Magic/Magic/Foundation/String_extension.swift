@@ -87,6 +87,10 @@ extension String {
         let otherChar = substringFromIndex(startIndex.advancedBy(1)).lowercaseString
         return firstChar + otherChar
     }
+    
+    func insert(string: String, index: Int) -> String {
+        return  String(characters.prefix(index)) + string + String(characters.suffix(characters.count-index))
+    }
 }
 
 // TODO: subscript
