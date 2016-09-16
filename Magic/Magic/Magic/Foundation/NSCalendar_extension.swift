@@ -8,40 +8,41 @@
 
 import Foundation
 
-extension NSCalendar {
-    public func dateByAddingSeconds(seconds: NSInteger, toDate date: NSDate) -> NSDate {
-        let components = NSDateComponents()
+extension Calendar {
+    public func dateByAddingSeconds(_ seconds: NSInteger, toDate date: Date) -> Date? {
+        var components = DateComponents()
         components.second = seconds
-        return dateByAddingComponents(components, toDate: date, options: [])!
+//        return self.date(byAdding: components, to: date, options: [])!
+        return self.date(byAdding: components, to: date)
     }
     
-    public func dateByAddingMinutes(minutes: NSInteger, toDate date: NSDate) -> NSDate {
-        let components = NSDateComponents()
+    public func dateByAddingMinutes(_ minutes: NSInteger, toDate date: Date) -> Date? {
+        var components = DateComponents()
         components.minute = minutes
-        return dateByAddingComponents(components, toDate: date, options: [])!
+        return self.date(byAdding: components, to: date)
     }
     
-    public func dateByAddingHours(hours: NSInteger, toDate date: NSDate) -> NSDate {
-        let components = NSDateComponents()
+    public func dateByAddingHours(_ hours: NSInteger, toDate date: Date) -> Date? {
+        var components = DateComponents()
         components.hour = hours
-        return dateByAddingComponents(components, toDate: date, options: [])!
+        return self.date(byAdding: components, to: date)!
     }
     
-    public func dateByAddingDays(days: Int, toDate date: NSDate) -> NSDate {
-        let components = NSDateComponents()
+    public func dateByAddingDays(_ days: Int, toDate date: Date) -> Date? {
+        var components = DateComponents()
         components.day = days
-        return dateByAddingComponents(components, toDate: date, options: [])!
+        return self.date(byAdding: components, to: date)
     }
     
-    public func dateByAddingMonths(months: Int, toDate date: NSDate) -> NSDate {
-        let components = NSDateComponents()
+    public func dateByAddingMonths(_ months: Int, toDate date: Date) -> Date? {
+        var components = DateComponents()
         components.month = months
-        return dateByAddingComponents(components, toDate: date, options: [])!
+        return self.date(byAdding: components, to: date)
     }
     
-    public func dateByAddingYears(years: Int, toDate date: NSDate) -> NSDate {
-        let components = NSDateComponents()
+    public func dateByAddingYears(_ years: Int, toDate date: Date) -> Date? {
+        var components = DateComponents()
         components.year = years
-        return dateByAddingComponents(components, toDate: date, options: [])!
+        return self.date(byAdding: components, to: date)
     }
 }
