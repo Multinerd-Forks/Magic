@@ -1,5 +1,5 @@
 //
-//  NSObject_extension.swift
+//  NSObjectExtension.swift
 //  Magic
 //
 //  Created by Broccoli on 16/9/13.
@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ObjectiveC
 
 extension NSObject {
     public func setAssociatedObject(_ value: AnyObject?, associativeKey: UnsafeRawPointer, policy: objc_AssociationPolicy) {

@@ -1,5 +1,5 @@
 //
-//  UIView_extension.swift
+//  UIViewExtension.swift
 //  Magic
 //
 //  Created by Broccoli on 16/9/12.

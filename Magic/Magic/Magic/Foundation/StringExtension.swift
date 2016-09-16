@@ -1,7 +1,6 @@
-
 //
-//  NSString_extension.swift
-//  Extension
+//  StringExtension.swift
+//  Magic
 //
 //  Created by Broccoli on 16/9/11.
 //  Copyright © 2016年 broccoliii. All rights reserved.
@@ -18,7 +17,8 @@ extension String {
         
         do {
             return try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-        } catch {
+        } catch let error {
+            print(error)
             return nil
         }
     }
@@ -91,6 +91,8 @@ extension String {
     func insert(_ string: String, index: Int) -> String {
         return  String(characters.prefix(index)) + string + String(characters.suffix(characters.count-index))
     }
+    
+    // 下划线 NSAttributedString
 }
 
 // TODO: subscript
