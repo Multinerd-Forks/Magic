@@ -135,6 +135,7 @@
 					A4B29E8A1D8555BA00BD477F = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = RJXPJ9T4QP;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -285,6 +286,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.broccoliii.Magic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -301,6 +303,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.broccoliii.Magic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -26,11 +26,11 @@ extension UIView {
             guard let borderColor = layer.borderColor else {
                 return nil
             }
-            return UIColor(CGColor: borderColor)
+            return UIColor(cgColor: borderColor)
         }
         
         set {
-            layer.borderColor = borderColor?.CGColor
+            layer.borderColor = borderColor?.cgColor
         }
     }
     
@@ -71,11 +71,11 @@ extension UIView {
     public var snapshot: UIImage {
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
         let context = UIGraphicsGetCurrentContext()
-        CGContextTranslateCTM(context, 0, 0)
-        layer.renderInContext(context!)
+        context?.translateBy(x: 0, y: 0)
+        layer.render(in: context!)
         let viewImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return viewImage
+        return viewImage!
     }
     
     public var top: CGFloat {
@@ -152,7 +152,7 @@ extension UIView {
 }
 
 public extension UIView {
-    func containsSubView(subView: UIView) -> Bool {
+    func containsSubView(_ subView: UIView) -> Bool {
         for view in subviews {
             if view == subView {
                 return true
@@ -167,7 +167,7 @@ public extension UIView {
         }
     }
     
-    func removeViewWithTag(tag: NSInteger) {
+    func removeViewWithTag(_ tag: NSInteger) {
         for subView in subviews {
             if subView.tag == tag {
                 subView.removeFromSuperview()
