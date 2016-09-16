@@ -10,8 +10,8 @@ import Foundation
 import ObjectiveC
 
 extension NSObject {
-    public func setAssociatedObject<T>(_ value: T, associativeKey: UnsafeRawPointer, policy: objc_AssociationPolicy) {
-        if let valueAsAnyObject = value as? AnyObject {
+    public func setAssociatedObject(_ value: AnyObject?, associativeKey: UnsafeRawPointer, policy: objc_AssociationPolicy) {
+        if let valueAsAnyObject = value {
             objc_setAssociatedObject(self, associativeKey, valueAsAnyObject, policy)
         }
     }
@@ -23,5 +23,4 @@ extension NSObject {
             return nil
         }
     }
-
 }
