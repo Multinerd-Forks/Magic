@@ -1,5 +1,5 @@
 //
-//  UIButton_extension.swift
+//  UIButtonExtension.swift
 //  Magic
 //
 //  Created by Broccoli on 16/9/13.
