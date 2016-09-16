@@ -7,23 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A4670D0F1D86CDD0007C4976 /* UIView_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4670D0E1D86CDD0007C4976 /* UIView_extension.swift */; };
-		A4670D111D86E817007C4976 /* NSCalendar_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4670D101D86E817007C4976 /* NSCalendar_extension.swift */; };
-		A46BC5951D88345700643956 /* UIButton_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46BC5941D88345700643956 /* UIButton_extension.swift */; };
-		A46BC5991D883A8B00643956 /* NSObject_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46BC5981D883A8B00643956 /* NSObject_extension.swift */; };
+		A40BA1031D8BABC10063B135 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BA1021D8BABC10063B135 /* DateExtension.swift */; };
+		A4670D0F1D86CDD0007C4976 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4670D0E1D86CDD0007C4976 /* UIViewExtension.swift */; };
+		A4670D111D86E817007C4976 /* CalendarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4670D101D86E817007C4976 /* CalendarExtension.swift */; };
+		A46BC5951D88345700643956 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46BC5941D88345700643956 /* UIButtonExtension.swift */; };
+		A46BC5991D883A8B00643956 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46BC5981D883A8B00643956 /* NSObjectExtension.swift */; };
 		A4B29E8F1D8555BA00BD477F /* Magic.h in Headers */ = {isa = PBXBuildFile; fileRef = A4B29E8E1D8555BA00BD477F /* Magic.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A4B29E9A1D8555E500BD477F /* String_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B29E981D8555E500BD477F /* String_extension.swift */; };
+		A4B29E9A1D8555E500BD477F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B29E981D8555E500BD477F /* StringExtension.swift */; };
+		A4B3B3E81D8C054300E6C5A9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3B3E71D8C054300E6C5A9 /* UIColorExtension.swift */; };
+		A4B3B3EA1D8C09EB00E6C5A9 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3B3E91D8C09EB00E6C5A9 /* UIImageExtension.swift */; };
+		A4B3B3EC1D8C10B700E6C5A9 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3B3EB1D8C10B700E6C5A9 /* ArrayExtension.swift */; };
+		A4B3B3EE1D8C123E00E6C5A9 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3B3ED1D8C123E00E6C5A9 /* DictionaryExtension.swift */; };
+		A4B3B3F01D8C17DE00E6C5A9 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3B3EF1D8C17DE00E6C5A9 /* UITextViewExtension.swift */; };
+		A4B3B3F21D8C1ACA00E6C5A9 /* CGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3B3F11D8C1ACA00E6C5A9 /* CGRectExtension.swift */; };
+		A4B3B3F41D8C1D6400E6C5A9 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3B3F31D8C1D6400E6C5A9 /* UserDefaultsExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A4670D0E1D86CDD0007C4976 /* UIView_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_extension.swift; sourceTree = "<group>"; };
-		A4670D101D86E817007C4976 /* NSCalendar_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendar_extension.swift; sourceTree = "<group>"; };
-		A46BC5941D88345700643956 /* UIButton_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton_extension.swift; sourceTree = "<group>"; };
-		A46BC5981D883A8B00643956 /* NSObject_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject_extension.swift; sourceTree = "<group>"; };
+		A40BA1021D8BABC10063B135 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		A4670D0E1D86CDD0007C4976 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		A4670D101D86E817007C4976 /* CalendarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarExtension.swift; sourceTree = "<group>"; };
+		A46BC5941D88345700643956 /* UIButtonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		A46BC5981D883A8B00643956 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		A4B29E8B1D8555BA00BD477F /* Magic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Magic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B29E8E1D8555BA00BD477F /* Magic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Magic.h; sourceTree = "<group>"; };
 		A4B29E901D8555BA00BD477F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A4B29E981D8555E500BD477F /* String_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_extension.swift; sourceTree = "<group>"; };
+		A4B29E981D8555E500BD477F /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		A4B3B3E71D8C054300E6C5A9 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		A4B3B3E91D8C09EB00E6C5A9 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		A4B3B3EB1D8C10B700E6C5A9 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		A4B3B3ED1D8C123E00E6C5A9 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
+		A4B3B3EF1D8C17DE00E6C5A9 /* UITextViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
+		A4B3B3F11D8C1ACA00E6C5A9 /* CGRectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtension.swift; sourceTree = "<group>"; };
+		A4B3B3F31D8C1D6400E6C5A9 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +91,13 @@
 		A4B29E971D8555E500BD477F /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				A4B29E981D8555E500BD477F /* String_extension.swift */,
-				A4670D101D86E817007C4976 /* NSCalendar_extension.swift */,
-				A46BC5981D883A8B00643956 /* NSObject_extension.swift */,
+				A46BC5981D883A8B00643956 /* NSObjectExtension.swift */,
+				A4B3B3EB1D8C10B700E6C5A9 /* ArrayExtension.swift */,
+				A4B3B3ED1D8C123E00E6C5A9 /* DictionaryExtension.swift */,
+				A4B29E981D8555E500BD477F /* StringExtension.swift */,
+				A40BA1021D8BABC10063B135 /* DateExtension.swift */,
+				A4B3B3F31D8C1D6400E6C5A9 /* UserDefaultsExtension.swift */,
+				A4670D101D86E817007C4976 /* CalendarExtension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -85,8 +105,12 @@
 		A4B29E991D8555E500BD477F /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				A4670D0E1D86CDD0007C4976 /* UIView_extension.swift */,
-				A46BC5941D88345700643956 /* UIButton_extension.swift */,
+				A4670D0E1D86CDD0007C4976 /* UIViewExtension.swift */,
+				A46BC5941D88345700643956 /* UIButtonExtension.swift */,
+				A4B3B3E71D8C054300E6C5A9 /* UIColorExtension.swift */,
+				A4B3B3E91D8C09EB00E6C5A9 /* UIImageExtension.swift */,
+				A4B3B3EF1D8C17DE00E6C5A9 /* UITextViewExtension.swift */,
+				A4B3B3F11D8C1ACA00E6C5A9 /* CGRectExtension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -171,11 +195,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A46BC5991D883A8B00643956 /* NSObject_extension.swift in Sources */,
-				A4670D0F1D86CDD0007C4976 /* UIView_extension.swift in Sources */,
-				A46BC5951D88345700643956 /* UIButton_extension.swift in Sources */,
-				A4670D111D86E817007C4976 /* NSCalendar_extension.swift in Sources */,
-				A4B29E9A1D8555E500BD477F /* String_extension.swift in Sources */,
+				A46BC5991D883A8B00643956 /* NSObjectExtension.swift in Sources */,
+				A4B3B3E81D8C054300E6C5A9 /* UIColorExtension.swift in Sources */,
+				A40BA1031D8BABC10063B135 /* DateExtension.swift in Sources */,
+				A4B3B3EC1D8C10B700E6C5A9 /* ArrayExtension.swift in Sources */,
+				A4670D0F1D86CDD0007C4976 /* UIViewExtension.swift in Sources */,
+				A46BC5951D88345700643956 /* UIButtonExtension.swift in Sources */,
+				A4670D111D86E817007C4976 /* CalendarExtension.swift in Sources */,
+				A4B3B3F01D8C17DE00E6C5A9 /* UITextViewExtension.swift in Sources */,
+				A4B3B3EE1D8C123E00E6C5A9 /* DictionaryExtension.swift in Sources */,
+				A4B3B3F21D8C1ACA00E6C5A9 /* CGRectExtension.swift in Sources */,
+				A4B3B3F41D8C1D6400E6C5A9 /* UserDefaultsExtension.swift in Sources */,
+				A4B29E9A1D8555E500BD477F /* StringExtension.swift in Sources */,
+				A4B3B3EA1D8C09EB00E6C5A9 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
