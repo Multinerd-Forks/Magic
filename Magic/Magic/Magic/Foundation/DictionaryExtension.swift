@@ -8,10 +8,7 @@
 
 import Foundation
 
-extension Dictionary {
-    
-}
-
+// propertyr
 extension Dictionary {
     var JSONString: String? {
         do {
@@ -21,6 +18,18 @@ extension Dictionary {
             print(error)
             return nil
         }
+    }
+    
+    var allKeys: [Any] {
+        return reduce([Any](), {
+            [$0.1.0] + $0.0
+        })
+    }
+    
+    var allValues: [Any] {
+        return reduce([Any](), {
+            [$0.1.1] + $0.0
+        })
     }
 }
 

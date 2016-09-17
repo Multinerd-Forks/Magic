@@ -34,6 +34,7 @@ extension String {
     }
 }
 
+// function
 extension String {
     // 手机号码验证
     public func isValidMobilePhone() -> Bool {
@@ -95,7 +96,7 @@ extension String {
     // 下划线 NSAttributedString
 }
 
-// TODO: subscript 
+// subscript
 extension String {
     subscript(range: Range<Int>) -> String {
         get {

@@ -151,6 +151,7 @@ extension UIView {
     }
 }
 
+// function
 public extension UIView {
     func containsSubView(_ subView: UIView) -> Bool {
         for view in subviews {
