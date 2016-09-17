@@ -8,6 +8,7 @@
 
 import Foundation
 
+// property
 extension Array {
     // 能用泛型么 和 Dictionary 重复了
     var JSONString: String? {
