@@ -35,30 +35,27 @@ extension String {
 }
 
 // function
-extension String {
-    // 手机号码验证
-    public func isValidMobilePhone() -> Bool {
+public extension String {
+    
+    func isValidMobilePhone() -> Bool {
         let regular = "^((13[0-9])|(147)|(15[^4,\\D])|(18[0,5-9]))\\d{8}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regular)
         return predicate.evaluate(with: self)
     }
     
-    // 邮箱
-    public func isValidEmail() -> Bool {
+    func isValidEmail() -> Bool {
         let regular = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regular)
         return predicate.evaluate(with: self)
     }
     
-    // 身份证号
-    public func isValidIdentityCard() -> Bool {
+    func isValidIdentityCard() -> Bool {
         let regular = "^(\\d{14}|\\d{17})(\\d|[xX])$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regular)
         return predicate.evaluate(with: self)
     }
     
-    // 从身份证上判断性别
-    public func sexInfo() -> Bool {
+    func sexInfo() -> Bool {
         var sexNum = 0
         if lengthOfBytes(using: String.Encoding.utf8) == 15 {
             let range = Range(characters.index(startIndex, offsetBy: 14)..<characters.index(startIndex, offsetBy: 15))
@@ -71,15 +68,7 @@ extension String {
         return sexNum % 2 == 0 ? false : true
     }
     
-    // 转时间
-    public func toDate(_ dateFormat: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = dateFormat
-        return dateFormatter.date(from: self)
-    }
-    
-    // TODO: 写成属性
-    public func capitalizedString() -> String {
+    func capitalizedString() -> String {
         if lengthOfBytes(using: String.Encoding.utf8) <= 1 {
             return self.uppercased()
         }
@@ -89,8 +78,38 @@ extension String {
         return firstChar + otherChar
     }
     
-    func insert(_ string: String, index: Int) -> String {
+    func insert(_ string: String, to index: Int) -> String {
         return  String(characters.prefix(index)) + string + String(characters.suffix(characters.count-index))
+    }
+    
+    func toDate(dateFormat: String = "yyyy-MM-dd hh-mm-ss") -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.date(from: self)
+    }
+    
+    func toDouble() -> Double? {
+       return NumberFormatter().number(from: self)?.doubleValue
+    }
+    
+    func toFloat() -> Float? {
+//        return NumberFormatter().number(from: self)?.floatValue
+        return Float(self)
+    }
+    
+    func toUInt() -> UInt? {
+       return NumberFormatter().number(from: self)?.uintValue
+    }
+    
+    func toBool() -> Bool? {
+        switch self {
+        case "True", "true", "yes", "1":
+            return true
+        case "False", "false", "no", "0":
+            return false
+        default:
+            return nil
+        }
     }
     
     // 下划线 NSAttributedString

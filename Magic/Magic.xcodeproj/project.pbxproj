@@ -22,6 +22,7 @@
 		A4B3B3F21D8C1ACA00E6C5A9 /* CGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3B3F11D8C1ACA00E6C5A9 /* CGRectExtension.swift */; };
 		A4B3B3F41D8C1D6400E6C5A9 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3B3F31D8C1D6400E6C5A9 /* UserDefaultsExtension.swift */; };
 		A4B3B3F61D8C52ED00E6C5A9 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3B3F51D8C52ED00E6C5A9 /* URLExtension.swift */; };
+		A4DEF6C71D8E49A300B6563B /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DEF6C61D8E49A300B6563B /* IntExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		A4B3B3F11D8C1ACA00E6C5A9 /* CGRectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtension.swift; sourceTree = "<group>"; };
 		A4B3B3F31D8C1D6400E6C5A9 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		A4B3B3F51D8C52ED00E6C5A9 /* URLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		A4DEF6C61D8E49A300B6563B /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			children = (
 				A46BC5981D883A8B00643956 /* NSObjectExtension.swift */,
 				A4B29E981D8555E500BD477F /* StringExtension.swift */,
+				A4DEF6C61D8E49A300B6563B /* IntExtension.swift */,
 				A4B3B3EB1D8C10B700E6C5A9 /* ArrayExtension.swift */,
 				A4B3B3ED1D8C123E00E6C5A9 /* DictionaryExtension.swift */,
 				A4B3B3F51D8C52ED00E6C5A9 /* URLExtension.swift */,
@@ -206,6 +209,7 @@
 				A4670D0F1D86CDD0007C4976 /* UIViewExtension.swift in Sources */,
 				A46BC5951D88345700643956 /* UIButtonExtension.swift in Sources */,
 				A4670D111D86E817007C4976 /* CalendarExtension.swift in Sources */,
+				A4DEF6C71D8E49A300B6563B /* IntExtension.swift in Sources */,
 				A4B3B3F01D8C17DE00E6C5A9 /* UITextViewExtension.swift in Sources */,
 				A4B3B3EE1D8C123E00E6C5A9 /* DictionaryExtension.swift in Sources */,
 				A4B3B3F21D8C1ACA00E6C5A9 /* CGRectExtension.swift in Sources */,
