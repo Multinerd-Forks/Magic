@@ -8,6 +8,24 @@
 
 import Foundation
 
+public extension UIView {
+    public class func fromNib<T : UIView>(nibName: String? = nil) -> T? {
+        let name: String
+        if let _ = nibName {
+            name = nibName!
+        } else {
+            name = String(describing: T.self)
+        }
+        let nibViews = Bundle.main.loadNibNamed(name, owner: nil, options: nil)
+        for subview in nibViews! {
+            if let _ = subview as? T {
+                return subview as? T
+            }
+        }
+        return nil
+    }
+}
+
 // property
 extension UIView {
     @IBInspectable public var cornerRadius: CGFloat {
