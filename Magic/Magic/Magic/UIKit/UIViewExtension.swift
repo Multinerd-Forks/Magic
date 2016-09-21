@@ -10,7 +10,7 @@ import Foundation
 
 public extension UIView {
     public class func fromNib<T : UIView>(nibName: String? = nil) -> T? {
-        let name: String
+        var name: String!
         if let _ = nibName {
             name = nibName!
         } else {
