@@ -69,4 +69,16 @@ extension Date {
         dateFormatter.dateFormat = dateFormat
         return dateFormatter.string(from: self)
     }
+    
+    func toLocalTime() -> Date {
+        let tz = NSTimeZone.default
+        let seconds = tz.secondsFromGMT(for: self)
+        return Date(timeInterval: TimeInterval(seconds), since: self)
+    }
+    
+    func toUTCTime() -> Date {
+        let tz = NSTimeZone.default
+        let seconds = -tz.secondsFromGMT(for: self)
+        return Date(timeInterval: TimeInterval(seconds), since: self)
+    }
 }
