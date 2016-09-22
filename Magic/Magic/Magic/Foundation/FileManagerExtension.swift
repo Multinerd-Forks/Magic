@@ -1,5 +1,5 @@
 //
-//  FileManager.swift
+//  FileManagerExtension.swift
 //  Magic
 //
 //  Created by Broccoli on 2016/9/21.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension FileManager {
+public extension FileManager {
     public class func getDocumentPath(fileName: String) -> String {
         return URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!)
             .appendingPathComponent(fileName)
