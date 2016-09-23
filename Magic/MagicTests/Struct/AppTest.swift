@@ -1,14 +1,14 @@
 //
-//  MagicTests.swift
-//  MagicTests
+//  AppTest.swift
+//  Magic
 //
-//  Created by Broccoli on 2016/9/22.
+//  Created by Broccoli on 2016/9/23.
 //  Copyright © 2016年 broccoliii. All rights reserved.
 //
 
 import XCTest
 
-class MagicTests: XCTestCase {
+class AppTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
