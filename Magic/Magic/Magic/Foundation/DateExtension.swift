@@ -9,21 +9,21 @@
 import Foundation
 
 // init
-extension Date {
-    public init?(from dateString: String, dateFormat: String) {
+public extension Date {
+    public init?(from dateString: String, dateFormat: String = "yyyy/MM/dd HH:mm") {
         let formatter = DateFormatter()
         formatter.dateFormat = dateFormat
-        if let date = formatter.date(from: dateString) {
-            self.init(timeInterval: 0, since: date)
-        } else {
-            self.init()
+        
+        guard let date = formatter.date(from: dateString), !dateString.isEmpty else {
             return nil
         }
+        
+        self.init(timeInterval: 0, since: date)
     }
 }
 
 // property
-extension Date {
+public extension Date {
     var year: Int {
         let calendar = Calendar(identifier: .gregorian)
         return calendar.component(.year, from: self)
@@ -57,10 +57,30 @@ extension Date {
     var timeStamp: Double {
         return timeIntervalSince1970
     }
+    
+    var isToday: Bool {
+        return Calendar.autoupdatingCurrent.isDateInToday(self)
+    }
+
+     var isTomorrow: Bool {
+        return Calendar.autoupdatingCurrent.isDateInTomorrow(self)
+    }
+
+     var isYesterday: Bool {
+        return Calendar.autoupdatingCurrent.isDateInYesterday(self)
+    }
+    
+     var isPast: Bool {
+        return compare(Date()) == .orderedAscending
+    }
+    
+    var isFuture: Bool {
+        return !isPast
+    }
 }
 
 // function
-extension Date {
+public extension Date {
     func string(format dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
@@ -71,14 +91,12 @@ extension Date {
     }
     
     func toLocalTime() -> Date {
-        let tz = NSTimeZone.default
-        let seconds = tz.secondsFromGMT(for: self)
+        let seconds = NSTimeZone.default.secondsFromGMT(for: self)
         return Date(timeInterval: TimeInterval(seconds), since: self)
     }
     
     func toUTCTime() -> Date {
-        let tz = NSTimeZone.default
-        let seconds = -tz.secondsFromGMT(for: self)
+        let seconds = -NSTimeZone.default.secondsFromGMT(for: self)
         return Date(timeInterval: TimeInterval(seconds), since: self)
     }
 }

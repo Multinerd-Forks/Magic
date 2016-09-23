@@ -9,7 +9,7 @@
 import Foundation
 
 // function
-extension NSObject {
+public extension NSObject {
     public func setAssociatedObject(_ value: AnyObject?, associativeKey: UnsafeRawPointer, policy: objc_AssociationPolicy) {
         if let valueAsAnyObject = value {
             objc_setAssociatedObject(self, associativeKey, valueAsAnyObject, policy)

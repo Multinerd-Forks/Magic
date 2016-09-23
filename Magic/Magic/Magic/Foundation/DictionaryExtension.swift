@@ -9,7 +9,7 @@
 import Foundation
 
 // propertyr
-extension Dictionary {
+public extension Dictionary {
     var JSONString: String? {
         do {
             let JSONData = try JSONSerialization.data(withJSONObject: self)
@@ -30,6 +30,34 @@ extension Dictionary {
         return reduce([Any](), {
             [$0.1.1] + $0.0
         })
+    }
+}
+
+public extension Dictionary {
+    mutating func merge<K, V>(dictionaries: Dictionary<K, V>...) {
+        dictionaries.forEach {
+            $0.forEach {
+                updateValue($0.1 as! Value, forKey: $0.0 as! Key)
+            }
+        }
+    }
+}
+
+// http://stackoverflow.com/a/34527546/235334
+public func + <K,V>(left: Dictionary<K,V>, right: Dictionary<K,V>?) -> Dictionary<K,V> {
+    guard let right = right else { return left }
+    return left.reduce(right) {
+        var new = $0 as [K:V]
+        new.updateValue($1.1, forKey: $1.0)
+        return new
+    }
+}
+
+// http://stackoverflow.com/a/34527546/235334
+public func += <K,V>(left: inout Dictionary<K,V>, right: Dictionary<K,V>?) {
+    guard let right = right else { return }
+    right.forEach { key, value in
+        left.updateValue(value, forKey: key)
     }
 }
 
