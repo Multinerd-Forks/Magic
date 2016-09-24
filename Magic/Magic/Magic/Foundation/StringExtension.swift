@@ -68,7 +68,7 @@ public extension String {
         return sexNum % 2 == 0 ? false : true
     }
     
-    func capitalizedString() -> String {
+    func uppercaseFirst() -> String {
         if lengthOfBytes(using: String.Encoding.utf8) <= 1 {
             return uppercased()
         }
