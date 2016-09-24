@@ -26,6 +26,7 @@ public extension UICollectionViewController {
         }
     }
     
+    // TODO: main thread
     public func setupActivityIndicator(
         viewStyle: UIActivityIndicatorViewStyle = .whiteLarge,
         color: UIColor = UIColor.gray) -> UIActivityIndicatorView {

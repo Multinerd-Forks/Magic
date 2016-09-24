@@ -12,6 +12,8 @@
 		A40E122F1D93F19C00EAFBF2 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40E122E1D93F19C00EAFBF2 /* UILabelExtension.swift */; };
 		A40E12321D93F89000EAFBF2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40E12311D93F89000EAFBF2 /* App.swift */; };
 		A42819731D942A55009F77EE /* Magic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B29E8B1D8555BA00BD477F /* Magic.framework */; };
+		A42CAB1F1D96227E00D709CF /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CAB1E1D96227E00D709CF /* SegueHandlerType.swift */; };
+		A42CAB211D96349D00D709CF /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CAB201D96349D00D709CF /* DataExtension.swift */; };
 		A43594281D92742200CC0A26 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43594271D92742200CC0A26 /* UIViewControllerExtension.swift */; };
 		A4670D0F1D86CDD0007C4976 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4670D0E1D86CDD0007C4976 /* UIViewExtension.swift */; };
 		A4670D111D86E817007C4976 /* CalendarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4670D101D86E817007C4976 /* CalendarExtension.swift */; };
@@ -61,6 +63,8 @@
 		A40E12311D93F89000EAFBF2 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		A428196E1D942A55009F77EE /* MagicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A42819721D942A55009F77EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A42CAB1E1D96227E00D709CF /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
+		A42CAB201D96349D00D709CF /* DataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		A43594271D92742200CC0A26 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		A4670D0E1D86CDD0007C4976 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		A4670D101D86E817007C4976 /* CalendarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarExtension.swift; sourceTree = "<group>"; };
@@ -133,6 +137,14 @@
 				A42819721D942A55009F77EE /* Info.plist */,
 			);
 			path = MagicTests;
+			sourceTree = "<group>";
+		};
+		A42CAB1D1D96224900D709CF /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A42CAB1E1D96227E00D709CF /* SegueHandlerType.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		A43594291D92863200CC0A26 /* CoreGraphics */ = {
@@ -220,6 +232,7 @@
 		A4B29E961D8555E500BD477F /* Magic */ = {
 			isa = PBXGroup;
 			children = (
+				A42CAB1D1D96224900D709CF /* Protocol */,
 				A4A9E7E61D952CA400D2DB57 /* Function */,
 				A40E12301D93F88700EAFBF2 /* Struct */,
 				A4ECEC7A1D92B2D600938BF6 /* CoreImage */,
@@ -238,6 +251,7 @@
 				A4B29E981D8555E500BD477F /* StringExtension.swift */,
 				A4B3B3EB1D8C10B700E6C5A9 /* ArrayExtension.swift */,
 				A4B3B3ED1D8C123E00E6C5A9 /* DictionaryExtension.swift */,
+				A42CAB201D96349D00D709CF /* DataExtension.swift */,
 				A40BA1021D8BABC10063B135 /* DateExtension.swift */,
 				A4ECEC7D1D92B99B00938BF6 /* DateFormtterExtension.swift */,
 				A4670D101D86E817007C4976 /* CalendarExtension.swift */,
@@ -404,6 +418,7 @@
 				A4B3B3E81D8C054300E6C5A9 /* UIColorExtension.swift in Sources */,
 				A40E12321D93F89000EAFBF2 /* App.swift in Sources */,
 				A49A5D1C1D936F30009A0D45 /* UITableViewExtension.swift in Sources */,
+				A42CAB211D96349D00D709CF /* DataExtension.swift in Sources */,
 				A40E122F1D93F19C00EAFBF2 /* UILabelExtension.swift in Sources */,
 				A40BA1031D8BABC10063B135 /* DateExtension.swift in Sources */,
 				A43594281D92742200CC0A26 /* UIViewControllerExtension.swift in Sources */,
@@ -419,6 +434,7 @@
 				A46BC5951D88345700643956 /* UIButtonExtension.swift in Sources */,
 				A4670D111D86E817007C4976 /* CalendarExtension.swift in Sources */,
 				A4A5C3631D93D07E00169285 /* UITableViewControllerExtension.swift in Sources */,
+				A42CAB1F1D96227E00D709CF /* SegueHandlerType.swift in Sources */,
 				A4DEF6C71D8E49A300B6563B /* IntExtension.swift in Sources */,
 				A4ECEC7E1D92B99B00938BF6 /* DateFormtterExtension.swift in Sources */,
 				A4A5C3661D93D2C500169285 /* NSURLComponents.swift in Sources */,

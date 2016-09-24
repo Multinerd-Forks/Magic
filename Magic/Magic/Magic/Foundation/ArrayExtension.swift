@@ -22,3 +22,10 @@ public extension Array {
         }
     }
 }
+
+// function
+public extension Array {
+    public func contains<T:Equatable>(_ object: T) -> Bool {
+        return self.filter( {$0 as? T == object} ).count > 0
+    }
+}
