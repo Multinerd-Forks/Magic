@@ -9,7 +9,7 @@
 import Foundation
 
 // function
-extension Calendar {
+public extension Calendar {
     public func date(byAddingSeconds seconds: Int, toDate date: Date) -> Date? {
         var components = DateComponents()
         components.second = seconds
@@ -20,30 +20,35 @@ extension Calendar {
     public func date(byAddingMinutes minutes: Int, toDate date: Date) -> Date? {
         var components = DateComponents()
         components.minute = minutes
+        
         return self.date(byAdding: components, to: date)
     }
     
     public func date(byAddingHours hours: Int, toDate date: Date) -> Date? {
         var components = DateComponents()
         components.hour = hours
+        
         return self.date(byAdding: components, to: date)!
     }
     
     public func date(byAddingDays days: Int, toDate date: Date) -> Date? {
         var components = DateComponents()
         components.day = days
+        
         return self.date(byAdding: components, to: date)
     }
     
     public func date(byAddingMonths months: Int, toDate date: Date) -> Date? {
         var components = DateComponents()
         components.month = months
+        
         return self.date(byAdding: components, to: date)
     }
     
     public func date(byAddingYears years: Int, toDate date: Date) -> Date? {
         var components = DateComponents()
         components.year = years
+        
         return self.date(byAdding: components, to: date)
     }
 }

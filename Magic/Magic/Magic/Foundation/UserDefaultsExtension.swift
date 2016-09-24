@@ -9,7 +9,7 @@
 import Foundation
 
 // subscript
-extension UserDefaults {
+public extension UserDefaults {
     subscript(key: String) -> Any? {
         get {
             return object(forKey: key)

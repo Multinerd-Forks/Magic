@@ -9,22 +9,23 @@
 import Foundation
 
 // property
-extension String {
+public extension String {
     public var JSONValue: Any? {
-        guard let data = data(using: String.Encoding.utf8) else {
+        guard let data = data(using: .utf8) else {
             return nil
         }
         
         do {
             return try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
         } catch let error {
+            // TODO: Debug
             print(error)
             return nil
         }
     }
     
     public var base64: String? {
-        let data = self.data(using: String.Encoding.utf8)
+        let data = self.data(using: .utf8)
         let base64String = data?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         return base64String
     }
@@ -36,7 +37,6 @@ extension String {
 
 // function
 public extension String {
-    
     func isValidMobilePhone() -> Bool {
         let regular = "^((13[0-9])|(147)|(15[^4,\\D])|(18[0,5-9]))\\d{8}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regular)
@@ -70,7 +70,7 @@ public extension String {
     
     func capitalizedString() -> String {
         if lengthOfBytes(using: String.Encoding.utf8) <= 1 {
-            return self.uppercased()
+            return uppercased()
         }
         
         let firstChar = substring(to: characters.index(startIndex, offsetBy: 1)).uppercased()
@@ -112,24 +112,65 @@ public extension String {
         }
     }
     
-    // 下划线 NSAttributedString
+    func trim() -> String {
+        return trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    func toURLEncoding() -> String? {
+        return addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    }
+    
+    mutating func URLEncoded() {
+        self = addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+    }
+    
+    
+    func toQRCodeImage(size: CGSize) -> UIImage {
+        let filter = CIFilter(name: "CIQRCodeGenerator")
+        let data = self.data(using: .utf8)
+        
+        filter?.setDefaults()
+        filter?.setValue(data, forKey: "inputMessage")
+        
+        let qrcodeCIImage = filter?.outputImage
+        
+        let extent = qrcodeCIImage!.extent.integral
+        let scale = min(size.width / extent.width, size.height / extent.height)
+        
+        let width = extent.width * scale
+        let height = extent.height * scale
+        
+        let colorSpace = CGColorSpaceCreateDeviceGray()
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.none.rawValue)
+        let bitmapRef = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue)
+        let context = CIContext(options: nil)
+        let bitmapImage = context.createCGImage(qrcodeCIImage!, from: extent)
+        bitmapRef!.interpolationQuality = .none
+        bitmapRef!.scaleBy(x: scale, y: scale)
+        bitmapRef?.draw(bitmapImage!, in: extent)
+        
+        let scaledImage = bitmapRef!.makeImage()
+        
+        return UIImage(cgImage: scaledImage!)
+    }
+    
+    // TODO: 下划线 NSAttributedString
+    // TODO: MD5
 }
 
-// TODO: subscript
-extension String {
+// subscript
+public extension String {
     subscript(range: Range<Int>) -> String {
         get {
-            let startIndex = self.characters.index(self.startIndex, offsetBy: range.lowerBound)
-            let endIndex = self.characters.index(self.startIndex, offsetBy: range.upperBound)
-            
+            let startIndex = characters.index(self.startIndex, offsetBy: range.lowerBound)
+            let endIndex = characters.index(self.startIndex, offsetBy: range.upperBound)
             return substring(with: Range<String.Index>(startIndex..<endIndex))
         }
         
         set {
-            let startIndex = self.characters.index(self.startIndex, offsetBy: range.lowerBound)
-            let endIndex = self.characters.index(self.startIndex, offsetBy: range.upperBound)
+            let startIndex = characters.index(self.startIndex, offsetBy: range.lowerBound)
+            let endIndex = characters.index(self.startIndex, offsetBy: range.upperBound)
             replaceSubrange(Range<String.Index>(startIndex..<endIndex), with: newValue)
         }
     }
 }
-

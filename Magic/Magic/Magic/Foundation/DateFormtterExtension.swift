@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension DateFormatter {
+public extension DateFormatter {
     public convenience init(dateFormat: String) {
         self.init()
         

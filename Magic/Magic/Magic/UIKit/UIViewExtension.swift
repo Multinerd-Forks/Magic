@@ -10,12 +10,13 @@ import Foundation
 
 public extension UIView {
     public class func fromNib<T : UIView>(nibName: String? = nil) -> T? {
-        var name: String!
-        if let _ = nibName {
-            name = nibName!
-        } else {
-            name = String(describing: T.self)
-        }
+        let name: String = {
+            guard let _ = nibName else {
+                return nibName!
+            }
+            return String(describing: T.self)
+        }()
+        
         let nibViews = Bundle.main.loadNibNamed(name, owner: nil, options: nil)
         for subview in nibViews! {
             if let _ = subview as? T {
@@ -27,7 +28,7 @@ public extension UIView {
 }
 
 // property
-extension UIView {
+public extension UIView {
     @IBInspectable public var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
@@ -86,14 +87,14 @@ extension UIView {
         }
     }
     
-    public var snapshot: UIImage {
+    public var snapshot: UIImage? {
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
         let context = UIGraphicsGetCurrentContext()
         context?.translateBy(x: 0, y: 0)
         layer.render(in: context!)
         let viewImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return viewImage!
+        return viewImage
     }
     
     public var top: CGFloat {
@@ -171,7 +172,7 @@ extension UIView {
 
 // function
 public extension UIView {
-    func containsSubView(_ subView: UIView) -> Bool {
+    func contains(subView: UIView) -> Bool {
         for view in subviews {
             if view == subView {
                 return true
@@ -180,13 +181,19 @@ public extension UIView {
         return false
     }
     
-    func removeSubViews() {
-        for subView in subviews {
-            subView.removeFromSuperview()
+    func addSubviews(subviews: UIView...) {
+        subviews.forEach {
+            addSubview($0)
         }
     }
     
-    func removeViewWithTag(_ tag: NSInteger) {
+    func removeSubViews() {
+        subviews.forEach {
+            $0.removeFromSuperview()
+        }
+    }
+    
+    func removeView(with tag: NSInteger) {
         for subView in subviews {
             if subView.tag == tag {
                 subView.removeFromSuperview()
@@ -194,3 +201,47 @@ public extension UIView {
         }
     }
 }
+
+
+public extension UIView {
+    public enum UIViewShakeDirection : Int {
+        case horizontal = 0
+        case vertical = 1
+    }
+    
+    func shake(_ times: Int = 10,
+               currentTimes current: Int = 0,
+               withDelta delta: CGFloat = 5,
+               speed interval: TimeInterval = 0.03,
+               shakeDirection: UIViewShakeDirection = .horizontal,
+               completion handler: (() -> Void)?) {
+        
+        UIView.animate(withDuration: interval, animations: {
+            _ in
+            self.transform = (shakeDirection == UIViewShakeDirection.horizontal) ?
+                CGAffineTransform(translationX: delta, y: 0) :
+                CGAffineTransform(translationX: 0, y: delta)
+            }, completion: {
+                (finished: Bool) in
+                if current >= times {
+                    UIView.animate(withDuration: interval, animations: {
+                        _ in
+                        self.transform = CGAffineTransform.identity
+                        }, completion: {
+                            (finished: Bool) in
+                            if let handler = handler {
+                                handler()
+                            }
+                    })
+                    return
+                }
+                self.shake(times - 1,
+                           currentTimes: current + 1,
+                           withDelta: delta,
+                           speed: interval,
+                           shakeDirection: shakeDirection,
+                           completion: handler)
+        })
+    }
+}
+

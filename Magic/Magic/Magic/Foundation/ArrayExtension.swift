@@ -9,13 +9,14 @@
 import Foundation
 
 // property
-extension Array {
+public extension Array {
     // 能用泛型么 和 Dictionary 重复了
-    var JSONString: String? {
+    public var JSONString: String? {
         do {
             let JSONData = try JSONSerialization.data(withJSONObject: self)
             return String(data: JSONData, encoding: .utf8)
         } catch let error {
+            // TODO: Debug
             print(error)
             return nil
         }

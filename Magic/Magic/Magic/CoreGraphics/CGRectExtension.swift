@@ -6,10 +6,10 @@
 //  Copyright © 2016年 broccoliii. All rights reserved.
 //
 
-import Foundation
+import CoreGraphics
 
 // property
-extension CGRect {
+public extension CGRect {
      var x: CGFloat {
         get {
             return origin.x
@@ -36,7 +36,7 @@ extension CGRect {
         }
         
         set {
-            self.size.width = newValue
+            size.width = newValue
         }
     }
     

@@ -9,7 +9,7 @@
 import Foundation
 
 // init
-extension UIColor {
+public extension UIColor {
     public convenience init?(hexString: String, alpha: CGFloat = 1.0) {
         var formatted: String? = nil
         
@@ -36,11 +36,19 @@ extension UIColor {
             return nil
         }
     }
+    
+    public convenience init(hex: Int) {
+        assert(hex >= 0 && hex <= 0xffffff, "Invalid hex value.")
+        self.init(
+            red: CGFloat((hex >> 16) & 0xff) / 255.0,
+            green: CGFloat((hex >> 8) & 0xff) / 255.0,
+            blue: CGFloat(hex & 0xff) / 255.0,
+            alpha: 1.0)
+    }
 }
 
 // property
-extension UIColor {
-    
+public extension UIColor {
     var redValue: CGFloat? {
         return cgColor.components?[0]
     }
@@ -59,9 +67,41 @@ extension UIColor {
 }
 
 // function
-extension UIColor {
+public extension UIColor {
     func inverse() -> UIColor {
         assert(cgColor.components != nil, "Color is nil")
         return UIColor(red: 1.0 - cgColor.components![0], green: 1.0 - cgColor.components![1], blue: 1.0 - cgColor.components![2], alpha: cgColor.components![3])
+    }
+}
+
+extension UIColor {
+    public static func randomHSBColor(alpha: CGFloat) -> UIColor {
+        //  0.0 to 1.0
+        let hue = ( CGFloat(arc4random()).truncatingRemainder(dividingBy: 256.0) / 256.0 )
+        //  0.5 to 1.0, away from white
+        let saturation = ( CGFloat(arc4random()).truncatingRemainder(dividingBy: 128.0) / 256.0 ) + 0.5
+        //  0.5 to 1.0, away from black
+        let brightness = ( CGFloat(arc4random()).truncatingRemainder(dividingBy: 128.0) / 256.0 ) + 0.5
+        
+        return UIColor(
+            hue: hue,
+            saturation:saturation,
+            brightness:brightness,
+            alpha:alpha);
+    }
+    
+    public static var randomHSBColor: UIColor {
+        return randomHSBColor(alpha: 1)
+    }
+    
+    public static func randomRGBColor(alpha: CGFloat) -> UIColor {
+        let r = ( CGFloat(arc4random()).truncatingRemainder(dividingBy: 256.0) / 256.0 )
+        let g = ( CGFloat(arc4random()).truncatingRemainder(dividingBy: 128.0) / 256.0 )
+        let b = ( CGFloat(arc4random()).truncatingRemainder(dividingBy: 128.0) / 256.0 )
+        return UIColor(red: r, green: g, blue: b, alpha: alpha)
+    }
+    
+    public static var randomRGBColor: UIColor {
+        return randomRGBColor(alpha: 1)
     }
 }
