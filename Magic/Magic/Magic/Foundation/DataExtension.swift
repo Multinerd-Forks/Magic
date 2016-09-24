@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+public extension Data {
+    
+    /**
+     Converts Data to a string, if possible
+     
+     - Returns: String?
+     */
+    public var string: String? {
+        return String(data: self, encoding: .utf8)
+    }
+}
