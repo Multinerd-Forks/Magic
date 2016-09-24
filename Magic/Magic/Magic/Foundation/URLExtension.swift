@@ -9,20 +9,15 @@
 import Foundation
 
 extension URL {
-//    func getParams() -> [String : String] {
-//        
-//        let components = URLComponents(url: self, resolvingAgainstBaseURL: false)
-//        
-//        let queryItems = components?.queryItems ?? []
-//        var params = [String : String]()
-//        
-//        queryItems.reduce([String : String](), { (var dict, item) -> [String : String] in
-//            
-//            dict[item.name] = item.value ?? ""
-//            return dict
-//        })
-//        return [:]
-//    }
-    
-
+    public var queryParameters: [String: String] {
+        var results: [String:String] = [:]
+        let keyValues = self.query?.components(separatedBy: "&")
+        keyValues?.forEach {
+            let kv = $0.components(separatedBy: "=")
+            if kv.count > 1 {
+                results[kv[0]] = kv[1]
+            }
+        }
+        return results
+    }
 }
