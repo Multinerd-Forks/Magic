@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+public func With<T>(item: T, update: (inout T) throws -> Void) rethrows -> T {
+    var this = item; try update(&this); return this
+}
