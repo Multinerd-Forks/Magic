@@ -41,6 +41,29 @@ public extension Dictionary {
             }
         }
     }
+    
+    // TODO: mutating
+    public func removeNulls() -> Dictionary {
+        
+        let keys = Array(self.keys)
+        let values = Array(self.values)
+        var dict: Dictionary = [:]
+        
+        keys.enumerated().forEach { index, key in
+            
+            var value = values[index]
+            
+            if !(value is NSNull) {
+                if let v = value as? Dictionary, let val = v.removeNulls() as? Value  {
+                    value = val
+                }
+                dict[key] = value
+            }
+        }
+        
+        return dict
+    }
+    
 }
 
 // http://stackoverflow.com/a/34527546/235334
