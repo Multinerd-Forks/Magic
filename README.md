@@ -4,11 +4,8 @@
 # Magic
 
 [![CI Status](https://img.shields.io/wercker/ci/wercker/docs.svg?style=flat)]()
-
 [![Version](https://img.shields.io/badge/pod-v1.0.0-blue.svg?style=flat)]()
-
 [![License](https://img.shields.io/badge/license-MIT-f27e40.svg?style=flat)]()
-
 [![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg?style=flat)]()
 
 ## Intro
