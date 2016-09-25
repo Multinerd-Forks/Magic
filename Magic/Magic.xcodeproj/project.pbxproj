@@ -38,6 +38,8 @@
 		A4B3B3F01D8C17DE00E6C5A9 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3B3EF1D8C17DE00E6C5A9 /* UITextViewExtension.swift */; };
 		A4B3B3F41D8C1D6400E6C5A9 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3B3F31D8C1D6400E6C5A9 /* UserDefaultsExtension.swift */; };
 		A4B3B3F61D8C52ED00E6C5A9 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3B3F51D8C52ED00E6C5A9 /* URLExtension.swift */; };
+		A4BC681A1D9660BB00735FC9 /* WithTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC68191D9660BA00735FC9 /* WithTest.swift */; };
+		A4BC681C1D9662B800735FC9 /* CGRectExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC681B1D9662B800735FC9 /* CGRectExtensionTest.swift */; };
 		A4DEF6C71D8E49A300B6563B /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DEF6C61D8E49A300B6563B /* IntExtension.swift */; };
 		A4ECEC791D92AD0B00938BF6 /* CGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ECEC781D92AD0B00938BF6 /* CGRectExtension.swift */; };
 		A4ECEC7C1D92B2E100938BF6 /* CIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4ECEC7B1D92B2E100938BF6 /* CIImageExtension.swift */; };
@@ -91,6 +93,8 @@
 		A4B3B3EF1D8C17DE00E6C5A9 /* UITextViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
 		A4B3B3F31D8C1D6400E6C5A9 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		A4B3B3F51D8C52ED00E6C5A9 /* URLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		A4BC68191D9660BA00735FC9 /* WithTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithTest.swift; sourceTree = "<group>"; };
+		A4BC681B1D9662B800735FC9 /* CGRectExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtensionTest.swift; sourceTree = "<group>"; };
 		A4DEF6C61D8E49A300B6563B /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		A4ECEC781D92AD0B00938BF6 /* CGRectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtension.swift; sourceTree = "<group>"; };
 		A4ECEC7B1D92B2E100938BF6 /* CIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIImageExtension.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 		A428196F1D942A55009F77EE /* MagicTests */ = {
 			isa = PBXGroup;
 			children = (
+				A4BC68181D96609B00735FC9 /* Protocol */,
+				A4BC68171D96609B00735FC9 /* Function */,
 				A496FBC01D950A6A005FA5C1 /* Struct */,
 				A496FBBC1D950A6A005FA5C1 /* CoreImage */,
 				A496FBBB1D950A6A005FA5C1 /* CoreGraphics */,
@@ -158,6 +164,7 @@
 		A496FBBB1D950A6A005FA5C1 /* CoreGraphics */ = {
 			isa = PBXGroup;
 			children = (
+				A4BC681B1D9662B800735FC9 /* CGRectExtensionTest.swift */,
 			);
 			path = CoreGraphics;
 			sourceTree = "<group>";
@@ -284,6 +291,21 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		A4BC68171D96609B00735FC9 /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				A4BC68191D9660BA00735FC9 /* WithTest.swift */,
+			);
+			path = Function;
+			sourceTree = "<group>";
+		};
+		A4BC68181D96609B00735FC9 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		A4ECEC7A1D92B2D600938BF6 /* CoreImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,7 +426,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A496FBC31D950A6A005FA5C1 /* StringExtensionTest.swift in Sources */,
+				A4BC681A1D9660BB00735FC9 /* WithTest.swift in Sources */,
 				A496FBC21D950A6A005FA5C1 /* IntExtensionTest.swift in Sources */,
+				A4BC681C1D9662B800735FC9 /* CGRectExtensionTest.swift in Sources */,
 				A496FBC51D950C86005FA5C1 /* AppTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
