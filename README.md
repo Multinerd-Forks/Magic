@@ -69,6 +69,7 @@ Run `carthage update` to build the framework and drag the built `Magic.framework
 
 ## Author
  [Zeeyang](http://www.zeeyang.com)
+ 
  [broccoliii](http://broccoliii.me)
 
 ## License
