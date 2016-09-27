@@ -15,7 +15,7 @@ public extension Data {
      
      - Returns: String?
      */
-    public var string: String? {
+    var string: String? {
         return String(data: self, encoding: .utf8)
     }
 }

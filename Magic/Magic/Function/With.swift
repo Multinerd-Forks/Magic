@@ -9,7 +9,7 @@
 import Foundation
 
 @discardableResult
-public func With<T>(item: T, update: inout T throws -> Void) rethrows -> T {
+func With<T>(item: T, update: (inout T) throws -> Void) rethrows -> T {
     var this = item
     try update(&this)
     return this

@@ -11,7 +11,7 @@ import Foundation
 // property
 public extension Array {
     // 能用泛型么 和 Dictionary 重复了
-    public var JSONString: String? {
+    var JSONString: String? {
         do {
             let JSONData = try JSONSerialization.data(withJSONObject: self)
             return String(data: JSONData, encoding: .utf8)
@@ -26,7 +26,7 @@ public extension Array {
 
 // function
 public extension Array {
-    public func contains<T:Equatable>(_ object: T) -> Bool {
-        return self.filter( {$0 as? T == object} ).count > 0
+    func contains<Element: Equatable>(_ Element: Element) -> Bool {
+        return self.filter( {$0 as? Element == Element} ).count > 0
     }
 }

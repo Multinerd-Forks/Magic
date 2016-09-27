@@ -13,7 +13,7 @@ public extension UITableView {
         return "Cell"
     }
     
-    public func registerNib(nibName: String, cellIdentifier: String = defaultCellIdentifier, bundleIdentifier: String? = nil) {
+    func registerNib(nibName: String, cellIdentifier: String = defaultCellIdentifier, bundleIdentifier: String? = nil) {
         register(UINib(nibName: nibName,
                                bundle: bundleIdentifier != nil ? Bundle(identifier: bundleIdentifier!) : nil),
                          forCellReuseIdentifier: cellIdentifier)

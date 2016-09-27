@@ -8,8 +8,8 @@
 
 import CoreImage
 
-extension CIImage {
-    public func generateImage(size: CGSize) -> UIImage? {
+public extension CIImage {
+    func generateImage(size: CGSize) -> UIImage? {
         let extent = self.extent.integral
         let scale = min(size.width / extent.width, size.height / extent.height)
         

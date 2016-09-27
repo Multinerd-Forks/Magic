@@ -17,7 +17,7 @@ public extension UIViewController {
 
 public extension UIViewController {
     
-//    public func presentAlert(title: String,
+//    func presentAlert(title: String,
 //                             message: String? = nil,
 //                             buttonText: String = "OK",
 //                             additionalActions: [UIAlertAction]? = nil,
@@ -46,7 +46,7 @@ public extension UIViewController {
 //    }
     
     @available(iOSApplicationExtension 9.0, *)
-    public func presentSafariController(url: String, modalPresentationStyle: UIModalPresentationStyle = .overFullScreen) {
+    func presentSafariController(url: String, modalPresentationStyle: UIModalPresentationStyle = .overFullScreen) {
         let safariController = SFSafariViewController(url: URL(string: url)!)
         safariController.modalPresentationStyle = .overFullScreen
         
@@ -56,7 +56,7 @@ public extension UIViewController {
     }
     
 
-    public func presentActivityViewController(activityItems: [AnyObject],
+    func presentActivityViewController(activityItems: [AnyObject],
                                               sourceView: UIView, applicationActivities: [UIActivity]? = nil) {
         let activity = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
         
@@ -69,7 +69,7 @@ public extension UIViewController {
         present(activity, animated: true, completion: nil)
     }
     
-    public func presentActivityViewController(activityItems: [AnyObject],
+    func presentActivityViewController(activityItems: [AnyObject],
                                               barButtonItem: UIBarButtonItem, applicationActivities: [UIActivity]? = nil) {
         let activity = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
         

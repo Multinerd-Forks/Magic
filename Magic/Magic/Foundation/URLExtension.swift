@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension URL {
-    public var queryParameters: [String: String] {
+public extension URL {
+    var queryParameters: [String: String] {
         var results: [String:String] = [:]
         let keyValues = self.query?.components(separatedBy: "&")
         keyValues?.forEach {

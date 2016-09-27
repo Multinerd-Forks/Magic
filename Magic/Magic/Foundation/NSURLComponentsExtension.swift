@@ -1,5 +1,5 @@
 //
-//  NSURLComponents.swift
+//  NSURLComponentsExtension.swift
 //  Magic
 //
 //  Created by Broccoli on 2016/9/22.
@@ -9,7 +9,7 @@
 import Foundation
 
 public extension NSURLComponents {
-    public func updateQueryParameter(key: String, value: String?) -> String {
+    func updateQueryParameter(key: String, value: String?) -> String {
        var queryItems: [URLQueryItem] = (self.queryItems ?? [])
         for (index, item) in queryItems.enumerated() {
             if item.name.lowercased() == key.lowercased() {
@@ -33,18 +33,18 @@ public extension NSURLComponents {
         return ""
     }
     
-    public func addOrUpdateQueryStringParameter(values: [String: String?]) -> String {
+    func addOrUpdateQueryStringParameter(values: [String: String?]) -> String {
         var newUrl = self.string ?? ""
         
         for item in values {
-            newUrl = addOrUpdateQueryStringParameter(key: item.0, value: item.1)
+            newUrl = updateQueryParameter(key: item.0, value: item.1)
         }
         
         return newUrl
     }
     
-    public func removeQueryStringParameter(key: String) -> String {
-        return addOrUpdateQueryStringParameter(key: key, value: nil)
+    func removeQueryStringParameter(key: String) -> String {
+        return updateQueryParameter(key: key, value: nil)
     }
     
 }

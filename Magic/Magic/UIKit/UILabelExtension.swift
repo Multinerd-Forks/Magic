@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension UILabel {
+public extension UILabel {
     func contentSize() -> CGSize {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = lineBreakMode

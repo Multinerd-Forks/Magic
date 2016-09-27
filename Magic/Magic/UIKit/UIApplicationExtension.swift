@@ -9,7 +9,7 @@
 import Foundation
 
 public extension UIApplication {
-    public func registerUserNotificationSettings(
+    func registerUserNotificationSettings(
         identifier: String,
         actions: [UIMutableUserNotificationAction]? = nil,
         type: UIUserNotificationType = [ .alert, .badge, .sound ]) {
@@ -31,7 +31,7 @@ public extension UIApplication {
         registerUserNotificationSettings(notificationSettings)
     }
 
-    public func removeLocalNotification(identifier: String) {
+    func removeLocalNotification(identifier: String) {
         guard let notifications = self.scheduledLocalNotifications
             , notifications.count > 0 else {
                 return
@@ -45,13 +45,13 @@ public extension UIApplication {
         }
     }
     
-    public func clearNotificationTray() {
+    func clearNotificationTray() {
         self.applicationIconBadgeNumber = 1
         self.applicationIconBadgeNumber = 0
     }
     
     @available(iOSApplicationExtension 9.0, *)
-    public func updateShortcutItem(type: String, handler: (UIMutableApplicationShortcutItem) -> UIMutableApplicationShortcutItem) {
+    func updateShortcutItem(type: String, handler: (UIMutableApplicationShortcutItem) -> UIMutableApplicationShortcutItem) {
         guard let index = shortcutItems?.index(where: { $0.type == type }),
             let item = shortcutItems?[index].mutableCopy() as? UIMutableApplicationShortcutItem else {
                 return
