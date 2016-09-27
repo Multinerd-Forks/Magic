@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A40A6E811D9A169C00052BA2 /* ArrayExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A6E801D9A169C00052BA2 /* ArrayExtensionTest.swift */; };
+		A40A6E831D9A17EA00052BA2 /* DictionaryExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A6E821D9A17EA00052BA2 /* DictionaryExtensionTest.swift */; };
 		A40BA1031D8BABC10063B135 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40BA1021D8BABC10063B135 /* DateExtension.swift */; };
 		A40E122D1D93EF7200EAFBF2 /* UISearchBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40E122C1D93EF7200EAFBF2 /* UISearchBarExtension.swift */; };
 		A40E122F1D93F19C00EAFBF2 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40E122E1D93F19C00EAFBF2 /* UILabelExtension.swift */; };
@@ -59,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A40A6E801D9A169C00052BA2 /* ArrayExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTest.swift; sourceTree = "<group>"; };
+		A40A6E821D9A17EA00052BA2 /* DictionaryExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensionTest.swift; sourceTree = "<group>"; };
 		A40BA1021D8BABC10063B135 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		A40E122C1D93EF7200EAFBF2 /* UISearchBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBarExtension.swift; sourceTree = "<group>"; };
 		A40E122E1D93F19C00EAFBF2 /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 			children = (
 				A496FBBE1D950A6A005FA5C1 /* IntExtensionTest.swift */,
 				A496FBBF1D950A6A005FA5C1 /* StringExtensionTest.swift */,
+				A40A6E801D9A169C00052BA2 /* ArrayExtensionTest.swift */,
+				A40A6E821D9A17EA00052BA2 /* DictionaryExtensionTest.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -429,7 +435,9 @@
 				A4BC681A1D9660BB00735FC9 /* WithTest.swift in Sources */,
 				A496FBC21D950A6A005FA5C1 /* IntExtensionTest.swift in Sources */,
 				A4BC681C1D9662B800735FC9 /* CGRectExtensionTest.swift in Sources */,
+				A40A6E831D9A17EA00052BA2 /* DictionaryExtensionTest.swift in Sources */,
 				A496FBC51D950C86005FA5C1 /* AppTest.swift in Sources */,
+				A40A6E811D9A169C00052BA2 /* ArrayExtensionTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +606,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -616,6 +625,7 @@
 				INFOPLIST_FILE = Magic/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.broccoliii.Magic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

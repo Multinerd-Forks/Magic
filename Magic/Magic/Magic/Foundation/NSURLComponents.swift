@@ -9,11 +9,9 @@
 import Foundation
 
 public extension NSURLComponents {
-    // TODO: fix
-    public func addOrUpdateQueryStringParameter(key: String, value: String?) -> String {
+    public func updateQueryParameter(key: String, value: String?) -> String {
        var queryItems: [URLQueryItem] = (self.queryItems ?? [])
         for (index, item) in queryItems.enumerated() {
-            // Match query string key and update
             if item.name.lowercased() == key.lowercased() {
                 if let v = value {
                     queryItems[index] = URLQueryItem(name: key, value: v)

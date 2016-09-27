@@ -16,8 +16,9 @@ public extension Array {
             let JSONData = try JSONSerialization.data(withJSONObject: self)
             return String(data: JSONData, encoding: .utf8)
         } catch let error {
-            // TODO: Debug
-            print(error)
+            #if DEBUG
+                print("Magic Error: -- \(error)")
+            #endif
             return nil
         }
     }

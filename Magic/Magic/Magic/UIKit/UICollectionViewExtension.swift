@@ -34,7 +34,7 @@ public extension UICollectionView {
         let indexPaths = indexes.map {
             IndexPath(item: $0, section: section)
         }
-        // TODO
+        // TODO: weak self?
         performBatchUpdates({ [weak self] in
             guard let weakSelf = self else {
                 return
