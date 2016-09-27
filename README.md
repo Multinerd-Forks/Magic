@@ -1,6 +1,3 @@
-
-
-
 # Magic
 
 [![CI Status](https://img.shields.io/wercker/ci/wercker/docs.svg?style=flat)]()
@@ -75,4 +72,5 @@ Run `carthage update` to build the framework and drag the built `Magic.framework
 ## License
 
 Magic is available under the MIT license. See the LICENSE file for more info.
+
 
