@@ -18,8 +18,9 @@ public extension String {
         do {
             return try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
         } catch let error {
-            // TODO: Debug
-            print(error)
+            #if DEBUG
+                print("Magic Error: -- \(error)")
+            #endif
             return nil
         }
     }
