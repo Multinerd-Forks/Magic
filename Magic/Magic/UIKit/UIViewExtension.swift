@@ -29,7 +29,7 @@ public extension UIView {
 
 // property
 public extension UIView {
-    @IBInspectable public var cornerRadius: CGFloat {
+    @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -40,7 +40,7 @@ public extension UIView {
         }
     }
     
-    @IBInspectable public var borderColor: UIColor? {
+    @IBInspectable var borderColor: UIColor? {
         get {
             guard let borderColor = layer.borderColor else {
                 return nil
@@ -53,7 +53,7 @@ public extension UIView {
         }
     }
     
-    @IBInspectable public var borderWidth: CGFloat {
+    @IBInspectable var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -63,7 +63,7 @@ public extension UIView {
         }
     }
     
-    @IBInspectable public var origin: CGPoint {
+    @IBInspectable var origin: CGPoint {
         get {
             return frame.origin
         }
@@ -75,7 +75,7 @@ public extension UIView {
         }
     }
     
-    @IBInspectable public var size: CGSize {
+    @IBInspectable var size: CGSize {
         get {
             return self.frame.size;
         }
@@ -87,7 +87,7 @@ public extension UIView {
         }
     }
     
-    public var snapshot: UIImage? {
+    var snapshot: UIImage? {
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
         let context = UIGraphicsGetCurrentContext()
         context?.translateBy(x: 0, y: 0)
@@ -97,7 +97,7 @@ public extension UIView {
         return viewImage
     }
     
-    public var top: CGFloat {
+    var top: CGFloat {
         get {
             return frame.origin.y
         }
@@ -109,7 +109,7 @@ public extension UIView {
         }
     }
     
-    public var bottom: CGFloat {
+    var bottom: CGFloat {
         get {
             return frame.origin.y + frame.size.height
         }
@@ -121,7 +121,7 @@ public extension UIView {
         }
     }
     
-    public var right: CGFloat {
+    var right: CGFloat {
         get {
             return frame.origin.x + frame.size.width
         }
@@ -133,7 +133,7 @@ public extension UIView {
         }
     }
     
-    public var left: CGFloat {
+    var left: CGFloat {
         get {
             return frame.origin.x
         }
@@ -145,7 +145,7 @@ public extension UIView {
         }
     }
     
-    public var width: CGFloat {
+    var width: CGFloat {
         get {
             return frame.size.width
         }
@@ -157,7 +157,7 @@ public extension UIView {
         }
     }
     
-    public var height: CGFloat {
+    var height: CGFloat {
         get {
             return frame.size.height
         }

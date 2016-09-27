@@ -8,6 +8,6 @@
 
 import Foundation
 
-extension UITextView {
+public extension UITextView {
     
 }

@@ -41,7 +41,7 @@ public extension UIImage {
         return UIImage(cgImage: croppedImageRef!)
     }
     
-    public func tint(_ tintColor: UIColor) -> UIImage {
+    func tint(_ tintColor: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         
         let context = UIGraphicsGetCurrentContext()

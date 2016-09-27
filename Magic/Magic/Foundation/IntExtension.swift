@@ -9,7 +9,7 @@
 import Foundation
 
 public extension Int {
-    public func toBool () -> Bool? {
+    func toBool () -> Bool? {
         switch true {
         case self == 0:
             return false
@@ -24,10 +24,10 @@ public extension Int {
         }
     }
     
-    // Times
+    // TODO: Times
     
-    public func delay(in thread: DispatchQueue = DispatchQueue.global(qos: .background), handler:@escaping () -> ()) {
-        let deadlineTime = DispatchTime.now() + .seconds(1)
+    func delay(in thread: DispatchQueue = DispatchQueue.global(qos: .background), handler:@escaping () -> ()) {
+        let deadlineTime = DispatchTime.now() + .seconds(self)
         thread.asyncAfter(deadline: deadlineTime) {
            handler()
         }

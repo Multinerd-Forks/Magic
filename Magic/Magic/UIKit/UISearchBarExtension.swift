@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension UISearchBar {
+public extension UISearchBar {
     var cancelButton: UIButton? {
         get {
             var button: UIButton? = nil

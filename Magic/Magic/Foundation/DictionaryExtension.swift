@@ -43,11 +43,11 @@ public extension Dictionary {
     }
     
     // TODO: mutating
-    public func removeNulls() -> Dictionary {
+    func removeNulls() -> Dictionary {
         
         let keys = Array(self.keys)
         let values = Array(self.values)
-        var dict: Dictionary = [:]
+        var dictionary: Dictionary = [:]
         
         keys.enumerated().forEach { index, key in
             
@@ -57,17 +57,16 @@ public extension Dictionary {
                 if let v = value as? Dictionary, let val = v.removeNulls() as? Value  {
                     value = val
                 }
-                dict[key] = value
+                dictionary[key] = value
             }
         }
         
-        return dict
+        return dictionary
     }
-    
 }
 
 // http://stackoverflow.com/a/34527546/235334
-public func + <K,V>(left: Dictionary<K,V>, right: Dictionary<K,V>?) -> Dictionary<K,V> {
+func + <K,V>(left: Dictionary<K,V>, right: Dictionary<K,V>?) -> Dictionary<K,V> {
     guard let right = right else { return left }
     return left.reduce(right) {
         var new = $0 as [K:V]
@@ -77,7 +76,7 @@ public func + <K,V>(left: Dictionary<K,V>, right: Dictionary<K,V>?) -> Dictionar
 }
 
 // http://stackoverflow.com/a/34527546/235334
-public func += <K,V>(left: inout Dictionary<K,V>, right: Dictionary<K,V>?) {
+func += <K,V>(left: inout Dictionary<K,V>, right: Dictionary<K,V>?) {
     guard let right = right else { return }
     right.forEach { key, value in
         left.updateValue(value, forKey: key)

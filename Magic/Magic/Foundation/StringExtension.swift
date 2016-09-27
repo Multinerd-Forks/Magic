@@ -10,7 +10,7 @@ import Foundation
 
 // property
 public extension String {
-    public var JSONValue: Any? {
+    var JSONValue: Any? {
         guard let data = data(using: .utf8) else {
             return nil
         }
@@ -25,13 +25,13 @@ public extension String {
         }
     }
     
-    public var base64: String? {
+    var base64: String? {
         let data = self.data(using: .utf8)
         let base64String = data?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         return base64String
     }
     
-    public var lenght: NSInteger {
+    var lenght: NSInteger {
         return lengthOfBytes(using: String.Encoding.utf8)
     }
 }
@@ -39,6 +39,7 @@ public extension String {
 // function
 public extension String {
     func isValidMobilePhone() -> Bool {
+        // TODO: 17.. 开头的不行
         let regular = "^((13[0-9])|(147)|(15[^4,\\D])|(18[0,5-9]))\\d{8}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regular)
         return predicate.evaluate(with: self)
@@ -51,6 +52,7 @@ public extension String {
     }
     
     func isValidIdentityCard() -> Bool {
+        // TODO: 正则 少生日的匹配
         let regular = "^(\\d{14}|\\d{17})(\\d|[xX])$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regular)
         return predicate.evaluate(with: self)

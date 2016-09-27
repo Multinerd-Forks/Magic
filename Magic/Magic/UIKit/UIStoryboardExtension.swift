@@ -13,7 +13,7 @@ public extension UIStoryboard {
         self.init(name: name, bundle: nil)
     }
     
-    public func instantiateViewController<T: UIViewController>() -> T? {
+    func instantiateViewController<T: UIViewController>(viewController: T.Type) -> T? {
         return instantiateViewController(withIdentifier: String(describing: T.self)) as? T
     }
 }

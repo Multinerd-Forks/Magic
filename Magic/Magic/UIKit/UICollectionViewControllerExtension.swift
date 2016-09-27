@@ -16,7 +16,7 @@ public extension UICollectionViewController {
      - returns: Returns an instance of the activity indicator that is centered.
      */
     // move to UICollectionView
-    public var activityIndicatorView: UIActivityIndicatorView? {
+    var activityIndicatorView: UIActivityIndicatorView? {
         get {
             return view.viewWithTag(3000) as? UIActivityIndicatorView
         }
@@ -34,7 +34,7 @@ public extension UICollectionViewController {
         }
     }
     
-    public func setupActivityIndicator(
+    func setupActivityIndicator(
         viewStyle: UIActivityIndicatorViewStyle = .gray,
         color: UIColor = UIColor.gray) {
         DispatchQueue.main.async {

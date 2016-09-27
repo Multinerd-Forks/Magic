@@ -9,7 +9,7 @@
 import Foundation
 
 public extension NSURLComponents {
-    public func updateQueryParameter(key: String, value: String?) -> String {
+    func updateQueryParameter(key: String, value: String?) -> String {
        var queryItems: [URLQueryItem] = (self.queryItems ?? [])
         for (index, item) in queryItems.enumerated() {
             if item.name.lowercased() == key.lowercased() {
@@ -33,7 +33,7 @@ public extension NSURLComponents {
         return ""
     }
     
-    public func addOrUpdateQueryStringParameter(values: [String: String?]) -> String {
+    func addOrUpdateQueryStringParameter(values: [String: String?]) -> String {
         var newUrl = self.string ?? ""
         
         for item in values {
@@ -43,7 +43,7 @@ public extension NSURLComponents {
         return newUrl
     }
     
-    public func removeQueryStringParameter(key: String) -> String {
+    func removeQueryStringParameter(key: String) -> String {
         return updateQueryParameter(key: key, value: nil)
     }
     
