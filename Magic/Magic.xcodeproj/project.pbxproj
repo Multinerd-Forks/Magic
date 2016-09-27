@@ -29,7 +29,7 @@
 		A49A5D1C1D936F30009A0D45 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49A5D1B1D936F30009A0D45 /* UITableViewExtension.swift */; };
 		A49A5D1E1D936F6D009A0D45 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49A5D1D1D936F6D009A0D45 /* UICollectionViewExtension.swift */; };
 		A4A5C3631D93D07E00169285 /* UITableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A5C3621D93D07E00169285 /* UITableViewControllerExtension.swift */; };
-		A4A5C3661D93D2C500169285 /* NSURLComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A5C3651D93D2C500169285 /* NSURLComponents.swift */; };
+		A4A5C3661D93D2C500169285 /* NSURLComponentsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A5C3651D93D2C500169285 /* NSURLComponentsExtension.swift */; };
 		A4A9E7E81D952CB600D2DB57 /* With.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A9E7E71D952CB600D2DB57 /* With.swift */; };
 		A4B29E8F1D8555BA00BD477F /* Magic.h in Headers */ = {isa = PBXBuildFile; fileRef = A4B29E8E1D8555BA00BD477F /* Magic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A4B29E9A1D8555E500BD477F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B29E981D8555E500BD477F /* StringExtension.swift */; };
@@ -84,7 +84,7 @@
 		A49A5D1B1D936F30009A0D45 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		A49A5D1D1D936F6D009A0D45 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		A4A5C3621D93D07E00169285 /* UITableViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewControllerExtension.swift; sourceTree = "<group>"; };
-		A4A5C3651D93D2C500169285 /* NSURLComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLComponents.swift; sourceTree = "<group>"; };
+		A4A5C3651D93D2C500169285 /* NSURLComponentsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLComponentsExtension.swift; sourceTree = "<group>"; };
 		A4A9E7E71D952CB600D2DB57 /* With.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = With.swift; sourceTree = "<group>"; };
 		A4B29E8B1D8555BA00BD477F /* Magic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Magic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B29E8E1D8555BA00BD477F /* Magic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Magic.h; sourceTree = "<group>"; };
@@ -271,7 +271,7 @@
 				A4B3B3F51D8C52ED00E6C5A9 /* URLExtension.swift */,
 				A4ECEC7F1D92BB4800938BF6 /* FileManagerExtension.swift */,
 				A4B3B3F31D8C1D6400E6C5A9 /* UserDefaultsExtension.swift */,
-				A4A5C3651D93D2C500169285 /* NSURLComponents.swift */,
+				A4A5C3651D93D2C500169285 /* NSURLComponentsExtension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -469,7 +469,7 @@
 				A42CAB1F1D96227E00D709CF /* SegueHandlerType.swift in Sources */,
 				A4DEF6C71D8E49A300B6563B /* IntExtension.swift in Sources */,
 				A4ECEC7E1D92B99B00938BF6 /* DateFormtterExtension.swift in Sources */,
-				A4A5C3661D93D2C500169285 /* NSURLComponents.swift in Sources */,
+				A4A5C3661D93D2C500169285 /* NSURLComponentsExtension.swift in Sources */,
 				A4B3B3F01D8C17DE00E6C5A9 /* UITextViewExtension.swift in Sources */,
 				A40E122D1D93EF7200EAFBF2 /* UISearchBarExtension.swift in Sources */,
 				A4A9E7E81D952CB600D2DB57 /* With.swift in Sources */,

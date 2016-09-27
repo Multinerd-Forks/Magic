@@ -1,5 +1,5 @@
 //
-//  NSURLComponents.swift
+//  NSURLComponentsExtension.swift
 //  Magic
 //
 //  Created by Broccoli on 2016/9/22.
@@ -37,14 +37,14 @@ public extension NSURLComponents {
         var newUrl = self.string ?? ""
         
         for item in values {
-            newUrl = addOrUpdateQueryStringParameter(key: item.0, value: item.1)
+            newUrl = updateQueryParameter(key: item.0, value: item.1)
         }
         
         return newUrl
     }
     
     public func removeQueryStringParameter(key: String) -> String {
-        return addOrUpdateQueryStringParameter(key: key, value: nil)
+        return updateQueryParameter(key: key, value: nil)
     }
     
 }

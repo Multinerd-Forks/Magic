@@ -16,29 +16,35 @@ public extension UICollectionViewController {
      - returns: Returns an instance of the activity indicator that is centered.
      */
     // move to UICollectionView
-    var activityIndicatorView: UIActivityIndicatorView {
+    public var activityIndicatorView: UIActivityIndicatorView? {
         get {
-            return self.activityIndicatorView
+            return view.viewWithTag(3000) as? UIActivityIndicatorView
         }
         
         set {
-            
+            DispatchQueue.main.async {
+                newValue?.tag = 3000
+                newValue?.center = self.view.center
+                newValue?.hidesWhenStopped = true
+                guard newValue != nil else {
+                    return
+                }
+                self.view.addSubview(newValue!)
+            }
         }
     }
     
-    // TODO: main thread
     public func setupActivityIndicator(
-        viewStyle: UIActivityIndicatorViewStyle = .whiteLarge,
-        color: UIColor = UIColor.gray) -> UIActivityIndicatorView {
-        activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        activityIndicatorView.activityIndicatorViewStyle = viewStyle
-        activityIndicatorView.color = color
-        activityIndicatorView.hidesWhenStopped = true
-        activityIndicatorView.center = view.center
-        
-        view.addSubview(activityIndicatorView)
-        
-        return activityIndicatorView
+        viewStyle: UIActivityIndicatorViewStyle = .gray,
+        color: UIColor = UIColor.gray) {
+        DispatchQueue.main.async {
+            if self.activityIndicatorView == nil  {
+                self.activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+            }
+            self.activityIndicatorView?.activityIndicatorViewStyle = viewStyle
+            self.activityIndicatorView?.color = color
+            
+            self.activityIndicatorView?.startAnimating()
+        }
     }
-    
 }
