@@ -49,12 +49,12 @@ public extension UIImage {
         context?.scaleBy(x: 1.0, y: -1.0);
         context?.setBlendMode(CGBlendMode.normal)
         
-        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height) as CGRect
+        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
         context?.clip(to: rect, mask: self.cgImage!)
         tintColor.setFill()
         context?.fill(rect)
         
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()! as UIImage
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         return newImage
