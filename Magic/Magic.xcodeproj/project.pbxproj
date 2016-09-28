@@ -294,7 +294,6 @@
 		A4E362491D9A588F00A902BF /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				A4E3624A1D9A588F00A902BF /* Function */,
 				A4E3624B1D9A588F00A902BF /* UIApplicationExtension.swift */,
 				A4E3624C1D9A588F00A902BF /* UIButtonExtension.swift */,
 				A4E3624D1D9A588F00A902BF /* UICollectionViewControllerExtension.swift */,
@@ -311,13 +310,6 @@
 				A4E362581D9A588F00A902BF /* UIViewExtension.swift */,
 			);
 			path = UIKit;
-			sourceTree = "<group>";
-		};
-		A4E3624A1D9A588F00A902BF /* Function */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Function;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
