@@ -15,6 +15,7 @@ class CGRectExtensionTest: XCTestCase {
         
         XCTAssertEqual(rect.x, 1)
         XCTAssertEqual(rect.y, 2)
+        // TODO: why?
 //        XCTAssertEqual(rect.width, 3)
 //        XCTAssertEqual(rect.height, 4)
     }

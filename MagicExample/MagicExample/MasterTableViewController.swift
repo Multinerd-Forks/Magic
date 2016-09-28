@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Magic
 
 class MasterTableViewController: UITableViewController {
     let demoArray = ["TableViewDemo"]
@@ -30,7 +31,7 @@ class MasterTableViewController: UITableViewController {
     // MARK: - Table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let tableViewController = storyboard?.instantiateViewController(withIdentifier: "TableViewController")
+            let tableViewController = storyboard?.instantiateViewController(viewController:  TableViewController.self)
             navigationController?.pushViewController(tableViewController!, animated: true)
         }
     }

@@ -64,6 +64,4 @@ class StringExtensionTest: XCTestCase {
     func testSexInfo() {
         // TODO:
     }
-    
-    
 }
