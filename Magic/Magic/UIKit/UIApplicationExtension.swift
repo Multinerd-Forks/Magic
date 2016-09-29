@@ -32,7 +32,7 @@ public extension UIApplication {
     }
 
     func removeLocalNotification(identifier: String) {
-        guard let notifications = self.scheduledLocalNotifications
+        guard let notifications = scheduledLocalNotifications
             , notifications.count > 0 else {
                 return
         }
@@ -40,14 +40,14 @@ public extension UIApplication {
         for item in notifications {
             if let id = item.userInfo?["identifier"] as? String
                 , id == identifier {
-                self.cancelLocalNotification(item)
+                cancelLocalNotification(item)
             }
         }
     }
     
     func clearNotificationTray() {
-        self.applicationIconBadgeNumber = 1
-        self.applicationIconBadgeNumber = 0
+        applicationIconBadgeNumber = 1
+        applicationIconBadgeNumber = 0
     }
     
     @available(iOSApplicationExtension 9.0, *)
