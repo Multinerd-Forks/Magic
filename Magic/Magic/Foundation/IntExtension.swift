@@ -24,12 +24,16 @@ public extension Int {
         }
     }
     
-    // TODO: Times
+    func times(in thread: DispatchQueue = DispatchQueue.global(qos: .background), handler: @escaping (Int) -> ()) {
+        (0..<self).forEach {_ in
+            handler(self)
+        }
+    }
     
-    func delay(in thread: DispatchQueue = DispatchQueue.global(qos: .background), handler:@escaping () -> ()) {
+    func delay(in thread: DispatchQueue = DispatchQueue.global(qos: .background), handler: @escaping (Int) -> ()) {
         let deadlineTime = DispatchTime.now() + .seconds(self)
         thread.asyncAfter(deadline: deadlineTime) {
-           handler()
+           handler(self)
         }
     }
 }
