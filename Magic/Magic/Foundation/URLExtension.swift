@@ -9,8 +9,8 @@
 import Foundation
 
 public extension URL {
-    var queryParameters: [String: String] {
-        var results: [String:String] = [:]
+    var queryParameters: [String : String] {
+        var results = [String : String]()
         let keyValues = self.query?.components(separatedBy: "&")
         keyValues?.forEach {
             let kv = $0.components(separatedBy: "=")
