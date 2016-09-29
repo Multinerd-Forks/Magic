@@ -18,7 +18,8 @@ public struct App {
     }
     
     public static var build: String {
-        return Bundle.main.object(forInfoDictionaryKey: String(kCFBundleVersionKey)) as! String}
+        return Bundle.main.object(forInfoDictionaryKey: String(kCFBundleVersionKey)) as! String
+    }
     
     public static var bundleIdentifier: String {
         return Bundle.main.infoDictionary!["CFBundleIdentifier"] as! String

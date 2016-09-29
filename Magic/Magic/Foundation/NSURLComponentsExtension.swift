@@ -46,5 +46,4 @@ public extension NSURLComponents {
     func removeQueryStringParameter(key: String) -> String {
         return updateQueryParameter(key: key, value: nil)
     }
-    
 }
