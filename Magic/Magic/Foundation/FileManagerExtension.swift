@@ -28,6 +28,8 @@ public extension FileManager {
             directoryUrls = directoryUrls.filter(f)
         }
         
-        return directoryUrls.map { $0.path }
+        return directoryUrls.map {
+            $0.path
+        }
     }
 }
