@@ -26,7 +26,9 @@ public extension Array {
 
 // function
 public extension Array {
-    func contains<Element: Equatable>(_ Element: Element) -> Bool {
-        return self.filter( {$0 as? Element == Element} ).count > 0
+    func contains<Element: Equatable>(_ element: Element) -> Bool {
+        return self.filter {
+            $0 as? Element == element
+            }.count > 0
     }
 }
