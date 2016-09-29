@@ -21,20 +21,20 @@ public extension Dictionary {
     }
     
     var allKeys: [Any] {
-        return reduce([Any](), {
+        return reduce([Any]()) {
             [$0.1.0] + $0.0
-        })
+        }
     }
     
     var allValues: [Any] {
-        return reduce([Any](), {
+        return reduce([Any]()) {
             [$0.1.1] + $0.0
-        })
+        }
     }
 }
 
 public extension Dictionary {
-    mutating func merge<K, V>(dictionaries: Dictionary<K, V>...) {
+    mutating func merged<K, V>(_ dictionaries: Dictionary<K, V>...) {
         dictionaries.forEach {
             $0.forEach {
                 updateValue($0.1 as! Value, forKey: $0.0 as! Key)
@@ -42,12 +42,40 @@ public extension Dictionary {
         }
     }
     
-    // TODO: mutating
-    func removeNulls() -> Dictionary {
-        
+    func merge<K, V>(_ dictionaries: Dictionary<K, V>...) -> Dictionary {
+        var mergedDictionary = self
+        dictionaries.forEach {
+            $0.forEach {
+                mergedDictionary.updateValue($0.1 as! Value, forKey: $0.0 as! Key)
+            }
+        }
+        return mergedDictionary
+    }
+    
+    mutating func removedNulls() {
         let keys = Array(self.keys)
         let values = Array(self.values)
-        var dictionary: Dictionary = [:]
+        var nullKeys = Array<Key>()
+        keys.enumerated().forEach { index, key in
+            
+            var value = values[index]
+            
+            if !(value is NSNull) {
+                if var v = value as? Dictionary, let val = v.removedNulls() as? Value  {
+                    value = val
+                }
+                nullKeys.append(key)
+            }
+        }
+        nullKeys.forEach {
+            self.removeValue(forKey: $0)
+        }
+    }
+    
+    func removeNulls() -> Dictionary {
+        let keys = Array(self.keys)
+        let values = Array(self.values)
+        var dictionary = Dictionary()
         
         keys.enumerated().forEach { index, key in
             
@@ -60,7 +88,6 @@ public extension Dictionary {
                 dictionary[key] = value
             }
         }
-        
         return dictionary
     }
 }

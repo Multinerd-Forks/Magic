@@ -10,6 +10,7 @@
 		A40A6E811D9A169C00052BA2 /* ArrayExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A6E801D9A169C00052BA2 /* ArrayExtensionTest.swift */; };
 		A40A6E831D9A17EA00052BA2 /* DictionaryExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A6E821D9A17EA00052BA2 /* DictionaryExtensionTest.swift */; };
 		A42819731D942A55009F77EE /* Magic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B29E8B1D8555BA00BD477F /* Magic.framework */; };
+		A48602BE1D9D4C1B003F1207 /* FileManagerExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48602BD1D9D4C1B003F1207 /* FileManagerExtensionTest.swift */; };
 		A496FBC21D950A6A005FA5C1 /* IntExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A496FBBE1D950A6A005FA5C1 /* IntExtensionTest.swift */; };
 		A496FBC31D950A6A005FA5C1 /* StringExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A496FBBF1D950A6A005FA5C1 /* StringExtensionTest.swift */; };
 		A496FBC51D950C86005FA5C1 /* AppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A496FBC41D950C86005FA5C1 /* AppTest.swift */; };
@@ -65,6 +66,7 @@
 		A40A6E821D9A17EA00052BA2 /* DictionaryExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensionTest.swift; sourceTree = "<group>"; };
 		A428196E1D942A55009F77EE /* MagicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A42819721D942A55009F77EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A48602BD1D9D4C1B003F1207 /* FileManagerExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerExtensionTest.swift; sourceTree = "<group>"; };
 		A496FBBE1D950A6A005FA5C1 /* IntExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtensionTest.swift; sourceTree = "<group>"; };
 		A496FBBF1D950A6A005FA5C1 /* StringExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionTest.swift; sourceTree = "<group>"; };
 		A496FBC41D950C86005FA5C1 /* AppTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTest.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				A496FBBF1D950A6A005FA5C1 /* StringExtensionTest.swift */,
 				A40A6E801D9A169C00052BA2 /* ArrayExtensionTest.swift */,
 				A40A6E821D9A17EA00052BA2 /* DictionaryExtensionTest.swift */,
+				A48602BD1D9D4C1B003F1207 /* FileManagerExtensionTest.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				A4B29E871D8555BA00BD477F /* Frameworks */,
 				A4B29E881D8555BA00BD477F /* Headers */,
 				A4B29E891D8555BA00BD477F /* Resources */,
+				A48602BC1D9D455F003F1207 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -418,12 +422,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A48602BC1D9D455F003F1207 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A428196A1D942A55009F77EE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A496FBC31D950A6A005FA5C1 /* StringExtensionTest.swift in Sources */,
+				A48602BE1D9D4C1B003F1207 /* FileManagerExtensionTest.swift in Sources */,
 				A4BC681A1D9660BB00735FC9 /* WithTest.swift in Sources */,
 				A496FBC21D950A6A005FA5C1 /* IntExtensionTest.swift in Sources */,
 				A4BC681C1D9662B800735FC9 /* CGRectExtensionTest.swift in Sources */,
@@ -619,7 +640,7 @@
 				INFOPLIST_FILE = Magic/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.broccoliii.Magic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
