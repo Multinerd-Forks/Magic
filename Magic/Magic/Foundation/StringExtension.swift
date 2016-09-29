@@ -96,7 +96,6 @@ public extension String {
     }
     
     func toFloat() -> Float? {
-//        return NumberFormatter().number(from: self)?.floatValue
         return Float(self)
     }
     
@@ -127,7 +126,6 @@ public extension String {
         self = addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
     }
     
-    
     func toQRCodeImage(size: CGSize) -> UIImage {
         let filter = CIFilter(name: "CIQRCodeGenerator")
         let data = self.data(using: .utf8)
@@ -156,9 +154,6 @@ public extension String {
         
         return UIImage(cgImage: scaledImage!)
     }
-    
-    // TODO: 下划线 NSAttributedString
-    // TODO: MD5
 }
 
 // subscript
