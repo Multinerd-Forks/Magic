@@ -46,7 +46,6 @@ public extension UIApplication {
     }
     
     func clearNotificationTray() {
-        applicationIconBadgeNumber = 1
         applicationIconBadgeNumber = 0
     }
     
