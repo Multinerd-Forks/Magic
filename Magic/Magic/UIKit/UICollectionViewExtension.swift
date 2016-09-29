@@ -34,12 +34,8 @@ public extension UICollectionView {
         let indexPaths = indexes.map {
             IndexPath(item: $0, section: section)
         }
-        // TODO: weak self?
-        performBatchUpdates({ [weak self] in
-            guard let weakSelf = self else {
-                return
-            }
-            weakSelf.insertItems(at: indexPaths)
+        performBatchUpdates({ [unowned self] in
+            self.insertItems(at: indexPaths)
         }) { _ in
             completion?()
         }
@@ -49,11 +45,8 @@ public extension UICollectionView {
         let indexPaths = indexes.map {
             IndexPath(item: $0, section: section)
         }
-        performBatchUpdates({ [weak self] in
-            guard let weakSelf = self else {
-                return
-            }
-            weakSelf.reloadItems(at: indexPaths)
+        performBatchUpdates({ [unowned self] in
+            self.reloadItems(at: indexPaths)
         }) { _ in
             completion?()
         }
@@ -63,18 +56,16 @@ public extension UICollectionView {
         let indexPaths = indexes.map {
             IndexPath(item: $0, section: section)
         }
-        performBatchUpdates({ [weak self] in
-            guard let weakSelf = self else { return }
-            weakSelf.deleteItems(at: indexPaths)
+        performBatchUpdates({ [unowned self] in
+            self.deleteItems(at: indexPaths)
         }) { _ in
             completion?()
         }
     }
     
     func reloadSection(index: Int = 0, completion: (() -> Void)? = nil) {
-        performBatchUpdates({ [weak self] in
-            guard let weakSelf = self else { return }
-            weakSelf.reloadSections(IndexSet(integer: index))
+        performBatchUpdates({ [unowned self] in
+            self.reloadSections(IndexSet(integer: index))
         }) { _ in
             completion?()
         }
