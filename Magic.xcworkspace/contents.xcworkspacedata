@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:Magic/Magic.xcodeproj">
+      location = "group:MagicExample/MagicExample.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:MagicExample/MagicExample.xcodeproj">
+      location = "container:Magic/Magic.xcodeproj">
    </FileRef>
 </Workspace>
