@@ -48,15 +48,15 @@ public extension UIColor {
     }
     
     var greenValue: CGFloat? {
-        return self.cgColor.components?[1]
+        return cgColor.components?[1]
     }
     
     var blueValue: CGFloat? {
-        return self.cgColor.components?[2]
+        return cgColor.components?[2]
     }
     
     var alphaValue: CGFloat? {
-        return self.cgColor.components?[3]
+        return cgColor.components?[3]
     }
     
     public class var randomHSBColor: UIColor {

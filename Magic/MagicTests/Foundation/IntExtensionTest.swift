@@ -29,7 +29,7 @@ class IntExtensionTest: XCTestCase {
         // TODO: wait async callback 
         let nowTime = Date().timeIntervalSince1970
         print("nowTime \(nowTime)")
-        5.delay(in: DispatchQueue.main) {
+        5.delay(in: DispatchQueue.main) {_ in 
             XCTAssertTrue(Thread.current.isMainThread)
             
             let delayTime = Date().timeIntervalSince1970

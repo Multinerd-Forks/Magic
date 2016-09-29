@@ -16,11 +16,10 @@ public extension NSObject {
         }
     }
     
-    func getAssociatedObject<T>(_ associativeKey: UnsafeRawPointer) -> T? {
-        if let valueAsType = objc_getAssociatedObject(self, associativeKey) as? T {
-            return valueAsType
-        } else {
+    func getAssociatedObject(_ associativeKey: UnsafeRawPointer) -> Any? {
+        guard let valueAsType = objc_getAssociatedObject(self, associativeKey) else {
             return nil
         }
+        return valueAsType
     }
 }

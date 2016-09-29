@@ -15,17 +15,16 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.tableFooterView = UIView()
-        
         fetchServiceData()
-        setupActivityIndicator()
+        tableView.activityIndicatorView.startAnimating()
+        tableView.tableFooterView = UIView()
     }
 
     func fetchServiceData() {
-        5.delay {
-            self.dataSource = ["1", "3", "5", "7"]
+        5.delay {_ in
+            self.dataSource = ["1", "3", "5", "7", "1", "3", "5", "7", "1", "3", "5", "7"]
             DispatchQueue.main.async {
-                self.activityIndicatorView?.removeFromSuperview()
+                self.tableView.activityIndicatorView.stopAnimating()
                 self.tableView.reloadData()
             }
         }
@@ -40,6 +39,14 @@ extension TableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "TableViewCell")
+        cell.textLabel?.text = dataSource[indexPath.row]
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.alpha = 0.0
+        UIView .animate(withDuration: 0.25) {
+            cell.alpha = 1.0
+        }
     }
 }
