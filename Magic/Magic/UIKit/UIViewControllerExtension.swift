@@ -16,35 +16,6 @@ public extension UIViewController {
 }
 
 public extension UIViewController {
-    
-//    func presentAlert(title: String,
-//                             message: String? = nil,
-//                             buttonText: String = "OK",
-//                             additionalActions: [UIAlertAction]? = nil,
-//                             preferredStyle: UIAlertControllerStyle = .alert,
-//                             includeCancelAction: Bool = false,
-//                             handler: (() -> Void)? = nil) {
-//        let alertController = UIAlertController(
-//            title: title,
-//            message: message,
-//            preferredStyle: preferredStyle
-//        )
-//        
-//        if includeCancelAction {
-//            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-//        }
-//        
-//        if let additionalActions = additionalActions {
-//            additionalActions.forEach { item in
-//                alertController.addAction(item)
-//            }
-//        }
-//        
-//        alertController.addAction(UIAlertAction(title: buttonText) { handler?() })
-//        
-//        present(alertController, animated: true, completion: nil)
-//    }
-    
     @available(iOSApplicationExtension 9.0, *)
     func presentSafariController(url: String, modalPresentationStyle: UIModalPresentationStyle = .overFullScreen) {
         let safariController = SFSafariViewController(url: URL(string: url)!)
@@ -57,28 +28,30 @@ public extension UIViewController {
     
 
     func presentActivityViewController(activityItems: [AnyObject],
-                                              sourceView: UIView, applicationActivities: [UIActivity]? = nil) {
+                                          sourceView: UIView,
+                               applicationActivities: [UIActivity]? = nil) {
         let activity = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
         
-        if let popOver = activity.popoverPresentationController {
-            popOver.sourceView = sourceView
-            popOver.sourceRect = sourceView.bounds
-            popOver.permittedArrowDirections = .any
+        if let popover = activity.popoverPresentationController {
+            popover.sourceView = sourceView
+            popover.sourceRect = sourceView.bounds
+            popover.permittedArrowDirections = .any
         }
         
         present(activity, animated: true, completion: nil)
     }
     
     func presentActivityViewController(activityItems: [AnyObject],
-                                              barButtonItem: UIBarButtonItem, applicationActivities: [UIActivity]? = nil) {
+                                       barButtonItem: UIBarButtonItem,
+                               applicationActivities: [UIActivity]? = nil) {
         let activity = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
         
-        if let popOver = activity.popoverPresentationController {
-            popOver.barButtonItem  = barButtonItem
-            popOver.permittedArrowDirections = .any
+        if let popover = activity.popoverPresentationController {
+            popover.barButtonItem  = barButtonItem
+            popover.permittedArrowDirections = .any
         }
         
         present(activity, animated: true, completion: nil)
     }
-    
 }
+
