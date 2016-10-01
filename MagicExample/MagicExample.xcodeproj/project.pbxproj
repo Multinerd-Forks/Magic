@@ -13,6 +13,7 @@
 		A40A6E731D9A08D900052BA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A40A6E711D9A08D900052BA2 /* LaunchScreen.storyboard */; };
 		A40A6E851D9A1D2500052BA2 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A6E841D9A1D2500052BA2 /* MasterTableViewController.swift */; };
 		A40A6E871D9A1E4500052BA2 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A6E861D9A1E4500052BA2 /* TableViewController.swift */; };
+		A4AB3E431D9E641D003F2112 /* TextViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AB3E421D9E641D003F2112 /* TextViewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A40A6E741D9A08D900052BA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A40A6E841D9A1D2500052BA2 /* MasterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
 		A40A6E861D9A1E4500052BA2 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		A4AB3E421D9E641D003F2112 /* TextViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				A40A6E681D9A08D900052BA2 /* AppDelegate.swift */,
 				A40A6E841D9A1D2500052BA2 /* MasterTableViewController.swift */,
 				A40A6E861D9A1E4500052BA2 /* TableViewController.swift */,
+				A4AB3E421D9E641D003F2112 /* TextViewViewController.swift */,
 				A40A6E6C1D9A08D900052BA2 /* Main.storyboard */,
 				A40A6E6F1D9A08D900052BA2 /* Assets.xcassets */,
 				A40A6E711D9A08D900052BA2 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			files = (
 				A40A6E851D9A1D2500052BA2 /* MasterTableViewController.swift in Sources */,
 				A40A6E871D9A1E4500052BA2 /* TableViewController.swift in Sources */,
+				A4AB3E431D9E641D003F2112 /* TextViewViewController.swift in Sources */,
 				A40A6E691D9A08D900052BA2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
