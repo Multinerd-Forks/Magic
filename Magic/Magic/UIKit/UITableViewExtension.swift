@@ -29,7 +29,6 @@ public extension UITableView {
 }
 
 public extension UITableView {
-    
     func insert(indexes: [Int], section: Int = 0, animation: UITableViewRowAnimation = .automatic) {
         let indexPaths = indexes.map {
             IndexPath(row: $0, section: section)
@@ -83,7 +82,9 @@ public extension UITableView {
         performUpdates {
             reloadSections(IndexSet(integer: section), with: animation)
         }
-        if animation == .none { UIView.setAnimationsEnabled(true) }
+        if animation == .none {
+            UIView.setAnimationsEnabled(true)
+        }
     }
     
     fileprivate func performUpdates( closure: () -> Void) {

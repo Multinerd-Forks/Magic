@@ -15,7 +15,7 @@ public extension UILabel {
         paragraphStyle.alignment = textAlignment
         let attributes = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle]
         
-        let contentSize: CGSize = text!.boundingRect(
+        let contentSize = text!.boundingRect(
             with: frame.size,
             options: ([.usesLineFragmentOrigin, .usesFontLeading]),
             attributes: attributes,

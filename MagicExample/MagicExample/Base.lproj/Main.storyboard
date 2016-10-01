@@ -25,6 +25,42 @@
             </objects>
             <point key="canvasLocation" x="16.800000000000001" y="3.1484257871064472"/>
         </scene>
+        <!--Text View View Controller-->
+        <scene sceneID="Pvc-0U-l1y">
+            <objects>
+                <viewController storyboardIdentifier="TextViewViewController" automaticallyAdjustsScrollViewInsets="NO" id="qan-x0-07g" customClass="TextViewViewController" customModule="MagicExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pyq-QD-QKc"/>
+                        <viewControllerLayoutGuide type="bottom" id="oLB-zz-GGY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wvh-hV-DqH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TSq-3b-fmn">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="6qW-aS-Rzn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TSq-3b-fmn" firstAttribute="top" secondItem="Pyq-QD-QKc" secondAttribute="bottom" constant="20" id="SEV-nW-6uV"/>
+                            <constraint firstItem="TSq-3b-fmn" firstAttribute="leading" secondItem="wvh-hV-DqH" secondAttribute="leading" constant="20" id="pI9-bf-5sZ"/>
+                            <constraint firstAttribute="trailing" secondItem="TSq-3b-fmn" secondAttribute="trailing" constant="20" id="rNw-jg-Ibf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="TSq-3b-fmn" id="aom-tk-aUx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NZ8-L1-Ghs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="853.60000000000002" y="451.12443778110946"/>
+        </scene>
         <!--Table View Controller-->
         <scene sceneID="94a-Zu-LW9">
             <objects>
@@ -41,7 +77,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVU-JS-gAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="3"/>
+            <point key="canvasLocation" x="855" y="-252"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xce-LZ-oX5">
