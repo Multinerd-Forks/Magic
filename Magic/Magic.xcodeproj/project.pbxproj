@@ -34,7 +34,7 @@
 		A4E362651D9A588F00A902BF /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E362401D9A588F00A902BF /* StringExtension.swift */; };
 		A4E362661D9A588F00A902BF /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E362411D9A588F00A902BF /* URLExtension.swift */; };
 		A4E362671D9A588F00A902BF /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E362421D9A588F00A902BF /* UserDefaultsExtension.swift */; };
-		A4E362681D9A588F00A902BF /* With.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E362441D9A588F00A902BF /* With.swift */; };
+		A4E362681D9A588F00A902BF /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E362441D9A588F00A902BF /* Function.swift */; };
 		A4E362691D9A588F00A902BF /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E362461D9A588F00A902BF /* SegueHandlerType.swift */; };
 		A4E3626A1D9A588F00A902BF /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E362481D9A588F00A902BF /* App.swift */; };
 		A4E3626B1D9A588F00A902BF /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E3624B1D9A588F00A902BF /* UIApplicationExtension.swift */; };
@@ -94,7 +94,7 @@
 		A4E362401D9A588F00A902BF /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A4E362411D9A588F00A902BF /* URLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		A4E362421D9A588F00A902BF /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
-		A4E362441D9A588F00A902BF /* With.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = With.swift; sourceTree = "<group>"; };
+		A4E362441D9A588F00A902BF /* Function.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
 		A4E362461D9A588F00A902BF /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		A4E362481D9A588F00A902BF /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		A4E3624B1D9A588F00A902BF /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
@@ -279,7 +279,7 @@
 		A4E362431D9A588F00A902BF /* Function */ = {
 			isa = PBXGroup;
 			children = (
-				A4E362441D9A588F00A902BF /* With.swift */,
+				A4E362441D9A588F00A902BF /* Function.swift */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -361,7 +361,6 @@
 				A4B29E871D8555BA00BD477F /* Frameworks */,
 				A4B29E881D8555BA00BD477F /* Headers */,
 				A4B29E891D8555BA00BD477F /* Resources */,
-				A48602BC1D9D455F003F1207 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -384,6 +383,7 @@
 				TargetAttributes = {
 					A428196D1D942A55009F77EE = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					A4B29E8A1D8555BA00BD477F = {
@@ -428,22 +428,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		A48602BC1D9D455F003F1207 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		A428196A1D942A55009F77EE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -469,7 +453,7 @@
 				A4E3626E1D9A588F00A902BF /* UICollectionViewExtension.swift in Sources */,
 				A4E362641D9A588F00A902BF /* NSURLComponentsExtension.swift in Sources */,
 				A4E3626C1D9A588F00A902BF /* UIButtonExtension.swift in Sources */,
-				A4E362681D9A588F00A902BF /* With.swift in Sources */,
+				A4E362681D9A588F00A902BF /* Function.swift in Sources */,
 				A4E362731D9A588F00A902BF /* UIStoryboardExtension.swift in Sources */,
 				A4E3626F1D9A588F00A902BF /* UIColorExtension.swift in Sources */,
 				A4E362781D9A588F00A902BF /* UIViewExtension.swift in Sources */,
