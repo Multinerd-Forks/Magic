@@ -91,10 +91,13 @@ public extension UIView {
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
         let context = UIGraphicsGetCurrentContext()
         context?.translateBy(x: 0, y: 0)
+        guard let _ = context else {
+            return nil
+        }
         layer.render(in: context!)
-        let viewImage = UIGraphicsGetImageFromCurrentImageContext()
+        let snapshot = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return viewImage
+        return snapshot
     }
     
     var top: CGFloat {
@@ -178,6 +181,7 @@ public extension UIView {
                 return true
             }
         }
+        
         return false
     }
     
@@ -193,15 +197,46 @@ public extension UIView {
         }
     }
     
-    func removeView(with tag: NSInteger) {
-        for subView in subviews {
-            if subView.tag == tag {
-                subView.removeFromSuperview()
+    func removeView(with tag: Int) {
+        subviews.forEach {
+            if $0.tag == tag {
+                 $0.removeFromSuperview()
             }
         }
     }
 }
 
+fileprivate var kActivityIndicatorViewAssociativeKey = "kActivityIndicatorViewAssociativeKey"
+public extension UIView {
+    var activityIndicatorView: UIActivityIndicatorView {
+        get {
+            guard let activityIndicatorView = getAssociatedObject(&kActivityIndicatorViewAssociativeKey) as? UIActivityIndicatorView else {
+
+                let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+                activityIndicatorView.activityIndicatorViewStyle = .gray
+                activityIndicatorView.color = .gray
+                activityIndicatorView.center = center
+                activityIndicatorView.frame.y = activityIndicatorView.frame.y - 40
+                activityIndicatorView.hidesWhenStopped = true
+                addSubview(activityIndicatorView)
+                
+                setAssociatedObject(activityIndicatorView, associativeKey: &kActivityIndicatorViewAssociativeKey, policy: .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                return activityIndicatorView
+            }
+            return activityIndicatorView
+        }
+        
+        set {
+            addSubview(newValue)
+            setAssociatedObject(newValue, associativeKey:&kActivityIndicatorViewAssociativeKey, policy: .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    func setupActivityIndicator(style: UIActivityIndicatorViewStyle, color: UIColor) {
+        activityIndicatorView.activityIndicatorViewStyle = style
+        activityIndicatorView.color = color
+    }
+}
 
 public extension UIView {
     public enum UIViewShakeDirection : Int {
