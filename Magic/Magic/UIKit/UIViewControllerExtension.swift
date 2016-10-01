@@ -17,7 +17,7 @@ public extension UIViewController {
 
 public extension UIViewController {
     @available(iOSApplicationExtension 9.0, *)
-    func presentSafariController(url: String, modalPresentationStyle: UIModalPresentationStyle = .overFullScreen) {
+    func presentSafariController(URL url: String, modalPresentationStyle: UIModalPresentationStyle = .overFullScreen) {
         let safariController = SFSafariViewController(url: URL(string: url)!)
         safariController.modalPresentationStyle = .overFullScreen
         
