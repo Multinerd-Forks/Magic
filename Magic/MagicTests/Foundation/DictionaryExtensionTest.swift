@@ -23,4 +23,33 @@ class DictionaryExtensionTest: XCTestCase {
         let testData: [String : Any] = ["name" : "broccoli", "age": 17]
         print(testData.allValues)
     }
+    
+    func testMerged() {
+        var testData = ["name" : "broccoli"]
+        let mergeData = ["girlfriend" : "kiamo"]
+        testData.merged(mergeData)
+        XCTAssertEqual(testData, ["name" : "broccoli", "girlfriend" : "kiamo"])
+    }
+    
+    func testMerge() {
+        let testData = ["name" : "broccoli"]
+        let mergeData = ["girlfriend" : "kiamo"]
+        let resulrData = testData.merge(mergeData)
+        XCTAssertEqual(resulrData, ["name" : "broccoli", "girlfriend" : "kiamo"])
+    }
+    
+    func testRemovedNulls() {
+        let houseAddress: String? = nil
+        var testData = ["name" : "broccoli", "house" : houseAddress]
+        testData.removedNulls()
+        XCTAssertNil(testData["house"])
+    }
+    
+    func testRemoveNulls() {
+        let houseAddress: String? = nil
+        let testData = ["name" : "broccoli", "house" : houseAddress]
+        let resultData = testData.removeNulls()
+        XCTAssertNil(resultData["house"]!)
+    }
+    // TODO: test operator
 }
