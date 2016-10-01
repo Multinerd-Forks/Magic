@@ -27,12 +27,12 @@ public extension String {
     
     var base64: String? {
         let data = self.data(using: .utf8)
-        let base64String = data?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        let base64String = data?.base64EncodedString()
         return base64String
     }
     
-    var lenght: NSInteger {
-        return lengthOfBytes(using: String.Encoding.utf8)
+    var lenght: Int {
+        return lengthOfBytes(using: .utf8)
     }
 }
 
@@ -72,7 +72,7 @@ public extension String {
     }
     
     func uppercaseFirst() -> String {
-        if lengthOfBytes(using: String.Encoding.utf8) <= 1 {
+        if lengthOfBytes(using: .utf8) <= 1 {
             return uppercased()
         }
         
