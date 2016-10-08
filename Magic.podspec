@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "broccoliii" => "broccoliii.me@gmail.com" }
   s.source       = { :git => "https://github.com/SwiftyMagic/Magic.git", :tag => "1.0.0" }
   s.source_files = 'Magic/Magic/*.{h,swift}'
-  s.frameworks   = 'Foundation'
+  s.frameworks   = 'Foundation', 'UIKit'
   s.requires_arc = true
 end
+
