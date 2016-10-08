@@ -15,11 +15,6 @@ class TextViewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        textView.placeholder = "placeholder"
-        print(textView.placeholder)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         textView.placeholder = "placeholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholderplaceholder"
     }
 }
