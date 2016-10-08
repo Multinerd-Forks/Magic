@@ -10,6 +10,7 @@
 		A40A6E811D9A169C00052BA2 /* ArrayExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A6E801D9A169C00052BA2 /* ArrayExtensionTest.swift */; };
 		A40A6E831D9A17EA00052BA2 /* DictionaryExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40A6E821D9A17EA00052BA2 /* DictionaryExtensionTest.swift */; };
 		A42819731D942A55009F77EE /* Magic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B29E8B1D8555BA00BD477F /* Magic.framework */; };
+		A43B99A01DA8B10E0031EEA7 /* DispatchQueueExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43B999F1DA8B10E0031EEA7 /* DispatchQueueExtension.swift */; };
 		A44389821D9E0994004FBCA7 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44389811D9E0994004FBCA7 /* CalendarExtensionTest.swift */; };
 		A44389841D9E0E74004FBCA7 /* DataExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44389831D9E0E74004FBCA7 /* DataExtensionTest.swift */; };
 		A48602BE1D9D4C1B003F1207 /* FileManagerExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48602BD1D9D4C1B003F1207 /* FileManagerExtensionTest.swift */; };
@@ -68,6 +69,7 @@
 		A40A6E821D9A17EA00052BA2 /* DictionaryExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensionTest.swift; sourceTree = "<group>"; };
 		A428196E1D942A55009F77EE /* MagicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A42819721D942A55009F77EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A43B999F1DA8B10E0031EEA7 /* DispatchQueueExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtension.swift; sourceTree = "<group>"; };
 		A44389811D9E0994004FBCA7 /* CalendarExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarExtensionTest.swift; sourceTree = "<group>"; };
 		A44389831D9E0E74004FBCA7 /* DataExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtensionTest.swift; sourceTree = "<group>"; };
 		A48602BD1D9D4C1B003F1207 /* FileManagerExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerExtensionTest.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				A4E362401D9A588F00A902BF /* StringExtension.swift */,
 				A4E362411D9A588F00A902BF /* URLExtension.swift */,
 				A4E362421D9A588F00A902BF /* UserDefaultsExtension.swift */,
+				A43B999F1DA8B10E0031EEA7 /* DispatchQueueExtension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 			files = (
 				A4E3626E1D9A588F00A902BF /* UICollectionViewExtension.swift in Sources */,
 				A4E362641D9A588F00A902BF /* NSURLComponentsExtension.swift in Sources */,
+				A43B99A01DA8B10E0031EEA7 /* DispatchQueueExtension.swift in Sources */,
 				A4E3626C1D9A588F00A902BF /* UIButtonExtension.swift in Sources */,
 				A4E362681D9A588F00A902BF /* Function.swift in Sources */,
 				A4E362731D9A588F00A902BF /* UIStoryboardExtension.swift in Sources */,

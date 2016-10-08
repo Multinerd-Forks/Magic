@@ -16,7 +16,7 @@ extension UITextView {
         get {
             guard let placeholderLabel = getAssociatedObject(&kPlaceholderLabelAssociativeKey) as? UILabel else {
                 let left = textContainer.lineFragmentPadding + textContainerInset.left
-                let top = textContainerInset.top
+                let top = textContainerInset.top - 1
                 let right = -CGFloat(0.0)
                 let bottom = -CGFloat(0.0)
                 
@@ -32,7 +32,7 @@ extension UITextView {
                         self.placeholderLabel.isHidden = false
                     }
                 })
-
+                placeholderLabel.backgroundColor = UIColor.red
                 placeholderLabel.textColor = UIColor(red: 199 / 255.0, green: 199 / 255.0, blue: 205 / 255.0, alpha: 1.0)
                 setAssociatedObject(placeholderLabel as AnyObject?, associativeKey: &kPlaceholderLabelAssociativeKey, policy: .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                 addSubview(placeholderLabel)
