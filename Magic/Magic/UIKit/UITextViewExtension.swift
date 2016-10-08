@@ -15,10 +15,8 @@ extension UITextView {
    fileprivate var placeholderLabel: UILabel {
         get {
             guard let placeholderLabel = getAssociatedObject(&kPlaceholderLabelAssociativeKey) as? UILabel else {
-                // TODO: fix
                 let left = textContainer.lineFragmentPadding + textContainerInset.left
                 let top = textContainerInset.top
-                //                let right = -textContainerInset.right
                 let right = -CGFloat(0.0)
                 let bottom = -CGFloat(0.0)
                 
@@ -34,20 +32,22 @@ extension UITextView {
                         self.placeholderLabel.isHidden = false
                     }
                 })
-//                placeholderLabel.textColor = UIColor(red: 0, green: 0, blue: 25 / 255.0, alpha: 0.22)
-                placeholderLabel.preferredMaxLayoutWidth = 200
-                placeholderLabel.textColor = UIColor.black
-                placeholderLabel.backgroundColor = UIColor.red
+
+                placeholderLabel.textColor = UIColor(red: 199 / 255.0, green: 199 / 255.0, blue: 205 / 255.0, alpha: 1.0)
                 setAssociatedObject(placeholderLabel as AnyObject?, associativeKey: &kPlaceholderLabelAssociativeKey, policy: .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                 addSubview(placeholderLabel)
                 
                 placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
-                print(placeholderLabel.constraints)
-                self.addConstraint(NSLayoutConstraint(item: placeholderLabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: top))
-                self.addConstraint(NSLayoutConstraint(item: placeholderLabel, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: left))
-                self.addConstraint(NSLayoutConstraint(item: placeholderLabel, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: right))
-                self.addConstraint(NSLayoutConstraint(item: placeholderLabel, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: bottom))
                 
+                addConstraint(NSLayoutConstraint(item: placeholderLabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: top))
+               addConstraint(NSLayoutConstraint(item: placeholderLabel, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: left))
+                addConstraint(NSLayoutConstraint(item: placeholderLabel, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: right))
+                addConstraint(NSLayoutConstraint(item: placeholderLabel, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: bottom))
+                
+                let observingKeys = ["attributedText", "bounds", "font", "frame", "text", "textAlignment", "textContainerInset"];
+                for key in observingKeys {
+                    addObserver(self, forKeyPath: key, options: .new, context: nil)
+                }
                 return placeholderLabel
             }
             return placeholderLabel
@@ -58,6 +58,10 @@ extension UITextView {
         }
     }
     
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        placeholderLabel.preferredMaxLayoutWidth = frame.size.width - (textContainer.lineFragmentPadding + textContainerInset.left)
+    }
+    
     public var placeholder: String? {
         get {
             return getAssociatedObject(&kPlaceholderAssociativeKey) as? String
@@ -66,12 +70,6 @@ extension UITextView {
         set {
             setAssociatedObject(newValue as AnyObject?, associativeKey: &kPlaceholderAssociativeKey, policy: .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             placeholderLabel.text = newValue
-//             print(placeholderLabel.constraints)
-//            placeholderLabel.constraints.forEach {
-//                placeholderLabel.removeConstraint($0)
-//            }
-//            self.layoutIfNeeded()
-            self.updateConstraints()
         }
     }
 }
