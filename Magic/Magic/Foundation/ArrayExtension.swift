@@ -31,4 +31,24 @@ public extension Array {
             $0 as? Element == element
             }.count > 0
     }
+    
+    func indexOf<Element: Equatable>(item: Element) -> Int? {
+        for (index, _) in enumerated() {
+            if contains(item) {
+                return index
+            }
+        }
+        
+        return nil
+    }
+    
+    func indexOf(condition: (Element) -> Bool) -> Int? {
+        for (index, element) in enumerated() {
+            if condition(element) {
+                return index
+            }
+        }
+        
+        return nil
+    }
 }
