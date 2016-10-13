@@ -15,6 +15,7 @@
 		A44389841D9E0E74004FBCA7 /* DataExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44389831D9E0E74004FBCA7 /* DataExtensionTest.swift */; };
 		A46F44C01DAA44CE00B1B5C2 /* SequenceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46F44BF1DAA44CE00B1B5C2 /* SequenceExtension.swift */; };
 		A48602BE1D9D4C1B003F1207 /* FileManagerExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48602BD1D9D4C1B003F1207 /* FileManagerExtensionTest.swift */; };
+		A48C67391DAF827800DDD7B0 /* UIWebViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C67381DAF827800DDD7B0 /* UIWebViewExtension.swift */; };
 		A496FBC21D950A6A005FA5C1 /* IntExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A496FBBE1D950A6A005FA5C1 /* IntExtensionTest.swift */; };
 		A496FBC31D950A6A005FA5C1 /* StringExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A496FBBF1D950A6A005FA5C1 /* StringExtensionTest.swift */; };
 		A496FBC51D950C86005FA5C1 /* AppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A496FBC41D950C86005FA5C1 /* AppTest.swift */; };
@@ -88,6 +89,7 @@
 		A44389831D9E0E74004FBCA7 /* DataExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtensionTest.swift; sourceTree = "<group>"; };
 		A46F44BF1DAA44CE00B1B5C2 /* SequenceExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceExtension.swift; sourceTree = "<group>"; };
 		A48602BD1D9D4C1B003F1207 /* FileManagerExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagerExtensionTest.swift; sourceTree = "<group>"; };
+		A48C67381DAF827800DDD7B0 /* UIWebViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWebViewExtension.swift; sourceTree = "<group>"; };
 		A496FBBE1D950A6A005FA5C1 /* IntExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtensionTest.swift; sourceTree = "<group>"; };
 		A496FBBF1D950A6A005FA5C1 /* StringExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionTest.swift; sourceTree = "<group>"; };
 		A496FBC41D950C86005FA5C1 /* AppTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTest.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				A4FD01491DACEF4A0039290E /* UIAlertControllerExtension.swift */,
 				A4DAA5141DADFA0A001CE960 /* UIControlExtension.swift */,
 				A4DAA5161DADFBC0001CE960 /* UIGestureRecognizerExtension.swift */,
+				A48C67381DAF827800DDD7B0 /* UIWebViewExtension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				A4E3626C1D9A588F00A902BF /* UIButtonExtension.swift in Sources */,
 				A4E362681D9A588F00A902BF /* Function.swift in Sources */,
 				A4E362731D9A588F00A902BF /* UIStoryboardExtension.swift in Sources */,
+				A48C67391DAF827800DDD7B0 /* UIWebViewExtension.swift in Sources */,
 				A4E3626F1D9A588F00A902BF /* UIColorExtension.swift in Sources */,
 				A4E362781D9A588F00A902BF /* UIViewExtension.swift in Sources */,
 				A4E362661D9A588F00A902BF /* URLExtension.swift in Sources */,
