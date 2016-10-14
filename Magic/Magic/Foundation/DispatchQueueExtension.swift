@@ -12,7 +12,7 @@ public extension DispatchQueue {
     
     private static var identifierTracker = [String]()
     
-    public class func once(identifier: String, _ block: () -> Void) {
+    class func once(identifier: String, _ block: () -> Void) {
         objc_sync_enter(self)
         defer {
             objc_sync_exit(self)
