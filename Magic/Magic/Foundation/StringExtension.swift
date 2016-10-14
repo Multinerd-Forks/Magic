@@ -154,6 +154,8 @@ public extension String {
         
         return UIImage(cgImage: scaledImage!)
     }
+    
+    // TODO: replace
 }
 
 // subscript
