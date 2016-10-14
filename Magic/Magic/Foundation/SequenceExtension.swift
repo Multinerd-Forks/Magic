@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Sequence {
+public extension Sequence {
     func all(check: (Iterator.Element) -> Bool) -> Bool {
         for element in self {
             guard check(element) else {
