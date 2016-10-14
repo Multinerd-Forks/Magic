@@ -9,14 +9,13 @@
 import Foundation
 
 @discardableResult
-
 func With<T>(item: T, update: (inout T) throws -> Void) rethrows -> T {
     var this = item
     try update(&this)
     return this
 }
 
-func methodSwizzling<T>(_obecjt: T.Type,originalSelector: Selector, swizzledSelector: Selector) {
+func methodSwizzling<T>(_ obecjt: T.Type,originalSelector: Selector, swizzledSelector: Selector) {
     let originalMethod = class_getInstanceMethod(T.self as! AnyClass, originalSelector)
     let swizzledMethod = class_getInstanceMethod(T.self as! AnyClass, swizzledSelector)
     
