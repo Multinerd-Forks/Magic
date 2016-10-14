@@ -9,7 +9,7 @@
 import Foundation
 
 public extension UITableView {
-    public class var defaultCellIdentifier: String {
+    class var defaultCellIdentifier: String {
         return "Cell"
     }
     
@@ -19,11 +19,11 @@ public extension UITableView {
                          forCellReuseIdentifier: cellIdentifier)
     }
     
-    public subscript(indexPath: IndexPath) -> UITableViewCell {
+    subscript(indexPath: IndexPath) -> UITableViewCell {
         return dequeueReusableCell(withIdentifier: UITableView.defaultCellIdentifier, for: indexPath)
     }
     
-    public subscript(indexPath: IndexPath, identifier: String) -> UITableViewCell {
+    subscript(indexPath: IndexPath, identifier: String) -> UITableViewCell {
         return dequeueReusableCell(withIdentifier: identifier, for: indexPath)
     }
 }
@@ -87,7 +87,7 @@ public extension UITableView {
         }
     }
     
-    fileprivate func performUpdates( closure: () -> Void) {
+    private func performUpdates( closure: () -> Void) {
         beginUpdates()
         closure()
         endUpdates()
