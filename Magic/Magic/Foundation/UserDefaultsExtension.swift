@@ -10,7 +10,7 @@ import Foundation
 
 // subscript
 public extension UserDefaults {
-    subscript(key: String) -> Any? {
+    @nonobjc subscript(key: String) -> Any? {
         get {
             return object(forKey: key)
         }
