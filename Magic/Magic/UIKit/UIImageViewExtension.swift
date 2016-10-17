@@ -13,7 +13,7 @@ extension UIImageView {
         self.init(image: UIImage(named: imageName))
     }
     
-    func jk_reflect() {
+    func reflect() {
         var frame = self.frame
         frame.origin.y += (frame.size.height + 1)
         let reflectionImageView = UIImageView(frame: frame)
