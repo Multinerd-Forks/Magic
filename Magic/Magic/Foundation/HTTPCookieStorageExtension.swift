@@ -10,10 +10,10 @@ import Foundation
 
 extension HTTPCookieStorage {
     func saveCookie() {
-        var cookieData = [Any]()
+        var cookies = [[HTTPCookiePropertyKey: Any]]()
         let cookieStorage = HTTPCookieStorage.shared
         for cookie: HTTPCookie in cookieStorage.cookies! {
-            var cookieDictionary = [AnyHashable: Any]()
+            var cookieDictionary = [HTTPCookiePropertyKey: Any]()
             cookieDictionary[HTTPCookiePropertyKey.name] = cookie.name
             cookieDictionary[HTTPCookiePropertyKey.value] = cookie.value
             cookieDictionary[HTTPCookiePropertyKey.domain] = cookie.domain
@@ -23,21 +23,25 @@ extension HTTPCookieStorage {
             if (cookie.expiresDate != nil) {
                 cookieDictionary[HTTPCookiePropertyKey.expires] = cookie.expiresDate
             }
-            cookieData.append(cookieDictionary)
+            cookies.append(cookieDictionary)
         }
-        // TODO:
-//        cookieData.write(toFile: self.storagePath(), atomically: true)
+        
+        let cookieData = try? JSONSerialization.data(withJSONObject: cookies, options: .prettyPrinted)
+        let JSONString = String(data: cookieData!, encoding: .utf8)
+        try? JSONString?.write(toFile: storagePath(), atomically: true, encoding: .utf8)
     }
     
+    // TODO:
     func loadCookie() {
-//        var cookies = [Any](contentsOfFile: self.storagePath())
-//        var cookieStorage = HTTPCookieStorage.shared
-//        for cookieData: [AnyHashable: Any] in cookies {
-//            cookieStorage.setCookie(HTTPCookie.withProperties(cookieData))
-//        }
+        
+        let JSONString = try? String.init(contentsOfFile: storagePath(), encoding: .utf8) 
+        let cookies = try? JSONSerialization.jsonObject(with: Data(base64Encoded: JSONString!)!, options: .allowFragments) as! [[HTTPCookiePropertyKey: Any]]
+        for cookie: [HTTPCookiePropertyKey: Any] in cookies! {
+            HTTPCookieStorage.shared.setCookie(HTTPCookie(properties: cookie)!)
+        }
     }
     
-    fileprivate func storagePath() -> String {
+    private func storagePath() -> String {
         var paths = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)
         return "\(paths[0])/Cookies.data"
     }
