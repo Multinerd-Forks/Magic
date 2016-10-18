@@ -49,4 +49,40 @@ public extension CGRect {
             size.height = newValue
         }
     }
+    
+    var left: CGFloat {
+        get {
+            return origin.x
+        }
+        set {
+            origin.x = newValue
+        }
+    }
+    
+    public var right: CGFloat {
+        get {
+            return x + width
+        }
+        
+        set {
+            x = newValue - width
+        }
+    }
+    
+     var top: CGFloat {
+        get {
+            return y
+        }
+        set {
+            y = newValue
+        }
+    }
+     var bottom: CGFloat {
+        get {
+            return y + height
+        }
+        set {
+            y = newValue - height
+        }
+    }
 }
