@@ -32,23 +32,44 @@ public extension Array {
             }.count > 0
     }
     
-    func indexOf<Element: Equatable>(item: Element) -> Int? {
+    func indexsOf<Element: Equatable>(_ item: Element) -> [Int] {
+        var indexs = [Int]()
         for (index, _) in enumerated() {
             if contains(item) {
-                return index
+               indexs.append(index)
             }
         }
         
-        return nil
+        return indexs
     }
     
-    func indexOf(condition: (Element) -> Bool) -> Int? {
+    func indexsOf(_ condition: (Element) -> Bool) -> [Int] {
+        var indexs = [Int]()
         for (index, element) in enumerated() {
             if condition(element) {
-                return index
+                indexs.append(index)
             }
         }
         
-        return nil
+        return indexs
+    }
+    
+    func chunk(_ chunkSize: Int) -> [[Element]] {
+        return stride(from: 0, to: self.count, by: chunkSize)
+            .map { (startIndex) -> [Element] in
+            let endIndex = (startIndex.advanced(by: chunkSize) > self.count) ? self.count-startIndex : chunkSize
+            return Array(self[startIndex..<startIndex.advanced(by: endIndex)])
+        }
+    }
+}
+
+public func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
+    switch (lhs, rhs) {
+    case (.some(let lhs), .some(let rhs)):
+        return lhs == rhs
+    case (.none, .none):
+        return true
+    default:
+        return false
     }
 }
