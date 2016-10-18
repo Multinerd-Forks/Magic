@@ -9,15 +9,9 @@
 import Foundation
 
 extension CGSize {
-    /**
-     Aspect fit size
-     
-     - parameter boundingSize: boundingSize
-     
-     - returns: CGSize
-     */
     func aspectFit(_ boundingSize: CGSize) -> CGSize {
         let ratio = min(boundingSize.width / width, boundingSize.height / height)
         return CGSize(width: width * ratio, height: height * ratio)
     }
 }
+
