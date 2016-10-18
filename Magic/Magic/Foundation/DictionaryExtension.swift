@@ -8,7 +8,7 @@
 
 import Foundation
 
-// propertyr
+// property
 public extension Dictionary {
     var JSONString: String? {
         do {
@@ -50,6 +50,17 @@ public extension Dictionary {
             }
         }
         return mergedDictionary
+    }
+    
+    func combine<K, V>(_ left: Dictionary<K, V>, right: Dictionary<K, V>) -> Dictionary<K, V> {
+        var map = Dictionary<K, V>()
+        for (k, v) in left {
+            map[k] = v
+        }
+        for (k, v) in right {
+            map[k] = v
+        }
+        return map
     }
     
     mutating func removedNulls() {
