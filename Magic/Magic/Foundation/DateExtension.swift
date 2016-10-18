@@ -10,7 +10,7 @@ import Foundation
 
 // init
 public extension Date {
-    public init?(from dateString: String, dateFormat: String = "yyyy/MM/dd HH:mm") {
+   init?(from dateString: String, dateFormat: String = "yyyy-MM-dd HH:mm") {
         let formatter = DateFormatter()
         formatter.dateFormat = dateFormat
         
@@ -99,4 +99,22 @@ public extension Date {
         let seconds = -NSTimeZone.default.secondsFromGMT(for: self)
         return Date(timeInterval: TimeInterval(seconds), since: self)
     }
+}
+
+func <=(lhs: Date, rhs: Date) -> Bool {
+    let res = lhs.compare(rhs)
+    return res == .orderedAscending || res == .orderedSame
+}
+func >=(lhs: Date, rhs: Date) -> Bool {
+    let res = lhs.compare(rhs)
+    return res == .orderedDescending || res == .orderedSame
+}
+func >(lhs: Date, rhs: Date) -> Bool {
+    return lhs.compare(rhs) == .orderedDescending
+}
+func <(lhs: Date, rhs: Date) -> Bool {
+    return lhs.compare(rhs) == .orderedAscending
+}
+func ==(lhs: Date, rhs: Date) -> Bool {
+    return lhs.compare(rhs) == .orderedSame
 }
