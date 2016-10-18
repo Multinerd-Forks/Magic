@@ -9,19 +9,17 @@
 import Foundation
 
 public extension Int {
-    func toBool () -> Bool? {
-        switch true {
-        case self == 0:
-            return false
-        case self == 1:
-            return true
-        case self > 0:
-            return true
-        case self < 0:
-            return false
-        default:
-            return nil
-        }
+    
+    var isEven:Bool     {return (self % 2 == 0)}
+    var isOdd:Bool      {return (self % 2 != 0)}
+    var isPositive:Bool {return (self >= 0)}
+    var isNegative:Bool {return (self < 0)}
+    
+    func toDouble() -> Double {
+        return Double(self)
+    }
+    func toFloat() -> Float {
+        return Float(self)
     }
     
     func times(in thread: DispatchQueue = DispatchQueue.global(qos: .background), handler: @escaping (Int) -> ()) {
