@@ -9,15 +9,47 @@
 import Foundation
 
 extension Timer {
-    public static func every(seconds: TimeInterval, handler: @escaping (CFRunLoopTimer?) -> Void) -> Timer {
-        let fireDate = CFAbsoluteTimeGetCurrent()
-        let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, fireDate, seconds, 0, 0, handler)
-        CFRunLoopAddTimer(CFRunLoopGetCurrent(), timer, .commonModes)
+    
+    @discardableResult
+    class func every(seconds interval: TimeInterval, handler: @escaping () -> Void) -> Timer {
+        let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, CFAbsoluteTimeGetCurrent() + interval, interval, 0, 0) { _ in
+            handler()
+        }
         return timer!
     }
     
-    public static func delay(seconds: Double, queue: DispatchQueue = .global(qos: .background), after: @escaping ()->()) {
-        let time = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        queue.asyncAfter(deadline: time, execute: after)
+    @discardableResult
+    class func after(seconds interval: TimeInterval, queue: DispatchQueue = .global(qos: .background), handler: @escaping () -> Void) -> Timer {
+        let timer = CFRunLoopTimerCreateWithHandler(kCFAllocatorDefault, CFAbsoluteTimeGetCurrent() + interval, 0, 0, 0) { _ in
+            handler()
+        }
+        return timer!
+    }
+
+    private class ActionStorage {
+        var timer: Timer!
+        var action: ((Timer) -> Void)!
+        
+        @objc func triggerAction() {
+            action(timer)
+        }
+    }
+    
+    convenience init(timeInterval: TimeInterval, userInfo: Any? = nil, repeats: Bool = false, action: @escaping (Timer) -> ()) {
+        let actionStorage = ActionStorage()
+        
+        self.init(timeInterval: timeInterval, target: actionStorage, selector: #selector(ActionStorage.triggerAction), userInfo: userInfo, repeats: repeats)
+        actionStorage.timer = self
+        actionStorage.action = action
+    }
+    
+    class func schedule(timeInterval: TimeInterval, userInfo: Any? = nil, repeats: Bool = false, action: @escaping (Timer) -> ()) -> Timer {
+        let actionStorage = ActionStorage()
+        
+        let timer = Timer(timeInterval: timeInterval, target: actionStorage, selector: #selector(ActionStorage.triggerAction), userInfo: userInfo, repeats: repeats)
+        actionStorage.timer = timer
+        actionStorage.action = action
+        RunLoop.current.add(timer, forMode: RunLoopMode.defaultRunLoopMode)
+        return timer
     }
 }
