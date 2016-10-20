@@ -9,14 +9,14 @@
 import Foundation
 
 extension CATransaction {
-    class func animate(duration: TimeInterval, animation: (() -> Void)?, completion: (() -> Void)?) {
+    class func animate(withDuration duration: TimeInterval, animations: (() -> Void)?, completion: (() -> Void)? = nil) {
         CATransaction.begin()
         CATransaction.setAnimationDuration(duration)
         if completion != nil {
             CATransaction.setCompletionBlock(completion)
         }
-        if animation != nil{
-            animation!()
+        if animations != nil{
+            animations!()
         }
         CATransaction.commit()
     }
