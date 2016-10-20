@@ -10,6 +10,22 @@ import Foundation
 
 public extension UIApplication {
     
+    class var screenOrientation: UIInterfaceOrientation {
+        return UIApplication.shared.statusBarOrientation
+    }
+    
+    class var screenStatusBarHeight: CGFloat {
+        return UIApplication.shared.statusBarFrame.height
+    }
+    
+    class var screenHeightWithoutStatusBar: CGFloat {
+        if UIInterfaceOrientationIsPortrait(screenOrientation) {
+            return UIScreen.main.bounds.size.height - screenStatusBarHeight
+        } else {
+            return UIScreen.main.bounds.size.width - screenStatusBarHeight
+        }
+    }
+    
 //    func registerUserNotificationSettings(
 //        identifier: String,
 //        actions: [UIMutableUserNotificationAction]? = nil,
@@ -59,4 +75,19 @@ public extension UIApplication {
 //        
 //        shortcutItems?[index] = handler(item)
 //    }
+    
+    func beginBackgroundTask(_ closure: @escaping () -> Void, expirationHandler: (() -> Void)? = nil) {
+        DispatchQueue.main.async {
+            let taskIdentifier: UIBackgroundTaskIdentifier
+            if let expirationHandler = expirationHandler {
+                taskIdentifier = self.beginBackgroundTask(expirationHandler: expirationHandler)
+            } else {
+                taskIdentifier = self.beginBackgroundTask(expirationHandler: { })
+            }
+            closure()
+            self.endBackgroundTask(taskIdentifier)
+        }
+    }
+    
+    
 }
