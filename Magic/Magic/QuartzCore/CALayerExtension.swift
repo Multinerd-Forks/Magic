@@ -8,16 +8,26 @@
 
 import Foundation
 
-extension CALayer {
+public extension CALayer {
     func addSublayers(sublayers: CALayer...) {
         sublayers.forEach {
             addSublayer($0)
         }
     }
     
-    func removeSublayer() {
+    func removeSublayers() {
         sublayers?.forEach {
             $0.removeFromSuperlayer()
         }
     }
 }
+
+public extension CALayer {
+    class func performWithoutAnimation(handler: () -> Void) {
+        CATransaction.begin()
+        CATransaction.setValue(true, forKey: kCATransactionDisableActions)
+        handler()
+        CATransaction.commit()
+    }
+}
+
