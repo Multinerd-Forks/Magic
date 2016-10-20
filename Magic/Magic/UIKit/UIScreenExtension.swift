@@ -8,8 +8,20 @@
 
 import Foundation
 
-extension UIScreen {
-//    static var scale: Double {
-//        return UIScreen.main.scale
-//    }
+ public extension UIScreen {
+    
+    /// The center of the screen
+   var center: CGPoint {
+        return CGPoint(x: width/2, y: height/2)
+    }
+    
+    /// The width of the screen
+    var width: CGFloat {
+        return bounds.width
+    }
+    
+    /// The height of the screen
+    var height: CGFloat {
+        return bounds.height
+    }
 }
