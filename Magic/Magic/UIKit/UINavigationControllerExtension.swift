@@ -7,6 +7,40 @@
 //
 
 import Foundation
+import ObjectiveC
+
+extension UINavigationController {
+    var bottomSeparatorHidden: Bool {
+        get {
+            var hidden = false
+            navigationBar.subviews.forEach {
+                if ($0.isKind(of: NSClassFromString("_UINavigationBarBackground")!)) {
+                    $0.subviews.forEach({ (subview) in
+                        if (subview.isKind(of: UIImageView.self)) {
+                            let imageView: UIImageView = subview as! UIImageView
+                            hidden = imageView.isHidden
+                        }
+                    })
+                }
+            }
+            return hidden
+        }
+        
+        set {
+            navigationBar.subviews.forEach {
+                if ($0.isKind(of: NSClassFromString("_UINavigationBarBackground")!)) {
+                    $0.subviews.forEach({ (subview) in
+                        if (subview.isKind(of: UIImageView.self)) {
+                            let imageView: UIImageView = subview as! UIImageView
+                            imageView.isHidden = newValue
+                        }
+                    })
+                }
+            }
+        }
+    }
+
+}
 
 extension UINavigationController {
     /**
