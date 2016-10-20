@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension UITextField {
+public extension UITextField {
     var leftPadding: CGFloat {
         set {
             leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: newValue, height: frame.height))
@@ -19,7 +19,7 @@ extension UITextField {
         }
     }
     
-    public func addDoneButton(_ barStyle: UIBarStyle = .default, title: String? = "Done") {
+    func addDoneButton(_ barStyle: UIBarStyle = .default, title: String? = "Done") {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.items = [
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
@@ -30,5 +30,29 @@ extension UITextField {
         keyboardToolbar.sizeToFit()
         
         inputAccessoryView = keyboardToolbar
+    }
+}
+
+fileprivate var kLimitLengthAssociativeKey = "kLimitLengthAssociativeKey"
+public extension UITextField {
+    var limitLength: Int? {
+        get {
+            guard let length = getAssociatedObject(&kLimitLengthAssociativeKey) as? Int else {
+                return nil
+            }
+            return length
+        }
+        
+        set {
+            NotificationCenter.default.addObserver(forName: .UITextViewTextDidChange, object: nil, queue: OperationQueue.main) { (notification) in
+                if let textField = notification.object as? UITextView,
+                    self == textField {
+                    if textField.text.lengthOfBytes(using: .utf8) >= newValue! {
+                        textField.text = (self.text! as NSString).substring(with: NSMakeRange(0, newValue!))
+                    }
+                }
+            }
+            setAssociatedObject(newValue as AnyObject?, associativeKey:&kLimitLengthAssociativeKey, policy: .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
     }
 }
