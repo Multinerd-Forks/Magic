@@ -29,6 +29,22 @@ public extension UITableView {
 }
 
 public extension UITableView {
+    
+    /**
+     Remove table header view
+     */
+    func emptyTableHeaderView() {
+        tableHeaderView = UIView(frame:  CGRect(x: 0, y: 0, width: 0, height: 0.1))
+    }
+    
+    /**
+     Remove table footer view
+     */
+    func emptyTableFooterView() {
+        tableFooterView = UIView(frame:  CGRect(x: 0, y: 0, width: 0, height: 0.1))
+    }
+
+    
     func insert(indexes: [Int], section: Int = 0, animation: UITableViewRowAnimation = .automatic) {
         let indexPaths = indexes.map {
             IndexPath(row: $0, section: section)
