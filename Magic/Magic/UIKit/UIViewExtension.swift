@@ -9,7 +9,7 @@
 import Foundation
 
 public extension UIView {
-    public class func fromNib<T : UIView>(nibName: String? = nil) -> T? {
+    class func fromNib<T: UIView>(nibName: String? = nil) -> T? {
         let name: String = {
             guard let _ = nibName else {
                 return nibName!
@@ -25,9 +25,20 @@ public extension UIView {
         }
         return nil
     }
+    
+    class func fromNib<T: UIView>(view: T.Type) -> T? {
+        let nibViews = Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)
+        for subview in nibViews! {
+            if let _ = subview as? T {
+                return subview as? T
+            }
+        }
+        return nil
+    }
 }
 
 // property
+@IBDesignable
 public extension UIView {
     @IBInspectable var cornerRadius: CGFloat {
         get {
@@ -40,7 +51,7 @@ public extension UIView {
         }
     }
     
-    @IBInspectable var borderColor: UIColor? {
+     var borderColor: UIColor? {
         get {
             guard let borderColor = layer.borderColor else {
                 return nil
@@ -197,12 +208,18 @@ public extension UIView {
         }
     }
     
-    func removeView(with tag: Int) {
+    func removeView(withTag tag: Int) {
         subviews.forEach {
             if $0.tag == tag {
                  $0.removeFromSuperview()
             }
         }
+    }
+
+    func removeGestureRecognizers() {
+        gestureRecognizers?.forEach(
+            removeGestureRecognizer
+        )
     }
 }
 
@@ -239,21 +256,21 @@ public extension UIView {
 }
 
 public extension UIView {
-    public enum UIViewShakeDirection : Int {
-        case horizontal = 0
-        case vertical = 1
+    enum ShakeDirection {
+        case horizontal
+        case vertical
     }
     
     func shake(_ times: Int = 10,
                currentTimes current: Int = 0,
                withDelta delta: CGFloat = 5,
                speed interval: TimeInterval = 0.03,
-               shakeDirection: UIViewShakeDirection = .horizontal,
+               shakeDirection: ShakeDirection = .horizontal,
                completion handler: (() -> Void)?) {
         
         UIView.animate(withDuration: interval, animations: {
             _ in
-            self.transform = (shakeDirection == UIViewShakeDirection.horizontal) ?
+            self.transform = (shakeDirection == .horizontal) ?
                 CGAffineTransform(translationX: delta, y: 0) :
                 CGAffineTransform(translationX: 0, y: delta)
             }, completion: {
