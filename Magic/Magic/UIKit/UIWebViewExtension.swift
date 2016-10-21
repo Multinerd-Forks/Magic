@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+extension UIWebView {
+    var documentTitle: String? {
+        return stringByEvaluatingJavaScript(from: "document.title")
+    }
+}
