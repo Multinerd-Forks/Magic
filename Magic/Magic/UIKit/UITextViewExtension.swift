@@ -12,7 +12,7 @@ fileprivate var kPlaceholderLabelAssociativeKey = "kPlaceholderLabelAssociativeK
 fileprivate var kPlaceholderAssociativeKey = "kPlaceholderAssociativeKey"
 
 extension UITextView {
-   fileprivate var placeholderLabel: UILabel {
+    fileprivate var placeholderLabel: UILabel {
         get {
             guard let placeholderLabel = getAssociatedObject(&kPlaceholderLabelAssociativeKey) as? UILabel else {
                 let left = textContainer.lineFragmentPadding + textContainerInset.left
@@ -40,7 +40,7 @@ extension UITextView {
                 placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
                 
                 addConstraint(NSLayoutConstraint(item: placeholderLabel, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: top))
-               addConstraint(NSLayoutConstraint(item: placeholderLabel, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: left))
+                addConstraint(NSLayoutConstraint(item: placeholderLabel, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: left))
                 addConstraint(NSLayoutConstraint(item: placeholderLabel, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: right))
                 addConstraint(NSLayoutConstraint(item: placeholderLabel, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: bottom))
                 
@@ -70,6 +70,30 @@ extension UITextView {
         set {
             setAssociatedObject(newValue as AnyObject?, associativeKey: &kPlaceholderAssociativeKey, policy: .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             placeholderLabel.text = newValue
+        }
+    }
+}
+
+fileprivate var kLimitLengthAssociativeKey = "kLimitLengthAssociativeKey"
+public extension UITextView {
+    var limitLength: Int? {
+        get {
+            guard let length = getAssociatedObject(&kLimitLengthAssociativeKey) as? Int else {
+                return nil
+            }
+            return length
+        }
+        
+        set {
+            NotificationCenter.default.addObserver(forName: .UITextViewTextDidChange, object: nil, queue: OperationQueue.main) { (notification) in
+                if let textView = notification.object as? UITextView,
+                    self == textView {
+                    if textView.text.lengthOfBytes(using: .utf8) >= newValue! {
+                        textView.text = (self.text as NSString).substring(with: NSMakeRange(0, newValue!))
+                    }
+                }
+            }
+            setAssociatedObject(newValue as AnyObject?, associativeKey:&kLimitLengthAssociativeKey, policy: .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }
