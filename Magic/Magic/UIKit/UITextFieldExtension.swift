@@ -19,6 +19,28 @@ public extension UITextField {
         }
     }
     
+    var selectedRange: NSRange? {
+        get {
+            guard let selectedRange = selectedTextRange else {
+                return nil
+            }
+            let location = offset(from: beginningOfDocument, to: selectedRange.start)
+            let length = offset(from: selectedRange.start, to: selectedRange.end)
+            return NSRange(location: location, length: length)
+        }
+        set {
+            if newValue != nil {
+                let startPosition = position(from: beginningOfDocument, offset: newValue!.location)
+                let endPosition = position(from: beginningOfDocument, offset: newValue!.location + newValue!.length)
+                selectedTextRange = textRange(from: startPosition!, to: endPosition!)
+            } else {
+                let startPosition = position(from: beginningOfDocument, offset: 0)
+                let endPosition = position(from: beginningOfDocument, offset: 0)
+                self.selectedTextRange = textRange(from: startPosition!, to: endPosition!)
+            }
+        }
+    }
+    
     func addDoneButton(_ barStyle: UIBarStyle = .default, title: String? = "Done") {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.items = [
