@@ -54,6 +54,16 @@ public extension Array {
         return indexs
     }
     
+    func any(_ condition: (Element) -> Bool) -> Bool {
+        for element in self {
+            if condition(element) {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
     func chunk(_ chunkSize: Int) -> [[Element]] {
         return stride(from: 0, to: self.count, by: chunkSize)
             .map { (startIndex) -> [Element] in
