@@ -109,3 +109,53 @@ public extension UITableView {
         endUpdates()
     }
 }
+
+fileprivate var kTableViewPlaceholderViewAssociativeKey = "kTableViewPlaceholderViewAssociativeKey"
+
+extension UITableView {
+    
+    open override class func initialize() {
+        guard self === UITableView.self else { return }
+        methodSwizzling(self, originalSelector: #selector(self.reloadData), swizzledSelector: #selector(self.magic_reloadData))
+    }
+    
+    func magic_reloadData() {
+        self.magic_reloadData()
+        self.checkEmptyDataSource()
+    }
+    
+    var placeholderView: UIView? {
+        get {
+            return getAssociatedObject(&kTableViewPlaceholderViewAssociativeKey) as? UIView
+        }
+        
+        set {
+            setAssociatedObject(newValue, associativeKey:&kTableViewPlaceholderViewAssociativeKey, policy: .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    private func checkEmptyDataSource() {
+        weak var dataSourceHandler = self.dataSource
+        var sectionsNumber = 1
+        if dataSourceHandler!.responds(to: #selector(UITableViewDataSource.tableView(_:numberOfRowsInSection:))) {
+            sectionsNumber = dataSourceHandler!.numberOfSections!(in: self)
+        }
+        var isEmptyDataSource = true
+        for i in 0..<sectionsNumber {
+            let rows = dataSourceHandler!.tableView(self, numberOfRowsInSection: i)
+            if rows > 0 {
+                isEmptyDataSource = false
+            }
+        }
+        
+        if isEmptyDataSource {
+            self.placeholderView?.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+            guard let placeholderView = self.placeholderView else {
+                return
+            }
+            self.addSubview(placeholderView)
+        } else {
+            self.placeholderView?.removeFromSuperview()
+        }
+    }
+}
