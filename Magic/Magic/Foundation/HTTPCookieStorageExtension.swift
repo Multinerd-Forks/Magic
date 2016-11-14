@@ -31,7 +31,6 @@ extension HTTPCookieStorage {
         try? JSONString?.write(toFile: storagePath(), atomically: true, encoding: .utf8)
     }
     
-    // TODO:
     func loadCookie() {
         
         let JSONString = try? String.init(contentsOfFile: storagePath(), encoding: .utf8) 

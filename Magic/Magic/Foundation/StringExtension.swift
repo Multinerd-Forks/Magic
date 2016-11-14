@@ -38,12 +38,6 @@ public extension String {
 
 // function
 public extension String {
-    func isValidMobilePhone() -> Bool {
-        // TODO: 17.. 开头的不行
-        let regular = "^((13[0-9])|(147)|(15[^4,\\D])|(18[0,5-9]))\\d{8}$"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", regular)
-        return predicate.evaluate(with: self)
-    }
     
     func isValidEmail() -> Bool {
         let regular = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
@@ -154,8 +148,6 @@ public extension String {
         
         return UIImage(cgImage: scaledImage!)
     }
-    
-    // TODO: replace
 }
 
 // subscript
