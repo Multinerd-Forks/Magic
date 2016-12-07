@@ -16,4 +16,8 @@ extension UINavigationBar {
         bottomBorderView.backgroundColor = color
         addSubview(bottomBorderView)
     }
+    
+    func beginLoading(prompt: String) {
+    
+    }
 }
