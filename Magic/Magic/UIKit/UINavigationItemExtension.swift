@@ -25,20 +25,20 @@ extension UINavigationItem {
     func startAnimating(at position: LoadingPosition) {
         stopAnimating()
         objc_setAssociatedObject(self, kLoadingPositionAssociationKey, position, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        let loader = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let loadingView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         switch position {
         case .left:
             objc_setAssociatedObject(self, kSubstitutedViewAssociationKey, leftBarButtonItem!.customView!, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            leftBarButtonItem!.customView! = loader
+            leftBarButtonItem!.customView! = loadingView
         case .center:
             objc_setAssociatedObject(self, kSubstitutedViewAssociationKey, titleView!, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            titleView! = loader
+            titleView! = loadingView
         case .right:
             objc_setAssociatedObject(self, kSubstitutedViewAssociationKey, rightBarButtonItem!.customView!, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            rightBarButtonItem!.customView! = loader
+            rightBarButtonItem!.customView! = loadingView
         }
         
-        loader.startAnimating()
+        loadingView.startAnimating()
     }
  
     func stopAnimating() {
