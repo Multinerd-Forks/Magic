@@ -28,6 +28,7 @@
 		A4A13E3F1DB0B024009EADDB /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A13E3E1DB0B024009EADDB /* UINavigationControllerExtension.swift */; };
 		A4A62ED21DADE3060098C290 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A62ED11DADE3060098C290 /* CALayerExtension.swift */; };
 		A4B29E8F1D8555BA00BD477F /* Magic.h in Headers */ = {isa = PBXBuildFile; fileRef = A4B29E8E1D8555BA00BD477F /* Magic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A4B2D60E1E14F5E300E14E78 /* DispatchTimeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2D60D1E14F5E300E14E78 /* DispatchTimeExtension.swift */; };
 		A4BC681A1D9660BB00735FC9 /* WithTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC68191D9660BA00735FC9 /* WithTest.swift */; };
 		A4BC681C1D9662B800735FC9 /* CGRectExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BC681B1D9662B800735FC9 /* CGRectExtensionTest.swift */; };
 		A4DAA5151DADFA0A001CE960 /* UIControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAA5141DADFA0A001CE960 /* UIControlExtension.swift */; };
@@ -112,6 +113,7 @@
 		A4B29E8B1D8555BA00BD477F /* Magic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Magic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4B29E8E1D8555BA00BD477F /* Magic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Magic.h; sourceTree = "<group>"; };
 		A4B29E901D8555BA00BD477F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4B2D60D1E14F5E300E14E78 /* DispatchTimeExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchTimeExtension.swift; sourceTree = "<group>"; };
 		A4BC68191D9660BA00735FC9 /* WithTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithTest.swift; sourceTree = "<group>"; };
 		A4BC681B1D9662B800735FC9 /* CGRectExtensionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtensionTest.swift; sourceTree = "<group>"; };
 		A4DAA5141DADFA0A001CE960 /* UIControlExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlExtension.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 		A4B29E8D1D8555BA00BD477F /* Magic */ = {
 			isa = PBXGroup;
 			children = (
+				A4B2D60D1E14F5E300E14E78 /* DispatchTimeExtension.swift */,
 				A4FD01581DAD1B020039290E /* QuartzCore */,
 				A4E362311D9A588F00A902BF /* CoreGraphics */,
 				A4E362331D9A588F00A902BF /* CoreImage */,
@@ -534,6 +537,7 @@
 				A4E362641D9A588F00A902BF /* NSURLComponentsExtension.swift in Sources */,
 				A48C67401DAF9FB100DDD7B0 /* UIScrollViewExtension.swift in Sources */,
 				A4FD015E1DAD1D150039290E /* HTTPCookieStorageExtension.swift in Sources */,
+				A4B2D60E1E14F5E300E14E78 /* DispatchTimeExtension.swift in Sources */,
 				A43B99A01DA8B10E0031EEA7 /* DispatchQueueExtension.swift in Sources */,
 				A4E3626C1D9A588F00A902BF /* UIButtonExtension.swift in Sources */,
 				A4E362681D9A588F00A902BF /* Function.swift in Sources */,
