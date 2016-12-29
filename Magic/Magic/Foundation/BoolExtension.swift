@@ -8,8 +8,34 @@
 
 import Foundation
 
-extension Bool {
-     public func toInt() -> Int {
+// MARK: - Properties
+public extension Bool {
+    
+    /// Return 1 if true, or 0 if false.
+    public var intValue: Int {
         return self ? 1 : 0
     }
+    
+    /// Return "true" if true, or "false" if false.
+    public var stringValue: String {
+        return description
+    }
+    
+    /// Return inversed value of bool.
+    public var toggled: Bool {
+        return !self
+    }
 }
+
+// MARK: - Methods
+public extension Bool {
+    
+    /// Toggle value for bool.
+    ///
+    /// - Returns: inversed value of bool.
+    @discardableResult public mutating func toggle() -> Bool {
+        self = !self
+        return self
+    }
+}
+
