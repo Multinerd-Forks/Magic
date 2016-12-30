@@ -8,7 +8,7 @@
 
 import Foundation
 
-// property
+// MARK: - Properties
 public extension UILabel {
     var estimatedSize: CGSize {
         return sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
@@ -23,14 +23,14 @@ public extension UILabel {
     }
 }
 
-// function
+// MARK: - Methods
 public extension UILabel {
     var contentSize: CGSize {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = lineBreakMode
         paragraphStyle.alignment = textAlignment
         
-        let attributes = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle]
+        let attributes = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle] as [String : Any]
         
         let contentSize = text!.boundingRect(
             with: frame.size,
