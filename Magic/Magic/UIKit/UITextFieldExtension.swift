@@ -8,7 +8,16 @@
 
 import Foundation
 
+// MARK: - Properties
 public extension UITextField {
+    /// Check if text field is empty.
+     var isEmpty: Bool {
+        if let text = self.text {
+            return text.characters.isEmpty
+        }
+        return true
+    }
+    
     var leftPadding: CGFloat {
         set {
             leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: newValue, height: frame.height))
@@ -16,6 +25,16 @@ public extension UITextField {
         }
         get {
             return leftView?.frame.size.width ?? 0.0
+        }
+    }
+    
+    var rightPadding: CGFloat {
+        set {
+            rightView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: newValue, height: frame.height))
+            rightViewMode = .always
+        }
+        get {
+            return rightView?.frame.size.width ?? 0.0
         }
     }
     
@@ -41,6 +60,21 @@ public extension UITextField {
         }
     }
     
+    var placeHolderTextColor: UIColor {
+        set {
+            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSForegroundColorAttributeName: newValue])
+        }
+        
+        get {
+            // TODO:
+            return UIColor.lightGray
+        }
+    }
+}
+
+// MARK: - Methods
+public extension UITextField {
+    
     func addDoneButton(_ barStyle: UIBarStyle = .default, title: String? = "Done") {
         let keyboardToolbar = UIToolbar()
         keyboardToolbar.items = [
@@ -56,6 +90,7 @@ public extension UITextField {
 }
 
 fileprivate var kLimitLengthAssociativeKey = "kLimitLengthAssociativeKey"
+// MARK: - Properties
 public extension UITextField {
     var limitLength: Int? {
         get {
