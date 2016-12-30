@@ -8,17 +8,8 @@
 
 import Foundation
 
-// property
+// MARK: - Properties
 public extension Dictionary {
-    var JSONString: String? {
-        do {
-            let JSONData = try JSONSerialization.data(withJSONObject: self)
-            return String(data: JSONData, encoding: .utf8)
-        } catch let error {
-            print(error)
-            return nil
-        }
-    }
     
     var allKeys: [Any] {
         return reduce([Any]()) {
@@ -33,7 +24,52 @@ public extension Dictionary {
     }
 }
 
+
+// MARK: - Methods
 public extension Dictionary {
+    
+    /// JSON Data from dictionary.
+    ///
+    /// - Parameter prettify: set true to prettify data (default is false).
+    /// - Returns: optional JSON Data (if applicable).
+    public func jsonData(prettify: Bool = false) -> Data? {
+        guard JSONSerialization.isValidJSONObject(self) else {
+            return nil
+        }
+        let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: self, options: options)
+            return jsonData
+        } catch {
+            return nil
+        }
+    }
+    
+    /// JSON String from dictionary.
+    ///
+    /// - Parameter prettify: set true to prettify string (default is false).
+    /// - Returns: optional JSON String (if applicable).
+    public func jsonString(prettify: Bool = false) -> String? {
+        guard JSONSerialization.isValidJSONObject(self) else {
+            return nil
+        }
+        let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: self, options: options)
+            return String(data: jsonData, encoding: .utf8)
+        } catch {
+            return nil
+        }
+    }
+    
+    /// Check if key exists in dictionary.
+    ///
+    /// - Parameter key: key to search for
+    /// - Returns: true if key exists in dictionary.
+    func has(key: Key) -> Bool {
+        return index(forKey: key) != nil
+    }
+    
     mutating func merged<K, V>(_ dictionaries: Dictionary<K, V>...) {
         dictionaries.forEach {
             $0.forEach {
