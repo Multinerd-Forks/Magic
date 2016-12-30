@@ -8,7 +8,22 @@
 
 import Foundation
 
-// property
+// MARK: - Initializers
+public extension String {
+    
+    /// Create a new string from a base64 string (if applicable).
+    ///
+    /// - Parameter base64: base64 string.
+    init?(base64: String) {
+        if let string = base64.base64Decoded() {
+            self.init(string)
+            return
+        }
+        return nil
+    }
+}
+
+// MARK: - Properties
 public extension String {
     var JSONValue: Any? {
         guard let data = data(using: .utf8) else {
@@ -36,11 +51,25 @@ public extension String {
     }
 }
 
-// function
+// MARK: - Methods
 public extension String {
     
+    /// String decoded from base64  (if applicable).
+    func base64Decoded() -> String? {
+        guard let decodedData = Data(base64Encoded: self) else {
+            return nil
+        }
+        return String(data: decodedData, encoding: .utf8)
+    }
+    
+    /// String encoded in base64 (if applicable).
+    func base64Encoded() -> String? {
+        let plainData = data(using: .utf8)
+        return plainData?.base64EncodedString()
+    }
+    
     func isValidEmail() -> Bool {
-        let regular = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let regular = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", regular)
         return predicate.evaluate(with: self)
     }
@@ -73,6 +102,11 @@ public extension String {
         let firstChar = substring(to: characters.index(startIndex, offsetBy: 1)).uppercased()
         let otherChar = substring(from: characters.index(startIndex, offsetBy: 1)).lowercased()
         return firstChar + otherChar
+    }
+    
+    /// Reversed string.
+    func reversed() -> String {
+        return String(characters.reversed())
     }
     
     func insert(_ string: String, to index: Int) -> String {
@@ -150,7 +184,39 @@ public extension String {
     }
 }
 
-// subscript
+// MARK: - NSAttributedString extensions
+public extension String {
+    
+    /// Bold string.
+    public func bold() -> NSAttributedString {
+        return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+    }
+    
+    /// Underlined string
+    public func underlined() -> NSAttributedString {
+        return NSAttributedString(string: self, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
+    }
+    
+    /// Strikethrough string.
+    public func strikethroughed() -> NSAttributedString {
+        return NSAttributedString(string: self, attributes: [NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
+    }
+    
+    /// Italic string.
+    public func italice() -> NSAttributedString {
+        return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+    }
+    
+    /// Add color to string.
+    ///
+    /// - Parameter color: text color.
+    /// - Returns: a NSAttributedString versions of string colored with given color.
+    public func colored(with color: UIColor) -> NSAttributedString {
+        return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+    }
+}
+
+// MARK: - Subscript
 public extension String {
     subscript(range: Range<Int>) -> String {
         get {
