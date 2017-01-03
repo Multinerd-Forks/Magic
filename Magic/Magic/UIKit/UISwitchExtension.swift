@@ -8,9 +8,9 @@
 
 import Foundation
 
+// MARK: - Methods
 extension UISwitch {
-    
-    public func toggle() {
-        self.setOn(!self.isOn, animated: true)
+    public func toggle(animated: Bool = true) {
+        self.setOn(!self.isOn, animated: animated)
     }
 }
