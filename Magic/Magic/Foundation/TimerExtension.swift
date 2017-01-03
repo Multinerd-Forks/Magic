@@ -8,7 +8,19 @@
 
 import Foundation
 
+// MARK: - Initializers
 extension Timer {
+    convenience init(timeInterval: TimeInterval, userInfo: Any? = nil, repeats: Bool = false, action: @escaping (Timer) -> ()) {
+        let actionStorage = ActionStorage()
+        
+        self.init(timeInterval: timeInterval, target: actionStorage, selector: #selector(ActionStorage.triggerAction), userInfo: userInfo, repeats: repeats)
+        actionStorage.timer = self
+        actionStorage.action = action
+    }
+}
+
+// MARK: - Methods
+public extension Timer {
     
     @discardableResult
     class func every(seconds interval: TimeInterval, handler: @escaping () -> Void) -> Timer {
@@ -26,21 +38,13 @@ extension Timer {
         return timer!
     }
 
-    private class ActionStorage {
+    fileprivate class ActionStorage {
         var timer: Timer!
         var action: ((Timer) -> Void)!
         
         @objc func triggerAction() {
             action(timer)
         }
-    }
-    
-    convenience init(timeInterval: TimeInterval, userInfo: Any? = nil, repeats: Bool = false, action: @escaping (Timer) -> ()) {
-        let actionStorage = ActionStorage()
-        
-        self.init(timeInterval: timeInterval, target: actionStorage, selector: #selector(ActionStorage.triggerAction), userInfo: userInfo, repeats: repeats)
-        actionStorage.timer = self
-        actionStorage.action = action
     }
     
     class func schedule(timeInterval: TimeInterval, userInfo: Any? = nil, repeats: Bool = false, action: @escaping (Timer) -> ()) -> Timer {
