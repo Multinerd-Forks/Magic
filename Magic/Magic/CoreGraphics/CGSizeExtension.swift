@@ -8,6 +8,7 @@
 
 import Foundation
 
+//// MARK: - Methods
 extension CGSize {
     func aspectFit(_ boundingSize: CGSize) -> CGSize {
         let ratio = min(boundingSize.width / width, boundingSize.height / height)
