@@ -8,7 +8,7 @@
 
 import CoreGraphics
 
-// property
+// MARK: - Properties
 public extension CGRect {
      var x: CGFloat {
         get {
