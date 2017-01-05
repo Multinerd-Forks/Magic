@@ -8,7 +8,7 @@
 
 import Foundation
 
-// function
+// MARK: - Methods
 public extension Calendar {
     func date(byAddingSeconds seconds: Int, toDate date: Date) -> Date? {
         var components = DateComponents()
