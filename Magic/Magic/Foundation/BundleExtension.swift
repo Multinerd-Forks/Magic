@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Properties
 extension Bundle {
     static var name: String? {
         if let bundleDisplayName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String {
@@ -34,12 +35,14 @@ extension Bundle {
     static var bundleName: String {
         return Bundle.main.infoDictionary!["CFBundleName"] as! String
     }
-    
-    /**
-     App's icon image
-     
-     - returns: UIImage
-     */
+}
+
+// MARK: - Methods
+public extension Bundle {
+
+    /// App's icon image
+    ///
+    /// - Returns: UIImage
     public static func icon() -> UIImage? {
         let iconFilename = Bundle.main.object(forInfoDictionaryKey: "CFBundleIconFile")
         let iconBasename = (iconFilename as! NSString).deletingPathExtension
