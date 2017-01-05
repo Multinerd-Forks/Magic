@@ -8,13 +8,10 @@
 
 import Foundation
 
+// MARK: - Properties
 public extension Data {
     
-    /**
-     Converts Data to a string, if possible
-     
-     - Returns: String?
-     */
+    /// Converts Data to a string, if possible
     var string: String? {
         return String(data: self, encoding: .utf8)
     }
