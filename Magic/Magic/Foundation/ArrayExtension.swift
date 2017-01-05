@@ -8,7 +8,7 @@
 
 import Foundation
 
-// property
+// MARK: - Properties
 public extension Array {
     // 能用泛型么 和 Dictionary 重复了
     var JSONString: String? {
@@ -24,7 +24,7 @@ public extension Array {
     }
 }
 
-// function
+// MARK: - Methods
 public extension Array {
     func contains<Element: Equatable>(_ element: Element) -> Bool {
         return self.filter {
@@ -70,7 +70,7 @@ public extension Array {
             let endIndex = (startIndex.advanced(by: chunkSize) > self.count) ? self.count-startIndex : chunkSize
             return Array(self[startIndex..<startIndex.advanced(by: endIndex)])
         }
-    }
+    }    
 }
 
 public func ==<T: Equatable>(lhs: [T]?, rhs: [T]?) -> Bool {
