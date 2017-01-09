@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 extension HTTPCookieStorage {
     func saveCookie() {
         var cookies = [[HTTPCookiePropertyKey: Any]]()
