@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 public extension FileManager {
     class func getDocumentPath(fileName: String) -> String {
         return URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!)
@@ -44,56 +45,44 @@ public extension FileManager {
         return 0
     }
     
-    /**
-     Get URL of Document directory.
-     
-     - returns: Document directory URL.
-     */
+    /// Get URL of Document directory.
+    ///
+    /// - Returns: Document directory URL.
     class func documentURL() -> URL? {
         return URLForDirectory(.documentDirectory)
     }
     
-    /**
-     Get String of Document directory.
-     
-     - returns: Document directory String.
-     */
+    /// Get String of Document directory.
+    ///
+    /// - Returns: Document directory String.
     class func documentPath() -> String? {
         return pathForDirectory(.documentDirectory)
     }
     
-    /**
-     Get URL of Library directory
-     
-     - returns: Library directory URL
-     */
+    /// Get URL of Library directory
+    ///
+    /// - Returns: Library directory URL
     class func libraryURL() -> URL? {
         return URLForDirectory(.libraryDirectory)
     }
-    
-    /**
-     Get String of Library directory
-     
-     - returns: Library directory String
-     */
+   
+    /// Get String of Library directory
+    ///
+    /// - Returns: Library directory String
     class func libraryPath() -> String? {
         return pathForDirectory(.libraryDirectory)
     }
     
-    /**
-     Get URL of Caches directory
-     
-     - returns: Caches directory URL
-     */
+    /// Get URL of Caches directory
+    ///
+    /// - Returns: Caches directory URL
     class func cachesURL() -> URL? {
         return URLForDirectory(.cachesDirectory)
     }
     
-    /**
-     Get String of Caches directory
-     
-     - returns: Caches directory String
-     */
+    /// Get String of Caches directory
+    ///
+    /// - Returns: Caches directory String
     class func cachesPath() -> String? {
         return pathForDirectory(.cachesDirectory)
     }
