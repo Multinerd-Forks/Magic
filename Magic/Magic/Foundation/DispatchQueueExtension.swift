@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 public extension DispatchQueue {
     
     private static var identifierTracker = [String]()
