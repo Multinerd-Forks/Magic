@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Initializers
 public extension DateFormatter {
     
     public convenience init(dateFormat: String) {
