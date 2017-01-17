@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 public extension NSURLComponents {
     func updateQueryParameter(key: String, value: String?) -> String {
        var queryItems: [URLQueryItem] = (self.queryItems ?? [])
