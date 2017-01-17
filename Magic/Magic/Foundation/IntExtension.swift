@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Properties
 public extension Int {
     
     var isEven:Bool     {return (self % 2 == 0)}
@@ -15,6 +16,10 @@ public extension Int {
     var isPositive:Bool {return (self >= 0)}
     var isNegative:Bool {return (self < 0)}
     
+}
+
+// MARK: - Methods
+public extension Int {
     func toDouble() -> Double {
         return Double(self)
     }
@@ -31,7 +36,7 @@ public extension Int {
     func delay(in thread: DispatchQueue = DispatchQueue.global(qos: .background), handler: @escaping (Int) -> ()) {
         let deadlineTime = DispatchTime.now() + .seconds(self)
         thread.asyncAfter(deadline: deadlineTime) {
-           handler(self)
+            handler(self)
         }
     }
 }
