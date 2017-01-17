@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 public extension CountableClosedRange {
     func each(callback: (Element) -> (Void)) {
         for index in self {
