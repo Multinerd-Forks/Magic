@@ -8,7 +8,7 @@
 
 import Foundation
 
-// property
+// MARK: - Properties
 public extension NSObject {
     var className: String {
         return type(of: self).className
@@ -19,7 +19,7 @@ public extension NSObject {
     }
 }
 
-// function
+// MARK: - Methods
 public extension NSObject {
     func setAssociatedObject(_ value: AnyObject?, associativeKey: UnsafeRawPointer, policy: objc_AssociationPolicy) {
         if let valueAsAnyObject = value {
