@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 extension UINavigationBar {
     
     func setBottomBorderColor(color: UIColor, height: CGFloat) {
