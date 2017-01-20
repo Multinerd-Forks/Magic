@@ -9,6 +9,7 @@
 import Foundation
 import ObjectiveC
 
+// MARK: - Properties
 extension UINavigationController {
     var bottomSeparatorHidden: Bool {
         get {
@@ -39,17 +40,17 @@ extension UINavigationController {
             }
         }
     }
-
 }
 
+// MARK: - Methods
 extension UINavigationController {
-    /**
-     Push with UIViewAnimationTransition
-     
-     - parameter controller: target viewController
-     - parameter transition: UIViewAnimationTransition
-     */
-    public func pushViewController(_ controller: UIViewController, transition: UIViewAnimationTransition) {
+
+    /// Push with UIViewAnimationTransition
+    ///
+    /// - Parameters:
+    ///   - controller: target viewController
+    ///   - transition: UIViewAnimationTransition
+    func pushViewController(_ controller: UIViewController, transition: UIViewAnimationTransition) {
         UIView.beginAnimations(nil, context: nil)
         pushViewController(controller, animated: false)
         UIView.setAnimationDuration(0.25)
@@ -58,15 +59,13 @@ extension UINavigationController {
         UIView.commitAnimations()
     }
     
-    /**
-     Pop with UIViewAnimationTransition
-     
-     - parameter controller: target viewController
-     - parameter transition: UIViewAnimationTransition
-     
-     - returns: UIViewController
-     */
-    public func popViewController(_ controller: UIViewController, transition: UIViewAnimationTransition) -> UIViewController {
+    /// Pop with UIViewAnimationTransition
+    ///
+    /// - Parameters:
+    ///   - controller: target viewController
+    ///   - transition: UIViewAnimationTransition
+    /// - Returns: UIViewController
+    func popViewController(_ controller: UIViewController, transition: UIViewAnimationTransition) -> UIViewController {
         UIView.beginAnimations(nil, context: nil)
         let controller = popViewController(animated: false)
         UIView.setAnimationDuration(0.25)
@@ -74,5 +73,27 @@ extension UINavigationController {
         UIView.setAnimationTransition(transition, for: self.view, cache: true)
         UIView.commitAnimations()
         return controller!
+    }
+    
+    /// Pop ViewController with completion handler.
+    ///
+    /// - Parameter completion: optional completion handler (default is nil).
+    func popViewController(completion: (()->Void)? = nil) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        popViewController(animated: true)
+        CATransaction.commit()
+    }
+
+    /// Push ViewController with completion handler
+    ///
+    /// - Parameters:
+    ///   - viewController: viewController to push
+    ///   - completion: optional completion handler
+    func pushViewController(viewController: UIViewController, completion: (()->Void)? = nil)  {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        pushViewController(viewController, animated: true)
+        CATransaction.commit()
     }
 }
