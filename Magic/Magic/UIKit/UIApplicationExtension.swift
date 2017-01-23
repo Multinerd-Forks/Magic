@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Properties
 public extension UIApplication {
     
     class var screenOrientation: UIInterfaceOrientation {
@@ -25,8 +26,11 @@ public extension UIApplication {
             return UIScreen.main.bounds.size.width - screenStatusBarHeight
         }
     }
-    
-     @available(iOS 8.0, *)
+}
+
+// MARK: - Methods
+public extension UIApplication {
+    @available(iOS 8.0, *)
     func registerUserNotificationSettings(
         identifier: String,
         actions: [UIMutableUserNotificationAction]? = nil,
@@ -48,7 +52,7 @@ public extension UIApplication {
                 : nil)
         registerUserNotificationSettings(notificationSettings)
     }
-
+    
     func removeLocalNotification(identifier: String) {
         guard let notifications = scheduledLocalNotifications
             , notifications.count > 0 else {
@@ -89,6 +93,4 @@ public extension UIApplication {
             self.endBackgroundTask(taskIdentifier)
         }
     }
-    
-    
 }

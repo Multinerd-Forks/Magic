@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 extension UIBarButtonItem {
     func addTarget(_ target: AnyObject, action: Selector) {
         self.target = target

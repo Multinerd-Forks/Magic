@@ -8,7 +8,7 @@
 
 import Foundation
 
-// function
+// MARK: - Methods
 public extension UIButton {
    func setBackgroundColor(_ color: UIColor, forState: UIControlState) {
         UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
