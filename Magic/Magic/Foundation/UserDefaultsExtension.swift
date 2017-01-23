@@ -8,7 +8,7 @@
 
 import Foundation
 
-// subscript
+// MARK: - Subscript
 public extension UserDefaults {
     @nonobjc subscript(key: String) -> Any? {
         get {

@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 public extension Sequence {
     func all(check: (Iterator.Element) -> Bool) -> Bool {
         for element in self {

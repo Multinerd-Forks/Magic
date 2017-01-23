@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Properties
 public extension URL {
     var queryParameters: [String : String] {
         var results = [String : String]()
