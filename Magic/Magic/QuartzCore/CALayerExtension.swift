@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 public extension CALayer {
     func addSublayers(sublayers: CALayer...) {
         sublayers.forEach {
@@ -22,6 +23,7 @@ public extension CALayer {
     }
 }
 
+// MARK: - Methods
 public extension CALayer {
     class func performWithoutAnimation(handler: () -> Void) {
         CATransaction.begin()

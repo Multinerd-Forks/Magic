@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 extension UIAlertController {
     class func showAlert(
         title: String?,

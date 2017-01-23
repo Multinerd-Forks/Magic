@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 extension CATransaction {
     class func animate(withDuration duration: TimeInterval, animations: (() -> Void)?, completion: (() -> Void)? = nil) {
         CATransaction.begin()
