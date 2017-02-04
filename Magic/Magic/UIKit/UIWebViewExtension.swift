@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Properties
 extension UIWebView {
     var documentTitle: String? {
         return stringByEvaluatingJavaScript(from: "document.title")

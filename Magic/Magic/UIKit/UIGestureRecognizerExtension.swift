@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 extension UIGestureRecognizer {
     fileprivate class ActionStorage {
         

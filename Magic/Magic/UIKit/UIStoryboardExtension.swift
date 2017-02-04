@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Initializers
 public extension UIStoryboard {
     public convenience init(name: String) {
         self.init(name: name, bundle: nil)

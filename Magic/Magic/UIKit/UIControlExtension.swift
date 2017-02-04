@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 extension UIControl {
 
     fileprivate class ActionStorage {

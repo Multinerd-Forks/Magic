@@ -8,11 +8,15 @@
 
 import Foundation
 
+// MARK: - Initializers
 extension UIImageView {
     convenience init(imageName: String) {
         self.init(image: UIImage(named: imageName))
     }
-    
+}
+
+// MARK: - Methods
+public extension UIImageView {
     func reflect() {
         var frame = self.frame
         frame.origin.y += (frame.size.height + 1)

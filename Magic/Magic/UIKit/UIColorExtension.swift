@@ -8,7 +8,7 @@
 
 import Foundation
 
-// init
+// MARK: - Initializers
 public extension UIColor {
     convenience init?(hexString: String, alpha: CGFloat = 1.0) {
         var formatted: String? = nil
@@ -41,7 +41,7 @@ public extension UIColor {
     }
 }
 
-// property
+// MARK: - Properties
 public extension UIColor {
     var redValue: CGFloat? {
         return cgColor.components?[0]
@@ -68,7 +68,7 @@ public extension UIColor {
     }
 }
 
-// function
+// MARK: - Methods
 public extension UIColor {
     func inverse() -> UIColor {
         assert(cgColor.components != nil, "Color is nil")
@@ -76,6 +76,7 @@ public extension UIColor {
     }
 }
 
+// MARK: - Methods
 public extension UIColor {
     class func randomHSBColor(alpha: CGFloat) -> UIColor {
         let hue = CGFloat(arc4random()).truncatingRemainder(dividingBy: 256.0) / 256.0

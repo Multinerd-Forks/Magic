@@ -11,15 +11,13 @@ import Foundation
 enum LoadingPosition : Int {
     
     case center = 0
-    
     case left
-    
     case right
 }
 
 fileprivate var kLoadingPositionAssociationKey = "kLoadingPositionAssociationKey"
 fileprivate var kSubstitutedViewAssociationKey = "kSubstitutedViewAssociationKey"
-
+// MARK: - Methods
 extension UINavigationItem {
    
     func startAnimating(at position: LoadingPosition) {

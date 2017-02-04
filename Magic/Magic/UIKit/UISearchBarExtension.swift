@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Properties
 public extension UISearchBar {
     var cancelButton: UIButton? {
         get {

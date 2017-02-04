@@ -49,6 +49,11 @@ public extension String {
     var lenght: Int {
         return lengthOfBytes(using: .utf8)
     }
+    
+    /// NSLocalizedString shorthand
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
 }
 
 // MARK: - Methods

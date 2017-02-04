@@ -11,6 +11,7 @@ import Foundation
 fileprivate var kPlaceholderLabelAssociativeKey = "kPlaceholderLabelAssociativeKey"
 fileprivate var kPlaceholderAssociativeKey = "kPlaceholderAssociativeKey"
 
+// MARK: - Properties
 extension UITextView {
     fileprivate var placeholderLabel: UILabel {
         get {
@@ -75,6 +76,7 @@ extension UITextView {
 }
 
 fileprivate var kLimitLengthAssociativeKey = "kLimitLengthAssociativeKey"
+// MARK: - Properties
 public extension UITextView {
     var limitLength: Int? {
         get {

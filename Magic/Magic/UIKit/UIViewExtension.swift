@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Initializers
 public extension UIView {
     class func fromNib<T: UIView>(nibName: String? = nil) -> T? {
         let name: String = {
@@ -37,21 +38,13 @@ public extension UIView {
     }
 }
 
-// property
+// MARK: - Properties
 @IBDesignable
 public extension UIView {
-    @IBInspectable var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        
-        set {
-            layer.masksToBounds = true
-            layer.cornerRadius = cornerRadius
-        }
-    }
     
-     var borderColor: UIColor? {
+    /// Border color of view
+    @IBInspectable
+    var borderColor: UIColor? {
         get {
             guard let borderColor = layer.borderColor else {
                 return nil
@@ -64,7 +57,9 @@ public extension UIView {
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat {
+    @IBInspectable
+    /// Border width of view
+    var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -74,7 +69,69 @@ public extension UIView {
         }
     }
     
-    @IBInspectable var origin: CGPoint {
+    @IBInspectable
+    /// Corner radius of view
+    var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        
+        set {
+            layer.masksToBounds = true
+            layer.cornerRadius = cornerRadius
+        }
+    }
+    
+    @IBInspectable
+    /// Shadow color of view; also inspectable from Storyboard.
+    public var shadowColor: UIColor? {
+        get {
+            guard let color = layer.shadowColor else {
+                return nil
+            }
+            return UIColor(cgColor: color)
+        }
+        set {
+            layer.shadowColor = newValue?.cgColor
+        }
+    }
+    
+    @IBInspectable
+    /// Shadow offset of view; also inspectable from Storyboard.
+    public var shadowOffset: CGSize {
+        get {
+            return layer.shadowOffset
+        }
+        set {
+            layer.shadowOffset = newValue
+        }
+    }
+    
+    @IBInspectable
+    /// Shadow opacity of view; also inspectable from Storyboard.
+    public var shadowOpacity: Float {
+        get {
+            return layer.shadowOpacity
+        }
+        set {
+            layer.shadowOpacity = newValue
+        }
+    }
+    
+    @IBInspectable
+    /// Shadow radius of view; also inspectable from Storyboard.
+    public var shadowRadius: CGFloat {
+        get {
+            return layer.shadowRadius
+        }
+        set {
+            layer.shadowRadius = newValue
+        }
+    }
+    
+    
+    @IBInspectable
+    var origin: CGPoint {
         get {
             return frame.origin
         }
@@ -86,7 +143,8 @@ public extension UIView {
         }
     }
     
-    @IBInspectable var size: CGSize {
+    @IBInspectable
+    var size: CGSize {
         get {
             return self.frame.size;
         }
@@ -97,19 +155,52 @@ public extension UIView {
             self.frame = frame
         }
     }
+}
+
+// MARK: - Properties
+public extension UIView {
     
-    var snapshot: UIImage? {
-        UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
-        let context = UIGraphicsGetCurrentContext()
-        context?.translateBy(x: 0, y: 0)
-        guard let _ = context else {
+    /// Take screenshot of view
+    public var snapshot: UIImage? {
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0.0);
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        guard let context = UIGraphicsGetCurrentContext() else {
             return nil
         }
-        layer.render(in: context!)
-        let snapshot = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return snapshot
+        layer.render(in: context)
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
+    
+    /// First responder.
+    public var firstResponder: UIView? {
+        guard !self.isFirstResponder else {
+            return self
+        }
+        for subView in subviews {
+            if subView.isFirstResponder {
+                return subView
+            }
+        }
+        return nil
+    }
+    
+    /// Check if view is visible in screen currently and not hidden.
+    public var isVisible: Bool {
+        if self.window == nil || self.isHidden || self.alpha == 0 {
+            return true
+        }
+        let viewRect = self.convert(self.bounds, to: nil)
+        guard let window = UIApplication.shared.keyWindow else {
+            return true
+        }
+        return viewRect.intersects(window.bounds) == false
+    }
+}
+
+// MARK: - Properties
+public extension UIView {
     
     var top: CGFloat {
         get {
@@ -184,7 +275,7 @@ public extension UIView {
     }
 }
 
-// function
+// MARK: - Methods
 public extension UIView {
     func contains(subView: UIView) -> Bool {
         for view in subviews {
@@ -196,18 +287,21 @@ public extension UIView {
         return false
     }
     
+    // Add set of subviews to view
     func addSubviews(subviews: UIView...) {
         subviews.forEach {
             addSubview($0)
         }
     }
     
+    /// Remove all subviews in view
     func removeSubViews() {
         subviews.forEach {
             $0.removeFromSuperview()
         }
     }
     
+    /// Remove subview whit tag
     func removeView(withTag tag: Int) {
         subviews.forEach {
             if $0.tag == tag {
@@ -216,6 +310,7 @@ public extension UIView {
         }
     }
 
+    /// Remove all gesture recognizers from view
     func removeGestureRecognizers() {
         gestureRecognizers?.forEach(
             removeGestureRecognizer
@@ -254,6 +349,7 @@ public extension UIView {
         activityIndicatorView.color = color
     }
 }
+
 
 public extension UIView {
     enum ShakeDirection {

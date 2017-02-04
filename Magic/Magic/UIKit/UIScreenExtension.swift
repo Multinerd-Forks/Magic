@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Properties
  public extension UIScreen {
     
     /// The center of the screen

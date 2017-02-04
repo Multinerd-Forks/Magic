@@ -9,7 +9,7 @@
 import Foundation
 import Accelerate
 
-// init
+// MARK: - Initializers
 public extension UIImage {
     convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
         let rect = CGRect(origin: .zero, size: size)
@@ -26,7 +26,7 @@ public extension UIImage {
     }
 }
 
-// function
+// MARK: - Methods
 public extension UIImage {
     func scale(to size: CGSize) -> UIImage {
         UIGraphicsBeginImageContext(size)
@@ -126,6 +126,7 @@ public extension UIImage {
     }
 }
 
+// MARK: - Methods
 public extension UIImage {
     func fixOrientation() -> UIImage {
         
