@@ -393,3 +393,30 @@ public extension UIView {
     }
 }
 
+
+// MARK: - Easy UIInterpolatingMotionEffect. 
+// Learn more: http://hack.swic.name/easy-uiinterpolatingmotioneffect
+extension UIView {
+    func addNaturalOnTopEffect(maximumRelativeValue : Float = 20.0) {
+        var motionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis);
+        motionEffect.minimumRelativeValue = maximumRelativeValue;
+        motionEffect.maximumRelativeValue = -maximumRelativeValue;
+        addMotionEffect(motionEffect);
+        
+        motionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis);
+        motionEffect.minimumRelativeValue = maximumRelativeValue;
+        motionEffect.maximumRelativeValue = -maximumRelativeValue;
+        addMotionEffect(motionEffect);
+    }
+    
+    func addNaturalBelowEffect(maximumRelativeValue : Float = 20.0) {
+        addNaturalOnTopEffect(maximumRelativeValue: -maximumRelativeValue)
+    }
+    
+    func removeMotionEffects() {
+        let motionEffects = self.motionEffects as [UIMotionEffect]
+        for effect in motionEffects {
+            self.removeMotionEffect(effect)
+        }
+    }
+}
