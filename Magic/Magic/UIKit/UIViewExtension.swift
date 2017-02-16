@@ -393,7 +393,6 @@ public extension UIView {
     }
 }
 
-
 // MARK: - Easy UIInterpolatingMotionEffect. 
 // Learn more: http://hack.swic.name/easy-uiinterpolatingmotioneffect
 extension UIView {
@@ -417,6 +416,43 @@ extension UIView {
         let motionEffects = self.motionEffects as [UIMotionEffect]
         for effect in motionEffects {
             self.removeMotionEffect(effect)
+        }
+    }
+}
+
+extension UIView {
+    enum LineBorderDirection {
+        case top
+        case bottom
+        case left
+        case right
+    }
+    
+    func addLineBorder(withLineColor lineColor: UIColor, direction: LineBorderDirection = .bottom) {
+        let lineView = UIView()
+        lineView.backgroundColor = lineColor
+        self.addSubview(lineView)
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        if direction == .bottom {
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 1))
+        } else if direction == .top {
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 1))
+        } else if direction == .right {
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 1))
+        } else if direction == .left {
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: lineView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 1))
         }
     }
 }

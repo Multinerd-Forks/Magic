@@ -31,5 +31,3 @@ extension UIControl {
        addTarget(actionStorage, action: #selector(ActionStorage.triggerEventAction), for: controlEvent)
     }
 }
-
-
